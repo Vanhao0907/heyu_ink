@@ -1,0 +1,3854 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>上海合愉商贸有限公司 | 专业墨水供应商</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+SC:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================
+       CSS VARIABLES & RESET
+    ============================ */
+    :root {
+      --ink-black: #f7f4ef;
+      --ink-deep: #efeae0;
+      --ink-dark: #e4ddd0;
+      --gold: #8a6420;
+      --gold-light: #6b4d14;
+      --gold-pale: #4a3408;
+      --cream: #f7f4ef;
+      --cream-dark: #ede5d4;
+      --text-main: #1e1a14;
+      --text-muted: #4a4640;
+      --text-dark: #2a2e38;
+      --accent-blue: #2a4a7a;
+      --border: rgba(138, 100, 32, 0.22);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--ink-black);
+      color: var(--text-main);
+      font-family: 'DM Sans', 'Noto Serif SC', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ============================
+       NAVIGATION
+    ============================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 4vw;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, backdrop-filter 0.4s, border-bottom 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(247, 244, 239, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-logo .logo-cn {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-logo .logo-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      transition: color 0.25s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* ============================
+       HERO
+    ============================ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 60% 40%, rgba(58, 90, 140, 0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 20% 80%, rgba(138, 100, 32, 0.10) 0%, transparent 60%),
+        var(--ink-black);
+    }
+
+    /* Ink drop animation */
+    .ink-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(138, 100, 32, 0.18);
+      animation: inkExpand 8s ease-out infinite;
+      pointer-events: none;
+    }
+
+    .ink-ring:nth-child(1) { width: 200px; height: 200px; top: 50%; left: 55%; transform: translate(-50%,-50%); animation-delay: 0s; }
+    .ink-ring:nth-child(2) { width: 400px; height: 400px; top: 50%; left: 55%; transform: translate(-50%,-50%); animation-delay: 1.2s; }
+    .ink-ring:nth-child(3) { width: 650px; height: 650px; top: 50%; left: 55%; transform: translate(-50%,-50%); animation-delay: 2.4s; }
+    .ink-ring:nth-child(4) { width: 900px; height: 900px; top: 50%; left: 55%; transform: translate(-50%,-50%); animation-delay: 3.6s; }
+
+    @keyframes inkExpand {
+      0%   { opacity: 0; transform: translate(-50%,-50%) scale(0.5); }
+      15%  { opacity: 1; }
+      100% { opacity: 0; transform: translate(-50%,-50%) scale(1.2); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+      padding: 0 4vw;
+      max-width: 900px;
+      animation: heroFadeIn 1.2s ease both;
+    }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.6rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.85;
+      margin-bottom: 2.8rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 2.2rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold);
+      transform: translateX(-100%);
+      transition: transform 0.35s ease;
+      z-index: -1;
+    }
+
+    .hero-cta:hover { color: #fff; }
+    .hero-cta:hover::before { transform: translateX(0); }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 4vh;
+      right: 6vw;
+      display: flex;
+      gap: 3rem;
+      z-index: 2;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-top: 0.3rem;
+    }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 5vh;
+      left: 4vw;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ============================
+       SECTION BASE
+    ============================ */
+    section { padding: 7rem 4vw; }
+
+    .section-label {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 30px; height: 2px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .section-title-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    /* ============================
+       ABOUT
+    ============================ */
+    #about {
+      background: var(--ink-deep);
+      position: relative;
+    }
+
+    #about::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.95;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p strong {
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    .about-highlight {
+      margin-top: 2.5rem;
+      padding: 1.8rem;
+      border: 1px solid var(--border);
+      background: rgba(138, 100, 32, 0.05);
+      position: relative;
+    }
+
+    .about-highlight::before {
+      content: '"';
+      position: absolute;
+      top: -0.5rem;
+      left: 1.2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .about-highlight p {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.9rem;
+      color: #5a4e3a;
+      line-height: 1.9;
+      padding-top: 0.5rem;
+    }
+
+    .about-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .about-brand-box {
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(42, 74, 122, 0.07), rgba(138, 100, 32, 0.07));
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--gold);
+    }
+
+    .brand-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .brand-desc {
+      margin-top: 1rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    .product-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .product-tag {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      font-family: 'Noto Serif SC', serif;
+      transition: all 0.25s;
+    }
+
+    .product-tag:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(138, 100, 32, 0.08);
+    }
+
+    /* ============================
+       PRODUCTS
+    ============================ */
+    #products {
+      background: var(--ink-black);
+      position: relative;
+    }
+
+    #products::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .products-header {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .category-card {
+      position: relative;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 2.2rem 1.5rem 1.8rem;
+      transition: all 0.35s ease;
+      overflow: hidden;
+      text-align: left;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: transparent;
+      transition: background 0.3s;
+    }
+
+    .category-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    .category-card:hover::before {
+      background: var(--gold);
+    }
+
+    .cat-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .cat-name {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .cat-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .cat-count {
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+
+    .cat-arrow {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      transition: all 0.25s;
+    }
+
+    .category-card:hover .cat-arrow {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(138, 100, 32, 0.08);
+    }
+
+    /* ============================
+       PRODUCT MODAL
+    ============================ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 5vh 4vw;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: #fff;
+      border: 1px solid var(--border);
+      max-width: 900px;
+      width: 100%;
+      position: relative;
+      animation: modalIn 0.35s ease both;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.18);
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-header {
+      padding: 2.5rem 3rem 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .modal-close {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .modal-cat-label {
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.5rem;
+      color: var(--text-main);
+    }
+
+    .modal-body {
+      padding: 2.5rem 3rem;
+    }
+
+    .product-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+
+    .product-tab {
+      padding: 0.7rem 1.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+      font-family: 'Noto Serif SC', serif;
+      letter-spacing: 0.04em;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    .product-tab.active {
+      color: var(--gold-light);
+      border-bottom-color: var(--gold);
+    }
+
+    .product-tab:hover { color: var(--text-main); }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .product-item {
+      padding: 1.2rem;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .product-item:hover {
+      border-color: var(--gold);
+      background: rgba(138, 100, 32, 0.05);
+    }
+
+    .pi-name {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      margin-bottom: 0.3rem;
+    }
+
+    .pi-code {
+      font-size: 0.68rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .product-detail-panel {
+      display: none;
+    }
+
+    .product-detail-panel.visible {
+      display: block;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .detail-field {
+      padding: 1.2rem;
+      border: 1px solid var(--border);
+      background: #faf8f4;
+    }
+
+    .df-label {
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .df-value {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .detail-full {
+      grid-column: 1 / -1;
+    }
+
+    .color-swatches {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .swatch:hover { transform: scale(1.15); }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: color 0.2s;
+    }
+
+    .back-btn:hover { color: var(--gold-light); }
+
+    /* ── Product detail header ── */
+    .detail-product-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .detail-product-code {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.82rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .detail-product-name {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.3rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* ── "有详细规格" badge on product list items ── */
+    .product-item.has-detail {
+      border-color: rgba(138, 100, 32, 0.35);
+    }
+
+    .pi-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.15rem 0.55rem;
+      font-size: 0.64rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    /* ── Physical parameter table ── */
+    .phys-table-wrap {
+      overflow-x: auto;
+      margin-top: 0.8rem;
+    }
+
+    .phys-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      min-width: 540px;
+    }
+
+    .phys-table thead tr {
+      background: #e8006a;
+    }
+
+    .phys-table thead th {
+      color: #fff;
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 600;
+      font-size: 0.78rem;
+      padding: 0.7rem 1rem;
+      text-align: center;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .phys-table thead th:first-child { text-align: left; }
+
+    .phys-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .phys-table tbody tr:nth-child(even) { background: rgba(138, 100, 32, 0.03); }
+    .phys-table tbody tr:hover { background: rgba(138, 100, 32, 0.07); }
+
+    .phys-table tbody td {
+      padding: 0.6rem 1rem;
+      color: var(--text-muted);
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .phys-table tbody td:first-child {
+      text-align: left;
+      font-family: 'DM Sans', monospace;
+      font-size: 0.8rem;
+    }
+
+    .phys-table tbody td:nth-child(2) { text-align: left; }
+
+    /* ============================
+       CONTACT
+    ============================ */
+    #contact {
+      background: var(--ink-deep);
+      position: relative;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-person {
+      margin-bottom: 0.5rem;
+    }
+
+    .person-name {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.5rem;
+      color: var(--text-main);
+    }
+
+    .person-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .contact-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .contact-field {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cf-icon {
+      font-size: 1rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    .cf-label {
+      font-size: 0.92rem;
+      font-weight: 600;
+      font-family: 'Noto Serif SC', serif;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
+    }
+
+    .cf-value {
+      font-size: 0.92rem;
+      color: #3a3028;
+      line-height: 1.8;
+    }
+
+    .cf-value a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .cf-value a:hover { color: var(--gold-light); text-decoration: underline; }
+
+    .contact-map-placeholder {
+      background: #e8e2d6;
+      border: 1px solid var(--border);
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(138,100,32,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(138,100,32,0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .map-pin {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .map-pin-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin: 0 auto 0.8rem;
+      box-shadow: 0 0 0 4px rgba(200,164,90,0.2), 0 0 0 8px rgba(200,164,90,0.08);
+      animation: pinPulse 2.5s ease infinite;
+    }
+
+    @keyframes pinPulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(200,164,90,0.2), 0 0 0 8px rgba(200,164,90,0.08); }
+      50%       { box-shadow: 0 0 0 8px rgba(200,164,90,0.15), 0 0 0 16px rgba(200,164,90,0.04); }
+    }
+
+    .map-pin-label {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.82rem;
+      color: var(--gold);
+    }
+
+    .map-pin-addr {
+      font-size: 0.72rem;
+      color: #6a5e4a;
+      margin-top: 0.3rem;
+    }
+
+    .contact-cta {
+      margin-top: 1rem;
+    }
+
+    .contact-email-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 2rem;
+      background: rgba(138, 100, 32, 0.08);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      transition: all 0.3s;
+    }
+
+    .contact-email-btn:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    footer {
+      background: #ede7da;
+      border-top: 1px solid var(--border);
+      padding: 3rem 4vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo .logo-cn {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.95rem;
+      color: var(--gold);
+    }
+
+    .footer-logo .logo-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: #6a5e4a;
+      text-align: right;
+    }
+
+    .footer-copy span {
+      color: var(--gold);
+    }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 900px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .categories-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-stats { position: static; margin-top: 3rem; justify-content: flex-start; gap: 2rem; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .modal-body { padding: 2rem 1.5rem; }
+      .modal-header { padding: 2rem 1.5rem 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .categories-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 5vw; }
+      .nav-links { gap: 1.2rem; }
+      .nav-links a { font-size: 0.78rem; }
+      section { padding: 5rem 5vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================
+       NAVIGATION
+  ============================ -->
+  <nav id="mainNav">
+    <div class="nav-logo">
+      <span class="logo-cn">上海合愉商贸有限公司</span>
+      <span class="logo-en">Shanghai Heyu Trading Co., Ltd.</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">公司介绍</a></li>
+      <li><a href="#products">产品中心</a></li>
+      <li><a href="#contact">联系我们</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================
+       HERO
+  ============================ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="ink-ring"></div>
+      <div class="ink-ring"></div>
+      <div class="ink-ring"></div>
+      <div class="ink-ring"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-label">专业墨水供应商 · Since 1999</div>
+      <h1 class="hero-title">专注墨水品质<br/>成就书写之美</h1>
+      <p class="hero-title-en">Professional Ink Solutions for the Art of Writing</p>
+      <p class="hero-desc">
+        作为德国 DOKUMENTAL（文都）品牌在中国的专销商，我们深耕专业墨水领域二十余年，
+        为国内多家知名文具企业提供中高档书写墨水及定制技术服务。
+      </p>
+      <a href="#products" class="hero-cta">
+        <span>探索产品系列</span>
+        <span>→</span>
+      </a>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">25+</div>
+          <div class="stat-label">年行业深耕</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">8</div>
+          <div class="stat-label">墨水系列</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">合作伙伴</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>向下探索</span>
+    </div>
+  </section>
+
+  <!-- ============================
+       ABOUT
+  ============================ -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">公司介绍</div>
+        <h2 class="section-title">深耕墨水行业<br/>二十五载</h2>
+        <p class="section-title-en">About Shanghai Heyu Trading</p>
+
+        <p>公司成立于<strong>1999年</strong>，作为<strong>DOKUMENTAL（德国文都）</strong>及其子公司上海多柯文泰墨水有限公司在国内的专销商，专注于中、高档书写墨水的销售与推广。</p>
+
+        <p>主营产品涵盖<strong>圆珠笔墨水、宝珠笔墨水、记号笔墨水、白板墨水、荧光笔墨水、中性墨水、钢笔墨水及特殊墨水</strong>等全系列书写墨水产品。</p>
+
+        <p>同时，公司可根据客户来样或特殊要求进行墨水配制，并提供专业的技术支持服务，是国内多家知名文具企业的<strong>战略合作伙伴</strong>。</p>
+
+        <div class="about-highlight">
+          <p>以品质为本，以技术为翼。我们不仅销售墨水，更为客户提供从产品研发到技术服务的全链条专业解决方案。</p>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <div class="about-brand-box">
+          <div class="brand-logo-text">DOKUMENTAL</div>
+          <div class="brand-sub">德国文都 · 专业书写墨水</div>
+          <div class="brand-desc">
+            DOKUMENTAL 是享誉国际的德国专业墨水品牌，其子公司上海多柯文泰墨水有限公司专注于为亚太市场提供高品质墨水产品。上海合愉商贸有限公司作为其在中国大陆的独家专销商，确保产品品质与原装同步。
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PRODUCTS
+  ============================ -->
+  <section id="products">
+    <div class="products-header">
+      <div class="section-label">产品中心</div>
+      <h2 class="section-title">五大系列 · 专业覆盖</h2>
+      <p class="section-title-en">Product Center — Complete Ink Solutions</p>
+    </div>
+
+    <div class="categories-grid">
+
+      <!-- 书写类 -->
+      <div class="category-card" onclick="openModal('writing')">
+        <span class="cat-icon">✒️</span>
+        <div class="cat-name">书写类墨水</div>
+        <div class="cat-en">Writing Inks</div>
+        <div class="cat-count">22 款产品</div>
+        <div class="cat-arrow">→</div>
+      </div>
+
+      <!-- 荧光类 -->
+      <div class="category-card" onclick="openModal('fluorescent')">
+        <span class="cat-icon">
+          <svg width="40" height="36" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Pen body (horizontal highlighter) -->
+            <rect x="2" y="12" width="26" height="12" rx="3" fill="#ffe500" stroke="#d4c000" stroke-width="1.2"/>
+            <!-- Cap (right side) -->
+            <rect x="26" y="10" width="10" height="16" rx="3" fill="#f5d800" stroke="#d4c000" stroke-width="1.2"/>
+            <!-- Chisel tip (left, angled) -->
+            <polygon points="2,13 2,23 -4,20 -4,16" fill="#c8a800" stroke="#b09000" stroke-width="1"/>
+            <!-- Highlight stripe on body -->
+            <rect x="6" y="14" width="16" height="3" rx="1.5" fill="rgba(255,255,255,0.55)"/>
+            <!-- Ink window slot -->
+            <rect x="10" y="19" width="10" height="2.5" rx="1" fill="rgba(200,160,0,0.35)"/>
+            <!-- Cap clip -->
+            <rect x="30" y="9" width="2.5" height="18" rx="1.2" fill="#b09000" stroke="#907800" stroke-width="0.8"/>
+          </svg>
+        </span>
+        <div class="cat-name">荧光类墨水</div>
+        <div class="cat-en">Fluorescent Inks</div>
+        <div class="cat-count">11 款产品</div>
+        <div class="cat-arrow">→</div>
+      </div>
+
+      <!-- 水彩类 -->
+      <div class="category-card" onclick="openModal('watercolor')">
+        <span class="cat-icon">🎨</span>
+        <div class="cat-name">水彩类墨水</div>
+        <div class="cat-en">Watercolor Inks</div>
+        <div class="cat-count">9 款产品</div>
+        <div class="cat-arrow">→</div>
+      </div>
+
+      <!-- 马克类 -->
+      <div class="category-card" onclick="openModal('marker')">
+        <span class="cat-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Marker body -->
+            <rect x="8" y="3" width="11" height="20" rx="3" fill="#e05a2b" stroke="#b84420" stroke-width="1.2"/>
+            <!-- Cap on top -->
+            <rect x="7" y="1" width="13" height="6" rx="2.5" fill="#c24010" stroke="#b84420" stroke-width="1.2"/>
+            <!-- Chisel tip -->
+            <polygon points="8,23 19,23 17,32 10,32" fill="#3a2010" stroke="#2a1508" stroke-width="1"/>
+            <!-- Highlight stripe -->
+            <rect x="11" y="6" width="3" height="13" rx="1" fill="rgba(255,255,255,0.35)"/>
+          </svg>
+        </span>
+        <div class="cat-name">马克类墨水</div>
+        <div class="cat-en">Marker Inks</div>
+        <div class="cat-count">18 款产品</div>
+        <div class="cat-arrow">→</div>
+      </div>
+
+      <!-- 特殊定制 -->
+      <div class="category-card" onclick="openModal('custom')">
+        <span class="cat-icon">⚗️</span>
+        <div class="cat-name">特殊定制墨水</div>
+        <div class="cat-en">Custom Inks</div>
+        <div class="cat-count">4 款产品</div>
+        <div class="cat-arrow">→</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================
+       CONTACT
+  ============================ -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">联系我们</div>
+        <h2 class="section-title">与我们建立<br/>合作关系</h2>
+        <p class="section-title-en">Get in Touch</p>
+
+        <div class="contact-info">
+          <div class="contact-person">
+            <div class="person-name">范佳卿</div>
+            <div class="person-en">Tracy Fan</div>
+          </div>
+
+          <div class="contact-fields">
+            <div class="contact-field">
+              <div class="cf-icon">🏢</div>
+              <div>
+                <div class="cf-label">公司</div>
+                <div class="cf-value">
+                  上海合愉商贸有限公司<br/>
+                  Shanghai Heyu Trading Co., Ltd.
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-field">
+              <div class="cf-icon">📍</div>
+              <div>
+                <div class="cf-label">地址</div>
+                <div class="cf-value">
+                  上海市宝山区长临路959弄18号306室（邮编：200443）<br/>
+                  RM 306, No 18, Lane 959, Changlin Road, Baoshan District, Shanghai 200443, China
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-field">
+              <div class="cf-icon">📞</div>
+              <div>
+                <div class="cf-label">电话 / Phone</div>
+                <div class="cf-value">
+                  021-56416638 &nbsp;/&nbsp; 56489936 &nbsp;/&nbsp; 56489939
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-field">
+              <div class="cf-icon">📠</div>
+              <div>
+                <div class="cf-label">传真 / Fax</div>
+                <div class="cf-value">86-21-56489909</div>
+              </div>
+            </div>
+
+            <div class="contact-field">
+              <div class="cf-icon">✉️</div>
+              <div>
+                <div class="cf-label">邮箱 / Email</div>
+                <div class="cf-value">
+                  <a href="mailto:coinfjq@163.com">coinfjq@163.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-map-placeholder">
+          <div class="map-grid"></div>
+          <div class="map-pin">
+            <div class="map-pin-dot"></div>
+            <div class="map-pin-label">上海合愉商贸有限公司</div>
+            <div class="map-pin-addr">宝山区长临路959弄18号306室</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================ -->
+  <footer>
+    <div class="footer-logo">
+      <div class="logo-cn">上海合愉商贸有限公司</div>
+      <div class="logo-en">Shanghai Heyu Trading Co., Ltd.</div>
+    </div>
+    <div class="footer-copy">
+      <div>DOKUMENTAL 德国文都 中国专销商</div>
+      <div style="margin-top:0.3rem;">© 2024 Shanghai Heyu Trading Co., Ltd. &nbsp;·&nbsp; <span>coinfjq@163.com</span></div>
+    </div>
+  </footer>
+
+  <!-- ============================
+       PRODUCT MODAL
+  ============================ -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBg(event)">
+    <div class="modal" id="modalBox">
+      <div class="modal-header">
+        <div>
+          <div class="modal-cat-label" id="modalCatLabel"></div>
+          <div class="modal-title" id="modalTitle"></div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ============================
+       JAVASCRIPT
+  ============================ -->
+  <script>
+    // ── Nav scroll ──
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── Product data ──
+    const categories = {
+      writing: {
+        label: '书写类墨水 · Writing Inks',
+        title: '书写类墨水',
+        products: [
+          { name: '签字笔墨水（水性）', code: '3-1-X.1 Fineliner ink' },
+          { name: '可擦钢笔墨水（水性）', code: '23-74 19-23 Erasable Fountain Pen Inks' },
+          { name: '钢笔墨水（水性）', code: '23-76 Fountain Pen Inks' },
+          { name: '颜料型签字笔墨水（水性）', code: '31-33 Pigmented Fineliner Inks' },
+          { name: '宝珠笔墨水（水性）', code: '34-62 36-20 46-63 rollerball inks' },
+          { name: '颜料型宝珠笔墨水（水性）', code: '48-05 Pigmented Rollerball Inks' },
+          { name: '中性荧光墨水（水性）', code: '54-32-X.1 Fluorescent Color Gel Inks' },
+          { name: '直液式宝珠笔墨水（水性）', code: '62-31 Rollerball Ink for Free Ink System' },
+          { name: '宝珠笔浓缩墨水（水性）', code: '62-40 83-35 Rollerball Ink Concentrate' },
+          { name: '圆珠笔油墨（油性）', code: '85-74 Ball Pen Inks' },
+          { name: '宝珠笔墨水（水性）', code: '89-62 Rollerball Inks' },
+          { name: '超低黏度圆珠笔油墨（油性）', code: 'SF 1XX Ball Pen Inks' },
+          { name: '超低黏度圆珠笔油墨（油性）', code: 'SF 3XX Ball Pen Inks' },
+          { name: '超低黏度圆珠笔油墨（油性）', code: 'SGP 1XX Ball Pen Inks' },
+          { name: '超低黏度彩色圆珠笔油墨（油性）', code: 'SGP 3XX Ball Pen Inks' },
+          { name: '经济型圆珠笔油墨（油性）', code: 'Docu Ball Pen Inks' },
+          { name: '钢笔墨水（水性）', code: 'FP 18XX Fountain Inks' },
+          { name: '新蓝色圆珠笔油墨（油性）', code: 'New Blue Ball Pen Inks' },
+          { name: '直液式宝珠笔墨水（水性）', code: 'RB13XX Water-based Rollerball Inks for Free-Ink-System' },
+          { name: '通用圆珠笔油墨（油性）', code: 'General Ball Pen Inks' },
+          { name: '中性墨水（水性）', code: 'QG 88XX' },
+          { name: '签字笔墨水（水性）', code: 'SP35XX Fineliner Inks' },
+        ],
+        colors: ['#1a1a1a','#1a3a6e','#c0392b','#2d6a4f','#6c3483','#784212','#1b4f72','#117a65']
+      },
+      fluorescent: {
+        label: '荧光类墨水 · Fluorescent Inks',
+        title: '荧光类墨水',
+        products: [
+          { name: '闪光荧光记号笔墨水（水性）', code: '3-43-X(G) Glitter Highlighter Marker Inks' },
+          { name: '闪光水彩墨水（水性）', code: '3-43-X(N) Glitter Highlighter marker inks' },
+          { name: '颜料型粉彩荧光墨水（水性）', code: '3-71 Pigmented pastel Highlighter inks' },
+          { name: '染料型荧光墨水（水性）', code: '29-97 29-73 Dye-based highlighter' },
+          { name: '淡彩荧光墨水（水性）', code: '30-28 Dye-based Pastel Highlighter Inks' },
+          { name: '可擦荧光墨水（水性）', code: '57-11 Erasable Highlighter Inks' },
+          { name: '可擦粉彩荧光墨水（水性）', code: '57-12 Erasable Pastel Highlighter Inks' },
+          { name: '高亮荧光墨水（水性）', code: 'PF61XX.1 Pigmented Highlighter Inks' },
+          { name: '荧光墨水浓缩液（水性）', code: 'PF62XX Pigmented Highlighter Ink Concentrates' },
+          { name: '速干荧光墨水（水性）', code: 'FH 18XX Quick Dry Highlighter Inks' },
+          { name: '高亮荧光墨水（水性）', code: 'PF63XX.8 Highlighter Inks' },
+        ],
+        colors: ['#f9e400','#ff7f00','#ff85c0','#a8ff3e','#00cfff','#ff4444','#bf5fff','#ffe066','#b2f55a']
+      },
+      watercolor: {
+        label: '水彩类墨水 · Watercolor Inks',
+        title: '水彩笔墨水',
+        products: [
+          { name: '水彩笔墨水（水性）', code: '3-14-X Coloring Marker inks' },
+          { name: '覆盖型可擦墨水（水性）', code: '26-12 Linebriter Marker Ink' },
+          { name: '可擦水彩墨水（水性）', code: '26-22 Erasable Marker Inks' },
+          { name: '超级可洗水彩墨水（水性）', code: '34-74 Super Washable Color Marker Inks' },
+          { name: '纹身笔墨水（水性）', code: '61-16 Temporary Tattoo Inks' },
+          { name: '挂图墨水（水性）', code: '67-89 Chart Marker Inks' },
+          { name: '变色墨水（水性）', code: 'Color Change Marker Inks' },
+          { name: '安全系数高的水彩墨水（水性）', code: 'NT5XX' },
+          { name: '二次变色墨水（水性）', code: 'Triple Color Changing Coloring Marker Inks' },
+        ],
+        colors: ['#e74c3c','#e67e22','#f1c40f','#27ae60','#1abc9c','#2980b9','#8e44ad','#ff85c0','#aaf0d1']
+      },
+      marker: {
+        label: '马克类墨水 · Marker Inks',
+        title: '马克类墨水',
+        products: [
+          { name: '灯板笔墨水（水性）', code: '2-53 DWO Waterbased valve-action marker inks' },
+          { name: '闪光水彩墨水（水性）', code: '3-36 Glitter marker inks' },
+          { name: '醇性永久记号墨水（醇性）', code: '46-33 Alcohol Permanent Inks' },
+          { name: '水性油漆笔墨水（水性）', code: '48-83 Colorburst Paint Marker Inks' },
+          { name: '水性油漆笔墨水（水性）', code: '48-84 Colorburst Acrylic Paint Marker Inks' },
+          { name: '闪光水性油漆笔墨水（水性）', code: '48-88 Glitter Acrylic Paint Marker Inks' },
+          { name: '水粉永久记号笔墨水（水性）', code: '62-95 Colorburst Permanent Inks' },
+          { name: '非永久阀门笔墨水（水性）', code: '65-30 32 36 Non-Permanent Valve Action Inks' },
+          { name: '织物墨水（水性）', code: '70-44 40-22 Fabric Marker Inks' },
+          { name: '水性金属墨水（水性）', code: '71-50 Water-based Metallic Inks' },
+          { name: '水性金属墨水（水性）', code: '71-71 Water-based Metallic Inks' },
+          { name: '经济型永久记号笔墨水（醇性）', code: '78-55-XN Economy Permanent Inks' },
+          { name: '玻璃记号笔墨水（水性）', code: '80-55 Colorburst Window Marker Inks' },
+          { name: '荧光永久记号笔墨水（醇性）', code: '83-11-XN Permanent Inks' },
+          { name: '轮廓笔墨水（醇性）', code: 'BOL 82XX Outline Marker Inks' },
+          { name: '轮廓笔墨水（醇性）', code: 'OL 82XX Outline Marker Inks' },
+          { name: '记号笔墨水（醇性）', code: 'MA30XX Quick Drying Permanent Marker Inks with Excellent Cap-off Properties' },
+          { name: '白板笔墨水（醇性）', code: 'WB73XX Pigmented Whiteboard Inks With Extended Cap-off Time' },
+        ],
+        colors: ['#1a1a1a','#c0392b','#2471a3','#d4af37','#aab7b8','#e67e22','#f0f0f0','#27ae60','#8e44ad','#e74c3c']
+      },
+      custom: {
+        label: '特殊定制墨水 · Custom Inks',
+        title: '特殊定制墨水',
+        products: [
+          { name: '幻灯片墨水（水性）', code: '3-37 Non-permanent OHP inks' },
+          { name: '外科手术用记号笔墨水（醇性）', code: '5-41 3-34 Surgical marker inks' },
+          { name: '紫外线荧光保安记号笔墨水（水性）', code: '21-86 57-52 UV Security Inks' },
+          { name: '验钞笔墨水（水性）', code: '49-99 Special Paper Inks' },
+        ],
+        colors: ['#7f8c8d','#a8d8ea','#f9e400','#c0392b','#8e44ad']
+      }
+    };
+
+    // ── Default placeholder for products without specific data ──
+    const defaultDetail = {
+      overview: '本产品采用德国原装配方，经严格质量控制生产，具有优异的流动性与着色牢度。详细产品规格请联系我们获取完整技术文档。',
+      surface: '请联系我们获取适用书写表面信息。',
+      solvent: '请联系我们获取溶剂体系信息。',
+      physicalTable: null,
+      colorCardImg: null,
+      components: '请联系我们获取零部件匹配信息。',
+      storage: '请联系我们获取仓储、灌装和运输信息。',
+      packaging: '请联系我们获取包装信息。',
+      manufacturer: '上海多柯文泰墨水有限公司\n中国上海市宝山区罗店镇毛家路18号-3\n电话：+86 (021) 6686-4551\n传真：+86 (021) 6686-4553\nMail: marvin.feng@dokumental.cn'
+    };
+
+    // ── Per-product detailed data ──
+    const productDetailData = {
+      'writing__0': {
+        overview: '3-1-X.1系列跟绝大部分的塑料和纤维笔头搭配都有很好的书写流畅感。',
+        surface: '所有类型的纸张。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '密度 g/cm³ ±0.01', '粘度 mPa·s ±1.0', '表面张力 mN/m ±5', '酸碱度 ±1.0'],
+          rows: [
+            ['3-1-A8N.1', 'yellow',     '1.03', '2.2', '35', '7.0'],
+            ['3-1-B3N.1', 'orange',     '1.03', '2.1', '35', '7.0'],
+            ['3-1-D8N.1', 'lt.blue',    '1.02', '2.0', '35', '7.0'],
+            ['3-1-D9N.1', 'dark blue',  '1.04', '2.5', '35', '7.0'],
+            ['3-1-D12.1', 'turquoise',  '1.03', '2.2', '35', '6.5'],
+            ['3-1-E4N.1', 'brown',      '1.03', '2.0', '35', '7.5'],
+            ['3-1-F5N.1', 'lime green', '1.03', '2.0', '35', '7.0'],
+            ['3-1-G1.1',  'magenta',    '1.03', '2.0', '35', '7.1'],
+            ['3-1-H6N.1', 'pink',       '1.04', '2.0', '35', '7.0'],
+            ['3-1-L4N.1', 'violet',     '1.03', '2.0', '35', '7.0'],
+            ['3-1-N5N.1', 'dark green', '1.03', '2.0', '35', '7.5'],
+            ['3-1-O1.1',  'grey',       '1.03', '2.0', '35', '7.5'],
+            ['3-1-R4N.1', 'black',      '1.03', '3.1', '35', '7.4'],
+            ['3-89-C4N.1','red',        '1.03', '2.0', '35', '7.4'],
+          ],
+          colorMap: {
+            'yellow': '#f9c900', 'orange': '#f47920', 'lt.blue': '#5bc4f5',
+            'dark blue': '#1a3a8f', 'turquoise': '#00b5b0', 'brown': '#7b4a2d',
+            'lime green': '#6abf43', 'magenta': '#d6006e', 'pink': '#f4739a',
+            'violet': '#6c3f8e', 'dark green': '#1a7040', 'grey': '#8c8c8c',
+            'black': '#1a1a1a', 'red': '#e8274b'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_3-1-X1.jpg',
+        components: '笔头：聚酯纤维或挤出型塑料笔头\n卷包芯：聚酯纤维\n笔杆、笔帽和尾塞：聚丙烯',
+        storage: '笔帽和尾塞必须闭合，形成气密性密封，来防止笔变干。储存环境应该防冻。墨水在原装未开启状态下的质保期为2年。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__1 : 23-74 19-23 可擦钢笔墨水
+      'writing__1': {
+        overview: '可擦钢笔墨水可以用擦液LF4205.1从纸上擦去。被擦拭的区域可以使用同色的签字笔更改，且适用于可替换墨囊和直液式一次性钢笔。有一款挺流行的笔款，叫做修正笔，正是用了此墨水。这个产品就是采用一套双支的套组销售的。一只是双头笔，一头装着LF4205.1，另一头装着签字笔墨水。签字笔/消色笔可以在可擦钢笔的涂改区域做修正。',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度 ±1.0', '表面张力 mN/m ±5', '密度 g/cm³ ±0.01', '粘度 mPa·s ±1.0'],
+          rows: [
+            ['【钢笔墨水】', '', '', '', '', ''],
+            ['23-74-A',    'black',      '4.0',      '43',    '1.01', '1.8'],
+            ['23-74-C',    'blue black', '4.3',      '44',    '1.01', '1.3'],
+            ['23-74-D',    'blue',       '4.0',      '43',    '1.01', '1.5'],
+            ['【擦液】',   '', '', '', '', ''],
+            ['LF4205.1',   'clear',      '9.0–10.5', '55–65', '1.09–1.13', '1.5–3.5'],
+            ['【签字笔】', '', '', '', '', ''],
+            ['3-1-R4N.1',  'black',      '7.2',      '32',    '1.03', '2.4'],
+            ['3-1-P1',     'blue black', '7.5',      '40',    '1.05', '3.0'],
+            ['19-23-B2',   'blue',       '3.9',      '35',    '1.02', '2.4'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'blue black': '#1a2a5e', 'blue': '#1a4aae', 'clear': '#e8e8e8'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_23-74.jpg',
+        components: '针对钢笔墨水：标准金属笔头自来水笔\n针对签字笔——笔头：聚酯纤维或者挤出型笔头\n卷包芯：聚酯纤维\n笔杆、笔盖、尾塞：聚丙烯',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__2 : 23-76 钢笔墨水
+      'writing__2': {
+        overview: '这个系列的墨水适用于使用可更换墨囊的标准自来水笔和使用直液式系统的一次性自来水笔。它比传统的自来水笔墨水有更长的开帽不干时间。',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s ±2.0', '表面张力 mN/m ±5', '密度 g/cm³ ±0.01', '酸碱度 ±1.0'],
+          rows: [
+            ['23-76-D3',    'black',      '2.3', '41',   '1.045', '7.0'],
+            ['23-76-D8',    'black blue', '2.0', '40',   '1.040', '8.0'],
+            ['23-76-A6',    'lt. blue',   '1.5', '60',   '1.010', '6.5'],
+            ['23-76-B',     'green',      '1.7', '41',   '1.013', '7.1'],
+            ['23-76-C13(1)','red',        '1.8', '63.7', '1.042', '7.1'],
+            ['23-76-E1',    'violet',     '1.7', '37',   '1.010', '7.3'],
+            ['23-76-F5',    'teal',       '1.7', '60',   '1.007', '6.5'],
+            ['23-76-G2',    'lt. brown',  '1.8', '65',   '1.016', '7.2'],
+            ['23-76-H1',    'orange',     '1.6', '65',   '1.010', '7.3'],
+            ['23-76-I8',    'pink',       '1.6', '66.5', '1.010', '7.5'],
+            ['23-76-J8',    'yellow',     '1.5', '68.9', '1.013', '7.3'],
+            ['23-76-M2(1)', 'magenta',    '1.7', '64.4', '1.024', '7.5'],
+            ['23-76-O2',    'gray',       '1.8', '65',   '1.010', '7.2'],
+          ],
+          colorMap: {
+            'black': '#2a2a2a', 'black blue': '#1a2a5e', 'lt. blue': '#7ab4e8',
+            'green': '#2e8b57', 'red': '#cc2200', 'violet': '#6c3f8e',
+            'teal': '#008b8b', 'lt. brown': '#a0704a', 'orange': '#f47920',
+            'pink': '#f4739a', 'yellow': '#c8b400', 'magenta': '#d6006e', 'gray': '#888888'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_23-76.jpg',
+        components: '标准金属笔头自来水笔',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__3 : 31-33 颜料型签字笔墨水
+      'writing__3': {
+        overview: '这款颜料型签字笔墨水可以跟大多数塑料和纤维签字笔笔头配合，给到一个平滑的书写感受，且墨迹不会渗透大部分的纸张。字迹的耐光性和防水性都做的很好。',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '密度 g/cm³ ±0.01', '粘度 mPa·s ±0.5', '表面张力 mN/m ±5.0', '酸碱度 ±1.0'],
+          rows: [
+            ['31-33-A9', 'black',      '1.08', '2.5', '32', '8.0'],
+            ['31-33-B3', 'red',        '1.06', '3.2', '30', '7.6'],
+            ['31-33-C3', 'blue',       '1.07', '3.2', '30', '7.8'],
+            ['31-33-D8', 'green',      '1.08', '3.3', '30', '8.4'],
+            ['31-33-E3', 'yellow',     '1.06', '3.3', '30', '8.3'],
+            ['31-33-F3', 'orange',     '1.05', '3.3', '30', '8.2'],
+            ['31-33-G3', 'brown',      '1.07', '3.4', '30', '8.2'],
+            ['31-33-H3', 'purple',     '1.06', '2.9', '30', '7.8'],
+            ['31-33-I3', 'light blue', '1.05', '2.8', '30', '7.7'],
+            ['31-33-K3', 'magenta',    '1.06', '3.9', '30', '7.3'],
+            ['31-33-L5', 'lime green', '1.07', '3.8', '30', '8.0'],
+            ['31-33-O2', 'gray',       '1.04', '2.4', '30', '7.5'],
+          ],
+          colorMap: {
+            'black': '#2a2a2a', 'red': '#cc2200', 'blue': '#1a4aae',
+            'green': '#2e8b57', 'yellow': '#c8b400', 'orange': '#f47920',
+            'brown': '#7b4a2d', 'purple': '#6c3f8e', 'light blue': '#7ab4e8',
+            'magenta': '#d6006e', 'lime green': '#6abf43', 'gray': '#888888'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_31-33.jpg',
+        components: '笔头部分：挤压型笔头，连接件可以使用塑料、银镍、黄铜镀镍、不锈钢\n卷包芯：聚酯纤维\n笔杆、笔帽、尾塞：聚丙烯\n成品笔的笔盖和尾塞必须闭合，形成气密密封，防止成品笔变干。',
+        storage: '存储环境应该防冻。理想的仓储温度应该在0℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。墨水在原装未开启状态下的质保期为2年。在使用前，墨水必须充分搅拌。笔芯需要从最初就以笔头向下的方式放置，直到笔头上墨。为了达到最佳效果，成品笔需要在运输途中和销售点货架上水平放置。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__4 : 34-62 36-20 46-63 宝珠笔墨水
+      'writing__4': {
+        overview: '这款宝珠笔墨水可以搭配大多数的宝珠笔笔头，带来明亮的颜色和顺滑的书写性能，推荐配合棉芯使用。有些直液式笔也可以使用，但必须经过仔细的漏墨测试。墨水用在尾塞气孔设计的笔芯里，笔芯最长可达到2年开帽不干。在欧盟国家，使用大于10%乙二醇的书写仪器需要GHS 08产品标签。我们向所有欧盟客户推荐89-62的宝珠笔墨水。',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s ±1.0', '表面张力 mN/m ±5.0', '密度 g/cm³ ±0.01', '酸碱度 ±1.0'],
+          rows: [
+            ['34-62-B',      'black',       '6.0', '38', '1.10', '7.8'],
+            ['36-20-B4',     'red',         '5.5', '42', '1.10', '7.5'],
+            ['46-63-A2',     'violet-blue', '5.2', '38', '1.08', '7.8'],
+            ['36-20-D3',     'green',       '6.0', '38', '1.10', '7.5'],
+            ['90-11-C',      'blue-black',  '3.0', '40', '1.05', '7.5'],
+            ['1-70-I3(3)',   'violet',      '3.5', '37', '1.05', '8.0'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'violet-blue': '#3a2a8e',
+            'green': '#2e8b57', 'blue-black': '#1a2a4e', 'violet': '#6c3f8e'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_34-62.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头部分：0.5–0.8mm，不锈钢或者碳钨珠银镍笔头\n卷包芯：聚酯纤维\n笔杆、笔帽、尾塞：聚丙烯',
+        storage: '存储环境应该防冻。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__5 : 48-05 颜料型宝珠笔墨水
+      'writing__5': {
+        overview: '这款宝珠笔墨水配合大多数的滚珠笔头，达到明亮的颜色和顺滑的书写性能。这些颜色是亚微米大小的颜料，在纸上有很好的耐光性和防水性。推荐使用棉芯式笔。一些直液式笔可以使用这个系列，但是必须通过仔细测试。',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '密度 g/cm³ ±0.01', '粘度 mPa·s ±1.0', '表面张力 mN/m ±5.0', '酸碱度 ±1.0'],
+          rows: [
+            ['48-05-AN', 'black',   '1.09', '3.5', '35', '8.0'],
+            ['48-05-BN', 'red',     '1.07', '4.1', '36', '8.0'],
+            ['48-05-CN', 'blue',    '1.08', '4.1', '35', '8.1'],
+            ['48-05-DN', 'green',   '1.07', '4.0', '34', '8.0'],
+            ['48-05-EN', 'yellow',  '1.07', '3.5', '33', '7.9'],
+            ['48-05-FN', 'orange',  '1.07', '3.4', '34', '7.9'],
+            ['48-05-GN', 'brown',   '1.07', '3.5', '35', '7.9'],
+            ['48-05-HN', 'purple',  '1.07', '2.9', '34', '7.9'],
+            ['48-05-IN', 'magenta', '1.06', '3.0', '36', '7.9'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'blue': '#1a4aae',
+            'green': '#2e8b57', 'yellow': '#c8b400', 'orange': '#f47920',
+            'brown': '#7b4a2d', 'purple': '#6c3f8e', 'magenta': '#d6006e'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_48-05.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：0.5–0.8mm，不锈钢或者碳钨珠银镍笔头\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+      // writing__6 : 54-32-X.1 中性荧光凝胶墨水
+      'writing__6': {
+        overview: '这款荧光色中性笔墨水书写非常流畅，防漏墨，并有出色的脱帽不干时长。我们建议配合使用直径0.7–0.8毫米的中性碳钨珠银镍笔头。',
+        surface: '在浅色纸张上做标记。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s ±500', '表面张力 mN/m ±3.0', '密度 g/cm³ ±0.01', '酸碱度 ±0.5'],
+          rows: [
+            ['54-32-A1.1', 'fl. yellow', '3000', '40', '1.08', '8.2'],
+            ['54-32-B1.1', 'fl. orange', '3000', '40', '1.08', '8.2'],
+            ['54-32-D1.1', 'fl. green',  '3000', '40', '1.09', '8.2'],
+            ['54-32-E1.1', 'fl. blue',   '3000', '40', '1.09', '8.2'],
+            ['54-32-F1.1', 'fl. violet', '3000', '40', '1.09', '8.2'],
+            ['54-32-G1.1', 'fl. pink',   '3000', '40', '1.09', '8.2'],
+          ],
+          colorMap: {
+            'fl. yellow': '#ffe500', 'fl. orange': '#ff8c00', 'fl. green': '#39ff14',
+            'fl. blue': '#00cfff', 'fl. violet': '#bf5fff', 'fl. pink': '#ff69b4'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_54-32.jpg',
+        components: '塑料部分：聚丙烯\n内塞：用硅胶密封笔头\n笔头：金属滚珠（为中性墨水做调整）\n笔头连接件：塑料\n卷包芯：不适用',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__7 : 62-31 直液式宝珠笔墨水
+      'writing__7': {
+        overview: '这款墨水的颜色特别，书写顺滑，可以匹配直液式和棉芯式宝珠笔。根据颜色和所用笔头的不同，成品笔的开帽不干时长可以超过三个月。在欧盟国家，使用等于10%乙二醇的书写仪器需要GHS 08产品标签。我们向所有欧盟客户推荐89-62的宝珠笔墨水。',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '密度 g/cm³ ±0.01', '粘度 mPa·s ±1.0', '表面张力 mN/m ±5.0', '酸碱度 ±0.5'],
+          rows: [
+            ['62-31-A1',    'black',      '1.09', '5.0', '45', '7.5'],
+            ['62-31-A4(4)', 'black blue', '1.06', '4.5', '37', '7.8'],
+            ['62-31-B',     'red',        '1.11', '5.8', '53', '7.5'],
+            ['62-31-B5',    'rosewood',   '1.06', '3.5', '40', '8.0'],
+            ['62-31-C1',    'blue',       '1.08', '5.0', '48', '7.3'],
+            ['62-31-D6(3)', 'green',      '1.07', '4.5', '40', '7.6'],
+            ['62-31-D8(1)', 'lime green', '1.04', '3.0', '38', '8.3'],
+            ['62-31-E',     'yellow',     '1.07', '4.0', '43', '7.2'],
+            ['62-31-F',     'orange',     '1.06', '3.7', '40', '7.5'],
+            ['62-31-H3',    'purple',     '1.06', '3.5', '40', '8.0'],
+            ['62-31-H8',    'rose',       '1.04', '3.0', '40', '8.0'],
+            ['62-31-I7(3)', 'pink',       '1.04', '3.5', '40', '8.0'],
+            ['62-31-J4',    'turquoise',  '1.06', '3.0', '45', '7.2'],
+            ['62-31-L4',    'grey',       '1.04', '3.6', '45', '7.2'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'black blue': '#1a2a5e', 'red': '#cc2200',
+            'rosewood': '#8b3a3a', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'lime green': '#6abf43', 'yellow': '#c8b400', 'orange': '#f47920',
+            'purple': '#6c3f8e', 'rose': '#f4739a', 'pink': '#ff69b4',
+            'turquoise': '#00b5b0', 'grey': '#888888'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_62-31.jpg',
+        components: '笔头：0.5–0.7mm，不锈钢或者碳钨珠银镍笔头\n笔杆、笔帽：丁苯、聚丙烯、聚乙烯',
+        storage: '存储环境应该防冻。若要调整墨水，建议对调节系统进行彻底的测试。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__8 : 62-40 83-35 宝珠笔浓缩墨水
+      'writing__8': {
+        overview: '这款墨水的颜色特别，书写顺滑，可以匹配直液式和棉芯式宝珠笔。根据颜色和所用笔头的不同，成品笔的开帽不干时长可以超过三个月。推荐稀释比例是一份浓缩液加0.5份去离子水加0.5份乙二醇。',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '密度 g/cm³ ±0.01', '粘度 mPa·s ±1.0', '表面张力 mN/m ±5.0', '酸碱度 ±0.5'],
+          rows: [
+            ['62-40-A1', 'black',      '1.12', '9.0', '43', '7.5'],
+            ['62-40-B',  'red',        '1.17', '9.7', '46', '7.7'],
+            ['62-40-C1', 'blue',       '1.10', '7.5', '43', '7.5'],
+            ['62-40-D1', 'green',      '1.10', '7.5', '42', '7.5'],
+            ['83-35-A',  'turquoise',  '1.07', '3.3', '43', '7.5'],
+            ['83-35-B',  'purple',     '1.05', '3.3', '48', '7.8'],
+            ['83-35-C',  'orange',     '1.07', '4.7', '48', '7.6'],
+            ['83-35-D',  'yellow',     '1.09', '6.0', '47', '7.7'],
+            ['83-35-E',  'pink',       '1.05', '3.0', '48', '7.7'],
+            ['83-35-G',  'lime green', '1.09', '5.0', '43', '7.5'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'turquoise': '#00b5b0', 'purple': '#6c3f8e', 'orange': '#f47920',
+            'yellow': '#c8b400', 'pink': '#ff69b4', 'lime green': '#6abf43'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_62-40.jpg',
+        components: '笔头：0.5–0.7mm，不锈钢或者碳钨珠银镍笔头\n笔杆、笔帽：丁苯、聚丙烯、聚乙烯',
+        storage: '存储环境应该防冻。墨水和调节系统的匹配需进行彻底的测试。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__9 : 85-74 圆珠笔油墨
+      'writing__9': {
+        overview: '该油墨专为满足客户对CLP/GHS标识少的要求而配制。',
+        surface: '所有纸张',
+        solvent: '油性',
+        physicalTable: {
+          headers: ['型号', '颜色', '挂壁', '粘度 mPa·s ±1000', '表面张力 mN/m', '酸碱度 ±1.0'],
+          rows: [
+            ['85-74-A2', 'black',      '无', '10000', '›35', '6.5'],
+            ['85-74-B2', 'red',        '无', '10000', '›35', '6.8'],
+            ['85-74-C1', 'blue',       '无', '11000', '›35', '6.9'],
+            ['85-74-D1', 'green',      '无', '11000', '›35', '7.0'],
+            ['85-74-E1', 'yellow',     '无', '11000', '›35', '7.0'],
+            ['85-74-F2', 'orange',     '无', '10000', '›35', '6.6'],
+            ['85-74-G2', 'brown',      '无', '10000', '›35', '5.5'],
+            ['85-74-H1', 'purple',     '无', '11000', '›35', '7.0'],
+            ['85-74-I1', 'pink',       '无', '11000', '›35', '7.0'],
+            ['85-74-J1', 'turquoise',  '无', '11000', '›35', '7.0'],
+            ['85-74-K1', 'lime green', '无', '11000', '›35', '7.0'],
+            ['85-74-M1', 'black berry','无', '11000', '›35', '7.0'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'yellow': '#c8b400', 'orange': '#f47920', 'brown': '#7b4a2d',
+            'purple': '#6c3f8e', 'pink': '#ff69b4', 'turquoise': '#00b5b0',
+            'lime green': '#6abf43', 'black berry': '#4a1040'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_85-74.jpg',
+        components: '所有的圆珠笔油墨都可以用于塑料和金属的笔芯。如笔芯直径超过2毫米，必须使用尾油。详情请参阅IKASIL技术数据。建议对所选用笔头进行测试。',
+        storage: '如使用合适的笔芯材料，并不暴露在极端不利的气候条件下，这款油墨在笔芯内的质保期起码有二年。理想的仓储温度应该在0℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。运输过程中，连续几日的存放温度不要超过40℃。笔芯保存时应该水平放置以获得最长的质保期限。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__10 : 89-62 宝珠笔墨水
+      'writing__10': {
+        overview: '这款墨水为棉芯式宝珠笔和可替换笔芯提供特殊的颜色，书写感流畅。符合用于欧洲和美国儿童产品的宝珠笔墨水的现行安全标准。',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '密度 g/cm³ ±0.01', '粘度 mPa·s ±1.0', '表面张力 mN/m ±5.0', '酸碱度 ±1.0'],
+          rows: [
+            ['89-62-A3(2)', 'black',      '1.12', '7.0', '55', '7.5'],
+            ['89-62-B2(1)', 'blue',       '1.10', '6.0', '55', '7.5'],
+            ['89-62-C1(2)', 'red',        '1.11', '4.5', '55', '7.5'],
+            ['89-62-D3(2)', 'green',      '1.10', '4.6', '55', '7.2'],
+            ['89-62-F1',    'orange',     '1.07', '2.9', '36', '7.4'],
+            ['89-62-H3(1)', 'purple',     '1.05', '2.5', '58', '8.0'],
+            ['89-62-I3(1)', 'pink',       '1.07', '2.7', '50', '7.5'],
+            ['89-62-J2(1)', 'turquoise',  '1.05', '2.4', '60', '7.6'],
+            ['89-62-K',     'lime green', '1.07', '3.0', '35', '7.4'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'blue': '#1a4aae', 'red': '#cc2200', 'green': '#2e8b57',
+            'orange': '#f47920', 'purple': '#6c3f8e', 'pink': '#ff69b4',
+            'turquoise': '#00b5b0', 'lime green': '#6abf43'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_89-62.jpg',
+        components: '笔头：聚酯纤维或者多孔塑料\n卷包芯：聚酯纤维\n笔杆、笔帽、尾塞：聚丙烯',
+        storage: '笔帽和尾塞必须闭合，形成气密性密封，来防止笔变干。储存环境应该防冻。墨水在原装未开启状态下的质保期为2年。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__11 : SF 1XX 超低黏度圆珠笔油墨
+      'writing__11': {
+        overview: 'Docufluidal® SF系列油墨得益于它的低粘度，能提供超级顺滑的书写体验。笔头需要特殊调整，控制墨水的流量，从而得到最佳的书写表现。',
+        surface: '所有类型的纸张',
+        solvent: '油性',
+        physicalTable: {
+          headers: ['型号', '颜色', '耐光性（ISO 12757）', '挂壁', '粘度 mPa·s ±200（20℃）', '表面张力 mN/m', '酸碱度'],
+          rows: [
+            ['Docufluidal® SF 105', 'violet blue',  '符合普通书写', '无', '1250', '›36', '5.5–7.5'],
+            ['Docufluidal® SF 106', 'dark blue',    '符合普通书写', '无', '1250', '›36', '5.5–7.5'],
+            ['Docufluidal® SF 107', 'violet blue',  '符合档案书写', '无', '1250', '›35', '5.5–6.5'],
+            ['Docufluidal® SF 110', 'black',        '符合档案书写', '无', '1250', '›35', '5.5–7.5'],
+            ['Docufluidal® SF 111', 'black',        '符合档案书写', '无', '1250', '›35', '5.5–7.5'],
+            ['Docufluidal® SF 121', 'scarlet red',  '符合普通书写', '无', '1250', '›33', '4.3–6.3'],
+            ['Docufluidal® SF 123', 'red',          '符合普通书写', '无', '1250', '›35', '5.5–6.5'],
+            ['Docufluidal® SF 130', 'green',        '符合档案书写', '无', '1250', '›33', '4.3–6.3'],
+          ],
+          colorMap: {
+            'violet blue': '#3a2a8e', 'dark blue': '#1a1a6e', 'black': '#1a1a1a',
+            'scarlet red': '#cc0000', 'red': '#dd2200', 'green': '#2e8b57'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_SF1XX.jpg',
+        components: '所有的圆珠笔油墨都可以用于塑料和金属的笔芯。Docufluidal® SF 1XX系列油墨如果跟不合适的笔头进行搭配将造成不良效果（比如静止漏墨、积墨等），所以为该款油墨专门调整过的笔头是获得最佳写作效果的关键。笔芯中Docufluidal® IF 4312的使用，可以延长质保期以及改善挂壁的现象。',
+        storage: '油墨和成品笔的存储环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。使用后，桶必须再次封紧。笔芯保存时应该水平放置以获得最长的质保期限。在原装未开启状态下，油墨的质保期为2年。',
+        packaging: '标准包装：20公斤塑料桶 / 200公斤塑料桶 / 1000公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__12 : SF 3XX 超低黏度圆珠笔油墨
+      'writing__12': {
+        overview: 'Docufluidal® SF系列油墨得益于它的低粘度，能提供超级顺滑的书写体验。笔头需要特殊调整，控制墨水的流量，从而得到最佳的书写表现。',
+        surface: '所有类型的纸张',
+        solvent: '油性',
+        physicalTable: {
+          headers: ['型号', '颜色', '耐光性（ISO 12757）', '挂壁', '粘度 mPa·s ±200（20℃）', '表面张力 mN/m', '酸碱度'],
+          rows: [
+            ['Docufluidal® SF 301', 'light blue',    '符合档案书写', '无', '1250', '›35', '4.0–6.0'],
+            ['Docufluidal® SF 303', 'midnight blue', '符合普通书写', '无', '1250', '›35', '5.5–7.5'],
+            ['Docufluidal® SF 320', 'burgundy',      '符合普通书写', '无', '1250', '›35', '5.3–6.3'],
+            ['Docufluidal® SF 330', 'yellow green',  '符合普通书写', '无', '1250', '›35', '5.5–7.5'],
+            ['Docufluidal® SF 340', 'pink',          '符合普通书写', '无', '1250', '›35', '4.3–6.3'],
+            ['Docufluidal® SF 346', 'lilac',         '符合普通书写', '无', '1250', '›35', '5.5–6.5'],
+            ['Docufluidal® SF 347', 'red violet',    '符合普通书写', '无', '1250', '›35', '5.5–6.5'],
+            ['Docufluidal® SF 351', 'red brown',     '符合档案书写', '无', '1250', '›35', '5.0–6.0'],
+            ['Docufluidal® SF 360', 'orange',        '符合普通书写', '无', '1250', '›35', '5.5–7.5'],
+            ['Docufluidal® SF 364', 'gold',          '符合档案书写', '无', '1250', '›35', '5.0–6.0'],
+            ['Docufluidal® SF 380', 'turquoise',     '符合档案书写', '无', '1250', '›35', '4.3–6.3'],
+          ],
+          colorMap: {
+            'light blue': '#7ab4e8', 'midnight blue': '#1a1a5e', 'burgundy': '#800020',
+            'yellow green': '#9acd32', 'pink': '#ff69b4', 'lilac': '#c8a2c8',
+            'red violet': '#c71585', 'red brown': '#8b3a3a', 'orange': '#f47920',
+            'gold': '#d4af37', 'turquoise': '#00b5b0'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_SF3XX.jpg',
+        components: '所有的圆珠笔油墨都可以用于塑料和金属的笔芯。Docufluidal® SF系列油墨如果跟不合适的笔头进行搭配将造成不良效果，所以为该款油墨专门调整过的笔头是获得最佳写作效果的关键。笔芯中Docufluidal® IF 4312的使用，可以延长质保期以及改善挂壁的现象。',
+        storage: '油墨和成品笔的存储环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。使用后，桶必须再次封紧。笔芯保存时应该水平放置以获得最长的质保期限。在原装未开启状态下，油墨的质保期为2年。',
+        packaging: '标准包装：20公斤塑料桶 / 200公斤塑料桶 / 1000公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__13 : SGP 1XX 不易静止漏墨超低黏度圆珠笔油墨
+      'writing__13': {
+        overview: 'Docufluidal® SGP系列油墨书写顺畅且不易漏墨。如果跟特殊调整后的笔头搭配，该系列能提供浓度高、持久不费力的书写体验。',
+        surface: '所有类型的纸张',
+        solvent: '油性',
+        physicalTable: {
+          headers: ['型号', '颜色', '耐光性（ISO 12757）', '挂壁', '粘度 mPa·s ±200（20℃）', '表面张力 mN/m', '酸碱度'],
+          rows: [
+            ['Docufluidal® SGP 100', 'violet blue',  '符合普通书写', '无', '2100', '›35', '4.3–6.3'],
+            ['Docufluidal® SGP 101', 'dark blue',    '符合普通书写', '无', '2100', '›35', '4.3–6.3'],
+            ['Docufluidal® SGP 102', 'violet blue',  '符合档案书写', '无', '2100', '›35', '4.3–6.3'],
+            ['Docufluidal® SGP 110', 'black',        '符合档案书写', '无', '2100', '›36', '5.5–7.5'],
+            ['Docufluidal® SGP 111', 'black',        '符合档案书写', '无', '2100', '›36', '5.5–7.5'],
+            ['Docufluidal® SGP 120', 'red',          '符合普通书写', '无', '2100', '›35', '7.5–8.5'],
+            ['Docufluidal® SGP 121', 'scarlet red',  '符合普通书写', '无', '2100', '›35', '4.3–6.3'],
+            ['Docufluidal® SGP 122', 'ruby red',     '符合普通书写', '无', '2100', '›35', '4.0–6.0'],
+            ['Docufluidal® SGP 130', 'green',        '符合档案书写', '无', '2100', '›33', '4.3–6.3'],
+          ],
+          colorMap: {
+            'violet blue': '#3a2a8e', 'dark blue': '#1a1a6e', 'black': '#1a1a1a',
+            'red': '#dd2200', 'scarlet red': '#cc0000', 'ruby red': '#9b111e', 'green': '#2e8b57'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_SGP1XX.jpg',
+        components: '所有的圆珠笔油墨都可以用于塑料和金属的笔芯。Docufluidal® SGP系列油墨如果跟不合适的笔头进行搭配将造成不良效果，所以为该款油墨专门调整过的笔头是获得最佳写作效果的关键。为达到最不易漏墨的状态，搭配的笔头可能需要特殊调整。笔芯中Docufluidal® IF 4312的使用，可以延长质保期以及改善挂壁的现象。',
+        storage: '油墨和成品笔的存储环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。使用后，桶必须再次封紧。笔芯保存时应该水平放置以获得最长的质保期限。在原装未开启状态下，油墨的质保期为2年。',
+        packaging: '标准包装：20公斤塑料桶 / 200公斤塑料桶 / 1000公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__14 : SGP 3XX 超低黏度彩色圆珠笔油墨
+      'writing__14': {
+        overview: 'Docufluidal® SGP 3XX系列油墨结合了Docufluidal® SGP 1XX系列顺滑的书写感受以及亮丽的颜色。如果跟特殊调整后的笔头搭配，该系列能提供浓度高、持久、近乎丝滑的书写体验，且不用牺牲任何其他书写特点。',
+        surface: '所有类型的纸张',
+        solvent: '油性',
+        physicalTable: {
+          headers: ['型号', '颜色', '耐光性（ISO 12757）', '挂壁', '粘度 mPa·s ±200（20℃）', '表面张力 mN/m', '酸碱度'],
+          rows: [
+            ['Docufluidal® SGP 300', 'night blue',   '符合档案书写', '无', '2100', '›35', '5.5–7.0'],
+            ['Docufluidal® SGP 301', 'light blue',   '符合档案书写', '无', '2100', '›35', '4.0–6.0'],
+            ['Docufluidal® SGP 320', 'burgundy',     '符合普通书写', '无', '2100', '›35', '5.3–6.3'],
+            ['Docufluidal® SGP 331', 'yellow green', '符合普通书写', '无', '2100', '›35', '5.5–7.0'],
+            ['Docufluidal® SGP 340', 'pink',         '符合普通书写', '无', '2100', '›35', '4.3–6.3'],
+            ['Docufluidal® SGP 341', 'lilac',        '符合普通书写', '无', '2100', '›35', '4.3–6.3'],
+            ['Docufluidal® SGP 342', 'red violet',   '符合普通书写', '无', '2100', '›35', '4.3–6.3'],
+            ['Docufluidal® SGP 350', 'red brown',    '符合档案书写', '无', '2100', '›35', '5.5–7.5'],
+            ['Docufluidal® SGP 361', 'gold',         '符合普通书写', '无', '2100', '›35', '5.5–7.0'],
+            ['Docufluidal® SGP 362', 'orange',       '符合普通书写', '无', '2100', '›35', '5.5–7.0'],
+            ['Docufluidal® SGP 380', 'turquoise',    '符合档案书写', '无', '2100', '›35', '4.3–6.3'],
+          ],
+          colorMap: {
+            'night blue': '#1a1a5e', 'light blue': '#7ab4e8', 'burgundy': '#800020',
+            'yellow green': '#9acd32', 'pink': '#ff69b4', 'lilac': '#c8a2c8',
+            'red violet': '#c71585', 'red brown': '#8b3a3a', 'gold': '#d4af37',
+            'orange': '#f47920', 'turquoise': '#00b5b0'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_SGP3XX.jpg',
+        components: '所有的圆珠笔油墨都可以用于塑料和金属的笔芯（黄铜和黄铜镀镍可能导致SGP331和SGP362变色，推荐银镍或不锈钢笔头）。Docufluidal® SGP 3XX系列油墨如果跟不合适的笔头进行搭配将造成不良效果，所以中油笔头是获得最佳书写效果的关键。笔芯中Docufluidal® IF 4312的使用，可以延长质保期以及改善挂壁的现象。',
+        storage: '油墨和成品笔的存储环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。使用后，桶必须再次封紧。笔芯保存时应该水平放置以获得最长的质保期限。在原装未开启状态下，油墨的质保期为2年。',
+        packaging: '标准包装：20公斤塑料桶 / 200公斤塑料桶 / 1000公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__15 : Docu® 经济型圆珠笔油墨
+      'writing__15': {
+        overview: 'Docu®是一款经济型圆珠笔油墨。它具有你期待的Dokumental®系列的书写属性，价格却更加实惠。只要搭配合适的笔芯，这款墨水可以做到不挂壁。',
+        surface: '所有类型的纸张',
+        solvent: '油性',
+        physicalTable: {
+          headers: ['型号', '颜色', '防光性（ISO 12757）', '挂壁', '粘度 mPa·s ±1000（20℃）', '表面张力 mN/m', '酸碱度'],
+          rows: [
+            ['Docu® blue',        '蓝色',   '符合普通书写', '无', '18500', '›35', '4.0–6.3'],
+            ['Docu® violet blue', '紫蓝色', '符合普通书写', '无', '18500', '›35', '4.3–6.3'],
+            ['Docu® black N',     '黑色',   '符合档案书写', '无', '18500', '›34', '4.7–6.7'],
+            ['Docu® jet black',   '乌黑色', '符合档案书写', '无', '18500', '›35', '4.7–6.7'],
+            ['Docu® ruby red',    '红宝石色','符合普通书写','无', '18500', '›36', '4.0–6.0'],
+            ['Docu® scarlet red', '鲜红色', '符合普通书写', '无', '18500', '›34', '4.3–6.3'],
+            ['Docu® green',       '绿色',   '符合档案书写', '无', '18500', '›34', '4.3–6.3'],
+          ],
+          colorMap: {
+            '蓝色': '#1a4aae', '紫蓝色': '#3a2a8e', '黑色': '#1a1a1a', '乌黑色': '#0a0a0a',
+            '红宝石色': '#9b111e', '鲜红色': '#cc0000', '绿色': '#2e8b57'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_Docu.jpg',
+        components: '所有的圆珠笔油墨都可以用于塑料和金属的笔芯。对于细笔芯，Docufluidal® IF 4312的使用，可以延长质保期，避免挂壁的现象。对于大笔管的笔芯来说，必须使用Docufluidal® IF 4310或者IF 4311以防止尾部漏油。油墨和配件的兼容性以及书写性能必须得到充分测试。',
+        storage: '储存环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。如果油墨在室温超过30℃的环境内放置数日，可能会导致油墨质保期的缩短。使用后，桶必须再次封紧。笔芯保存时应该水平放置以获得最长的质保期限。油墨在原装未开启状态下的质保期为4年。',
+        packaging: '标准包装：20公斤塑料桶 / 200公斤塑料桶 / 1000公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__16 : FP 18XX 钢笔墨水
+      'writing__16': {
+        overview: '这款墨水包括了钢笔墨水中的所有主要颜色。它能从很多种类的织物上被清洗掉。FP 18XX包含可擦色和永久色。这款墨水同时提供600%浓缩液，浓缩液按照1份墨水对6份去离子水的比例调配。',
+        surface: '所有类型的纸张',
+        solvent: '水性',
+        physicalTable: {
+          colStyles: ['', 'min-width:140px', 'max-width:60px;white-space:normal', 'max-width:55px;white-space:normal', 'max-width:60px;white-space:normal', ''],
+          headers: ['型号', '颜色', '粘度\nmPa·s ±0.5（20℃）', '表面张力\nmN/m', '密度\ng/cm³ ±0.01（20℃）', '酸碱度'],
+          rows: [
+            ['Dokumental® FP 1800', 'Royal blue（可擦）', '1.2', '57.0 ±3.0', '1.01', '2.7 ±0.5'],
+            ['Dokumental® FP 1803', 'Blue black',         '1.2', '59.0 ±4.0', '1.01', '6.0 ±1.0'],
+            ['Dokumental® FP 1810', 'Black',              '1.3', '60.6 ±4.0', '1.01', '7.5 ±1.0'],
+            ['Dokumental® FP 1820', 'Red',                '1.2', '63.0 ±5.0', '1.01', '7.0 ±1.0'],
+            ['Dokumental® FP 1830', 'Green',              '1.2', '60.0 ±3.0', '1.01', '5.5 ±1.0'],
+          ],
+          colorMap: {
+            'Royal blue（可擦）': '#4169e1', 'Blue black': '#1a2a5e', 'Black': '#1a1a1a',
+            'Red': '#cc2200', 'Green': '#2e8b57'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_FP18XX.jpg',
+        components: '（请联系我们获取配件匹配信息）',
+        storage: '储存环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。浓缩液的稀释可在室温下进行，并不需要额外加热。我们更推荐稀释作业在不锈钢或者塑料桶中进行。',
+        packaging: '标准包装：20公斤塑料桶 / 200公斤塑料桶 / 1000公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__17 : New Blue 新蓝色圆珠笔油墨
+      'writing__17': {
+        overview: '文都新蓝色系列色彩鲜亮、浓郁夺目，极具吸引力。全新推出的"新蓝"与"深蓝"两个色调，均提供四种最受欢迎的黏度规格，供您挑选。同时，这个系列的配方都符合REACH法规，且不含有SV8。',
+        surface: '所有类型的纸张',
+        solvent: '油性',
+        physicalTable: {
+          headers: ['型号', '颜色', 'ISO 12757 一致性', '挂壁', '粘度 mPa·s ±1000（20℃）', '表面张力 mN/m', '酸碱度 ±0.5'],
+          rows: [
+            ['【标准黏度】', '', '', '', '', '', ''],
+            ['Dokumental® 608 B',    'New Blue',  '符合普通书写', '无', '18500', '›35', '7.5'],
+            ['Dokumental® 609 B',    'Deep Blue', '符合普通书写', '无', '18500', '›35', '7.5'],
+            ['【中等黏度】', '', '', '', '', '', ''],
+            ['Docufluidal® BP 138',  'New Blue',  '符合普通书写', '无', '8500',  '›35', '7.5'],
+            ['Docufluidal® BP 139',  'Deep Blue', '符合普通书写', '无', '8500',  '›35', '7.5'],
+            ['【超低黏度 EF系列】', '', '', '', '', '', ''],
+            ['Docufluidal® EF 108',  'New Blue',  '符合普通书写', '无', '2100',  '›35', '7.5'],
+            ['Docufluidal® EF 109',  'Deep Blue', '符合普通书写', '无', '2100',  '›35', '7.5'],
+            ['【超低黏度 SGP系列】', '', '', '', '', '', ''],
+            ['Docufluidal® SGP 108', 'New Blue',  '符合普通书写', '无', '2100',  '›35', '7.5'],
+            ['Docufluidal® SGP 109', 'Deep Blue', '符合普通书写', '无', '2100',  '›35', '7.5'],
+            ['【超低黏度 SF系列】', '', '', '', '', '', ''],
+            ['Docufluidal® SF 108',  'New Blue',  '符合普通书写', '无', '1250',  '›35', '7.5'],
+            ['Docufluidal® SF 109',  'Deep Blue', '符合普通书写', '无', '1250',  '›35', '7.5'],
+          ],
+          colorMap: {
+            'New Blue': '#1e6eb5', 'Deep Blue': '#0a2a6e'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_NewBlue.jpg',
+        components: '所有的圆珠笔油墨都可以用于塑料和金属的笔芯。超低黏度系列如果跟不合适的笔头搭配将造成不良效果，所以为该款油墨专门调整过的笔头是获得最佳写作效果的关键。针对小油管，Dokumental® IF 4312的使用，可以延长质保期以及改善挂壁的现象。针对大油管，必须使用Dokumental® QIF 3/11或QIF 3/12以预防尾部漏油。',
+        storage: '油墨的存储环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。使用后，桶必须再次封紧。笔芯保存时应该水平放置以获得最长的质保期限。如能满足以上存储条件，在原装未开启状态下，油墨的质保期为4年。',
+        packaging: '标准包装：20公斤塑料桶 / 200公斤塑料桶 / 1000公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__18 : RB13XX 直液式宝珠笔墨水
+      'writing__18': {
+        overview: 'Dokumental® RB 13XX系列是特别开发出来用来配合直液式宝珠笔使用的。这个系列有以下特点：明亮的颜色；良好的润滑性和流动性；配合直液式配件，书写性能出色。',
+        surface: '所有类型的纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', 'ISO 14145', '粘度 mPa·s ±0.5（20℃）', '表面张力 mN/m ±2.0', '密度 g/cm³ ±0.02（20℃）', '酸碱度 ±1.0'],
+          rows: [
+            ['Dokumental® RB 1301G', '蓝色', '符合普通书写', '4.0', '39.5', '1.05', '8.6'],
+            ['Dokumental® RB 1302G', '蓝色', '符合普通书写', '6.0', '39.5', '1.05', '8.7'],
+            ['Dokumental® RB 1303G', '蓝色', '符合普通书写', '7.2', '39.5', '1.07', '8.5'],
+            ['Dokumental® RB 1311G', '黑色', '符合档案书写', '6.0', '39.5', '1.07', '7.9'],
+            ['Dokumental® RB 1313G', '黑色', '符合档案书写', '6.8', '39.5', '1.09', '7.6'],
+            ['Dokumental® RB 1320',  '红色', '符合普通书写', '2.4', '46.0', '1.07', '9.5'],
+            ['Dokumental® RB 1321G', '红色', '符合普通书写', '3.2', '39.5', '—',   '9.1'],
+            ['Dokumental® RB 1323G', '红色', '符合普通书写', '6.0', '39.5', '1.07', '8.8'],
+            ['Dokumental® RB 1324G', '红色', '符合普通书写', '6.5', '39.5', '1.09', '8.5'],
+            ['Dokumental® RB 1330',  '绿色', '符合普通书写', '2.3', '43.8', '—',   '8.9'],
+            ['Dokumental® RB 1331',  '绿色', '符合普通书写', '6.0', '43.8', '—',   '8.9'],
+            ['Dokumental® RB 1334G', '绿色', '符合普通书写', '6.5', '39.5', '1.07', '8.5'],
+          ],
+          colorMap: {
+            '蓝色': '#1a4aae', '黑色': '#1a1a1a', '红色': '#cc2200', '绿色': '#2e8b57'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_RB13XX.jpg',
+        components: '宝珠笔笔头：不锈钢外壳搭配碳化钨球珠\n笔杆和笔帽：聚丙烯、丁二烯-苯乙烯、聚乙烯\n墨水和配件的兼容性以及书写性能必须得到充分测试。',
+        storage: '在使用我们的产品之前，灌装设备必须小心维护和清洁，因为墨水很容易被污染。墨水的交叉污染可能导致色差，甚至会造成不良笔芯。\n\n储存环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。如果墨水在室温超过30℃的环境内放置数日，可能会导致其质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶 / 200公斤塑料桶 / 1000公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__19 : General Ball Pen Ink 通用型圆珠笔油墨
+      'writing__19': {
+        overview: '通用型圆珠笔油墨具有不错的颜色浓度，搭配大多数的笔头，都有良好的书写性能。',
+        surface: '所有类型的纸张',
+        solvent: '油性',
+        physicalTable: {
+          colStyles: ['min-width:120px', '', '', '', 'max-width:60px;white-space:normal', 'max-width:55px;white-space:normal', 'max-width:55px;white-space:normal'],
+          headers: ['型号', '颜色', '防光性（ISO 12757）', '挂壁', '粘度\nmPa·s ±1000（25℃）', '表面张力\nmN/m', '酸碱度\n±1.0'],
+          rows: [
+            ['【普通墨水】', '', '', '', '', '', ''],
+            ['59-24-C7',  'Violet blue', '符合普通书写', '无', '11000', '›35', '7.0'],
+            ['25-17-E1',  'Red',         '符合普通书写', '无', '9000',  '›35', '7.0'],
+            ['25-17-B4',  'Green',       '符合普通书写', '无', '11000', '›35', '6.5'],
+            ['【档案墨水】', '', '', '', '', '', ''],
+            ['22-55-B2A', 'Black',       '符合档案书写', '无', '11000', '›35', '6.5'],
+            ['59-40-D1A', 'Blue',        '符合档案书写', '无', '11000', '›35', '7.0'],
+            ['419',       'Red',         '符合档案书写', '无', '9000',  '›35', '6.0'],
+            ['295',       'Green',       '符合档案书写', '无', '9000',  '›35', '7.0'],
+            ['【特殊颜色】', '', '', '', '', '', ''],
+            ['56-92-A3',  'Violet',      '符合普通书写', '无', '11000', '›35', '7.0'],
+            ['25-49-B4N', 'Orange',      '符合普通书写', '无', '10000', '›35', '5.3'],
+            ['25-45-A',   'Turquoise',   '符合普通书写', '无', '11000', '›35', '7.0'],
+            ['32-11-D3',  'Lime green',  '符合普通书写', '无', '11000', '›35', '6.6'],
+            ['25-61-A2',  'Hot pink',    '符合普通书写', '无', '11000', '›35', '7.0'],
+          ],
+          colorMap: {
+            'Violet blue': '#3a2a8e', 'Red': '#cc2200', 'Green': '#2e8b57',
+            'Black': '#1a1a1a', 'Blue': '#1a4aae', 'Violet': '#6c3f8e',
+            'Orange': '#f47920', 'Turquoise': '#00b5b0', 'Lime green': '#6abf43', 'Hot pink': '#ff69b4'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_GeneralBP.jpg',
+        components: '所有的圆珠笔油墨都可以用于塑料和金属的笔芯。对于直径超过2毫米的油管，尾油是必不可少的，具体可参见尾油系列的TDS。不同材料的笔头强烈建议测试后使用。',
+        storage: '假如笔芯没有放置于极端的气温环境，一般来说采用合适零配件制成的笔芯质保期起码有两年。理想的存储温度应该在0℃–30℃之间。如果室温超过30℃，可能会导致油墨和笔芯质保期的缩短。运输过程中，连续几日的存放温度不要超过40℃。笔芯建议水平存放以达到最长的质保期。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__20 : QG 88XX 速干中性笔墨水
+      'writing__20': {
+        overview: 'QG 88XX系列是一款新开发的染料型中性笔墨水。这款墨水速干效果非常好，比起普通的中性墨水，它不容易洇在纸上。另外这个系列的颜色也很全。',
+        surface: '所有类型的纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '耐光性 ISO 27668', '粘度 mPa·s ±100（20℃）', '表面张力 mN/m', '酸碱度 ±1.0'],
+          rows: [
+            ['Dokumental® QG 8800', 'Brilliant blue', '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8801', 'Light blue',     '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8802', 'Royal blue',     '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8810', 'Black',          '无', '450', '›40', '6.5'],
+            ['Dokumental® QG 8820', 'Red',            '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8821', 'Ruby red',       '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8830', 'Green',          '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8831', 'Light green',    '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8832', 'Dark green',     '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8840', 'Violet',         '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8845', 'Purple',         '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8850', 'Brown',          '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8860', 'Yellow',         '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8861', 'Orange',         '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8862', 'Gold',           '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8872', 'Strong pink',    '无', '370', '›40', '6.0'],
+            ['Dokumental® QG 8880', 'Turquoise',      '无', '370', '›40', '6.0'],
+          ],
+          colorMap: {
+            'Brilliant blue': '#2060cc', 'Light blue': '#7ab4e8', 'Royal blue': '#4169e1',
+            'Black': '#1a1a1a', 'Red': '#cc2200', 'Ruby red': '#9b111e',
+            'Green': '#2e8b57', 'Light green': '#90ee90', 'Dark green': '#006400',
+            'Violet': '#8b008b', 'Purple': '#6c3f8e', 'Brown': '#7b4a2d',
+            'Yellow': '#c8b400', 'Orange': '#f47920', 'Gold': '#d4af37',
+            'Strong pink': '#ff1493', 'Turquoise': '#00b5b0'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_QG88XX.jpg',
+        components: 'QG 88XX墨水跟不锈钢中性笔笔头的兼容测试已经非常全面充分。其他中性笔头可能也会适合，但需在灌装前进行仔细的试点研究。黄铜镀镍或者黄铜的笔头都不可用于这个系列的墨水。油管、笔头连接件和硅胶帽：聚丙烯是被认可的。',
+        storage: '所有QG 88XX墨水在灌装生产过程中需要被小心处理。\n灌装设备必须小心维护和清洁，因为墨水很容易被污染。墨水的交叉污染可能导致色差，甚至会造成不良笔芯。\n\n储存环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。如果墨水在室温超过30℃的环境内放置数日，会导致其质保期的缩短。\n使用后，桶必须再次封紧。\n笔芯保存时应该水平放置以获得最长的质保期限。\n墨水在原装未开启状态下的质保期为2年。',
+        extra: [
+          {
+            label: 'Dokumental®中性墨水的处理',
+            text: '使用尾塞油对防止尾部漏油以及溶剂（水）的蒸发都至关重要。尾塞油的灌装高度至少应该是油管内径直径的4倍。随着书写时墨水的消耗，一部分尾塞油将会粘在笔芯的管壁上。这会导致尾塞油的减少。笔芯存储一段时间后，尾塞油不会被墨水着色。合适的尾塞油，请参阅Dokumental®IF技术数据表。\n\n脱气：为了防止成品笔在储存过程中生成气泡，建议灌装前对墨水进行脱气。\n\n墨水注射是生产过程中最关键的一个环节，注射必须使用注射泵的最低压力。这可以从一开始防止或者减少笔芯中气泡的产生。所以需要慎重选择注射泵，泵喷嘴的打开范围要尽可能大，这个非常重要。\n\n用轻微离心去除墨水和尾塞油中的气泡是很推荐的做法，当然这个轻微的定义也取决于离心机的直径。如果需要更进一步的信息，可以联系文都的技术部门。'
+          },
+          {
+            label: '笔头保护',
+            text: '笔头必须戴一个保护帽（材质可以是橡胶），用来防止储存中的笔芯墨水变干和后漏。处于同样的考虑，笔帽中要插入一块弹性物质，它会接触并密封笔尖。'
+          }
+        ],
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // writing__21 : SP 35XX 签字笔墨水
+      'writing__21': {
+        overview: 'Dokumental® SP 35XX系列跟任何配件搭配都有很好的流动性。注：SP 3504B这款墨水可以用消色液去除；SP 3505A这款墨水不能被消除，可以在可擦钢笔墨水（宝蓝色）被擦拭区域书写。',
+        surface: '所有类型的纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '浓缩液配比', '只能搭配塑料或不锈钢连接件', 'ISO 14145', 'ASTM D-4236', '粘度 mPa·s ±0.5（20℃）', '表面张力 mN/m ±2.0', '酸碱度 ±1.0', '密度 g/cm³ ±0.01（20℃）'],
+          rows: [
+            ['Dokumental® SP 3500',  '蓝色',   '1:3', '是', '符合普通书写', '符合',   '2.3', '30.0', '4.5',     '1.03'],
+            ['Dokumental® SP 3501',  '蓝色',   '1:2', '否', '符合档案书写', '不符合', '2.9', '34.0', '7.1',     '1.05'],
+            ['Dokumental® SP 3502',  '蓝色',   '1:3', '是', '符合普通书写', '符合',   '2.3', '30.0', '7.5',     '1.04'],
+            ['Dokumental® SP 3504B', '黑色',   '无',  '否', '符合普通书写', '符合',   '1.5', '41.0', '1.6',     '1.03'],
+            ['Dokumental® SP 3505A', '宝蓝色', '无',  '否', '符合普通书写', '不符合', '1.7', '51.0', '7.6',     '1.03'],
+            ['Dokumental® SP 3510',  '黑色',   '1:1', '否', '符合档案书写', '符合',   '2.4', '30.0', '8.5',     '1.06'],
+            ['Dokumental® SP 3511',  '黑色',   '1:2', '否', '符合档案书写', '不符合', '3.5', '33.0', '10.0',    '1.07'],
+            ['Dokumental® SP 3512',  '黑色',   '无',  '否', '符合档案书写', '符合',   '2.7', '31.0', '7.5',     '1.07'],
+            ['Dokumental® SP 3513',  '黑色',   '1:2', '是', '符合普通书写', '不符合', '3.0', '30.0', '8.0',     '1.07'],
+            ['Dokumental® SP 3520',  '红色',   '1:2', '否', '符合普通书写', '符合',   '2.4', '33.0', '8.5',     '1.06'],
+            ['Dokumental® SP 3521',  '红色',   '1:3', '否', '符合普通书写', '不符合', '2.3', '31.0', '9.5',     '1.05'],
+            ['Dokumental® SP 3522',  '红色',   '1:2', '否', '符合普通书写', '不符合', '2.8', '32.0', '8.5±1.5', '1.05'],
+            ['Dokumental® SP 3530',  '绿色',   '1:2', '否', '符合普通书写', '符合',   '2.8', '30.0', '7.0',     '1.05'],
+            ['Dokumental® SP 3531',  '绿色',   '无',  '否', '符合普通书写', '符合',   '3.0', '30.0', '7.8',     '1.06'],
+          ],
+          colorMap: {
+            '蓝色': '#1a4aae', '黑色': '#1a1a1a', '宝蓝色': '#4169e1', '红色': '#cc2200', '绿色': '#2e8b57'
+          }
+        },
+        colorCardImg: 'images/writing/colorcard_SP35XX.jpg',
+        components: '笔头：挤出型塑料笔头，连接件可以用塑料、银镍、黄铜镀镍、不锈钢\n笔杆、笔帽和尾塞：聚丙烯\n卷包芯：只能用聚酯',
+        storage: '储存环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。如果墨水在室温超过30℃的环境内放置数日，会导致墨水质保期的缩短。在使用墨水前，必须在室温中放置起码一天，之后需要搅匀。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+      // fluorescent__0 : 3-43-X(G) 闪光荧光记号笔墨水
+      'fluorescent__0': {
+        overview: '这个系列的墨水是特别定制的，用于在纸张上突出部分文本，显示为透明珠光色的闪烁标记。应用范围：用于突出显示文字的文具用笔。',
+        surface: '所有浅色纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['3-43-A12(G)', 'yellow green', '6–7', '25–35', '1.09–1.11', '1.5–3.5'],
+            ['3-43-B12(G)', 'blue',         '7–8', '25–35', '1.09–1.11', '1.5–3.5'],
+            ['3-43-C12(G)', 'pink',         '6–8', '25–35', '1.09–1.11', '1.5–3.5'],
+            ['3-43-D12(G)', 'green',        '6–8', '25–35', '1.08–1.10', '1.5–3.5'],
+            ['3-43-G12(G)', 'orange',       '6–8', '25–35', '1.09–1.11', '1.5–3.5'],
+            ['3-43-H12(G)', 'violet',       '6–8', '25–35', '1.09–1.11', '1.5–3.5'],
+          ],
+          colorMap: {
+            'yellow green': '#bfff00', 'blue': '#4488ff', 'pink': '#ff80c0',
+            'green': '#00cc66', 'orange': '#ff9933', 'violet': '#9966cc'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_3-43G.jpg',
+        components: '毛细系统棉芯式记号笔。聚酯纤维棉芯，纤维密度为0.15–0.17 gms/cc。\n塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：适用于匹配65微米闪光颗粒的高孔隙率聚酯纤维\n\n灌装说明：为了达到最佳效果，墨水必须在使用前混合，并在笔芯注墨期间继续对墨水进行搅拌。墨水必须要采用注射填充。重要的是，墨水的装载量要达到储水器饱和量的80%。在笔头插入并盖上笔帽后，成品笔必须以笔头朝下的姿势放置至少一个小时。成品笔在运输和销售期间，应水平摆放存储和展示。',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // fluorescent__1 : 3-43-X(N) 闪光记号笔墨水
+      'fluorescent__1': {
+        overview: '这个系列的墨水是特别定制的，用于在纸张上突出部分文本，显示为透明珠光色的闪烁标记。应用范围：用于突出显示文字的文具用笔。',
+        surface: '所有浅色纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s', '表面张力 mN/m', '密度 g/cm³', '酸碱度'],
+          rows: [
+            ['3-43-A12(N)', 'yellow green', '1.5–3.5', '25–35', '1.09–1.11', '6–7'],
+            ['3-43-B12(N)', 'blue',         '1.5–3.5', '25–35', '1.09–1.11', '7–8'],
+            ['3-43-C12(N)', 'pink',         '1.5–3.5', '25–35', '1.09–1.11', '6–8'],
+            ['3-43-D12(N)', 'green',        '1.5–3.5', '25–35', '1.08–1.10', '6–8'],
+            ['3-43-E1(N)',  'turquoise',    '1.5–3.5', '25–35', '1.09–1.11', '6–8'],
+            ['3-43-G12(N)', 'orange',       '1.5–3.5', '25–35', '1.09–1.11', '6–8'],
+            ['3-43-H12(N)', 'violet',       '1.5–3.5', '25–35', '1.09–1.11', '6–8'],
+            ['3-43-I7(N)',  'silver',       '1.5–3.5', '28–38', '1.09–1.11', '6–8'],
+            ['3-43-J11(N)', 'gold',         '1.5–3.5', '25–35', '1.09–1.11', '6–8'],
+          ],
+          colorMap: {
+            'yellow green': '#bfff00', 'blue': '#4488ff', 'pink': '#ff80c0',
+            'green': '#00cc66', 'turquoise': '#00cccc', 'orange': '#ff9933',
+            'violet': '#9966cc', 'silver': '#c0c0c0', 'gold': '#d4af37'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_3-43N.jpg',
+        components: '毛细系统棉芯式记号笔。聚酯纤维棉芯，纤维密度为0.15–0.17 gms/cc。\n塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：适用于匹配65微米闪光颗粒的高孔隙率聚酯纤维\n\n灌装说明：为了达到最佳效果，墨水必须在使用前混合，并在笔芯注墨期间继续对墨水进行搅拌。墨水必须要采用注射填充。重要的是，墨水的装载量要达到储水器饱和量的80%。在笔头插入并盖上笔帽后，成品笔必须以笔头朝下的姿势放置至少一个小时。成品笔在运输和销售期间，应水平摆放存储和展示。',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // fluorescent__2 : 3-71 颜料型粉彩荧光墨水
+      'fluorescent__2': {
+        overview: '这个系列的墨水是经济型的荧光墨水，可以满足日常的需求，且提供柔和的粉彩色系。它可用于带有透明笔筒的直液式墨水笔和记号笔。',
+        surface: '浅色系的彩色纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s', '表面张力 mN/m', '密度 g/cm³', '酸碱度'],
+          rows: [
+            ['3-71-A8',  'yellow',     '1.3–3.3', '29–39', '1.04–1.06', '6.6–8.6'],
+            ['3-71-B8',  'lt. green',  '1.3–3.3', '29–39', '1.04–1.06', '6.6–8.6'],
+            ['3-71-C5',  'orange',     '1.3–3.3', '30–40', '1.04–1.06', '6.0–8.0'],
+            ['3-71-D8',  'pink',       '1.3–3.3', '29–39', '1.04–1.06', '6.2–8.2'],
+            ['3-71-D15', 'red orange', '1.5–3.5', '29–39', '1.08–1.10', '6.2–8.2'],
+            ['3-71-E3',  'sky blue',   '1.3–3.3', '28–38', '1.04–1.06', '6.8–8.8'],
+            ['3-71-F8',  'red',        '1.5–3.5', '30–40', '1.06–1.08', '6.2–8.2'],
+            ['3-71-G5',  'lilac',      '1.5–3.5', '29–39', '1.05–1.07', '6.3–8.3'],
+            ['3-71-G10', 'fl. violet', '1.5–3.5', '29–39', '1.05–1.07', '6.3–8.3'],
+            ['3-71-H3',  'turquoise',  '1.5–3.5', '28–38', '1.04–1.06', '6.7–8.7'],
+            ['3-71-M',   'gray',       '1.5–3.5', '28–38', '1.04–1.06', '6.5–8.5'],
+          ],
+          colorMap: {
+            'yellow': '#fff176', 'lt. green': '#b5ead7', 'orange': '#ffcc99',
+            'pink': '#ffb3c6', 'red orange': '#ff8c66', 'sky blue': '#b3d9ff',
+            'red': '#ff9999', 'lilac': '#e0b3ff', 'fl. violet': '#cc99ff',
+            'turquoise': '#99eedd', 'gray': '#cccccc'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_3-71.jpg',
+        components: '塑料部分：适用于卷包芯和直液式系统\n内塞：聚丙烯\n笔头：聚酯纤维或者多孔塑料\n笔头连接件：塑料\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '笔帽和尾塞必须闭合。所有的塑料件需要用低透气性的材料制成，聚丙烯是最适合的。储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。所有接触墨水的组件必须彻底清洁，任何污染可能对颜色和亮度造成影响。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // fluorescent__3 : 29-97 29-73 染料型荧光墨水
+      'fluorescent__3': {
+        overview: '染料型荧光墨水是专门研发，为了写了热敏传真纸上的字迹不用变暗。这款墨水的颜色明亮，且价格实惠。200%的浓缩液可以根据重量混合：一份浓缩液+一份去离子水制成2份墨水。',
+        surface: '浅色纸张。与标准纸张兼容。在高湿度环境中使用酸性纸，有可能会导致字迹褪色或者变色。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '浓缩比例', '粘度 mPa·s', '表面张力 mN/m', '密度 g/cm³', '酸碱度'],
+          rows: [
+            ['29-97-A1',      'fl. yellow', '200%', '2.0–4.0',   '45–55', '1.16–1.18', '10.5–11.5'],
+            ['29-73-B1',      'fl. yellow', '成品液', '1.0–3.0', '45–55', '1.07–1.09', '10.0–11.0'],
+            ['29-97-B1',      'fl. green',  '200%', '3.5–5.5',   '30–45', '1.17–1.19', '10.5–11.5'],
+            ['29-73-C1',      'fl. green',  '成品液', '1.0–3.0', '50–60', '1.07–1.09', '10.0–11.0'],
+            ['49-98-A',       'fl. orange', '200%', '18.0–28.0', '36–46', '1.11–1.13', '8.6–9.6'],
+            ['21-11-A4',      'fl. orange', '成品液', '3.0–5.0', '38–48', '1.06–1.08', '8.6–9.6'],
+            ['49-98-B2N',     'fl. pink',   '200%', '58.0–68.0', '35–45', '1.10–1.12', '8.5–9.5'],
+            ['49-60-A4',      'fl. pink',   '成品液', '2.5–4.5', '23–33', '1.04–1.06', '8.5–9.5'],
+            ['46-79-B1(K2)',  'fl. red',    '200%', '20.0–30.0', '32–42', '1.16–1.18', '4.5–6.0'],
+            ['46-79-B1',      'fl. red',    '成品液', '2.5–4.5', '32–42', '1.07–1.09', '4.5–6.0'],
+            ['31-69-E1',      'fl. blue',   '200%', '2.0–4.0',   '35–45', '1.07–1.09', '6.0–7.0'],
+            ['30-28-E1',      'sky blue',   '成品液', '1.0–3.0', '33–43', '1.03–1.05', '7.0–8.0'],
+            ['30-28-F3(K2)',  'violet',     '200%', '1.8–3.8',   '38–48', '1.06–1.08', '6.6–7.6'],
+            ['30-28-F3',      'violet',     '成品液', '1.0–3.0', '38–48', '1.02–1.04', '6.5–7.5'],
+          ],
+          colorMap: {
+            'fl. yellow': '#ffff00', 'fl. green': '#66ff66', 'fl. orange': '#ff9900',
+            'fl. pink': '#ff80c0', 'fl. red': '#ff4444', 'fl. blue': '#66aaff',
+            'sky blue': '#87ceeb', 'violet': '#9966cc'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_29-97.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：聚酯头或多孔塑料\n笔头连接件：塑料\n卷包芯：聚酯\n卷包芯外包薄膜：聚丙烯',
+        storage: '笔盖和尾塞必须拧紧。所有塑料部件都应该采用低透气性的材料制造，聚丙烯是最适合的。由于黄色和绿色的高pH值，匹配的笔头必须经过测试。存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果存储气温超过30℃，会导致墨水质保期的缩短。所有与墨水接触的部件都必须彻底清洗，任何污染都可能影响其颜色。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // fluorescent__4 : 30-28 染料型粉彩荧光墨水
+      'fluorescent__4': {
+        overview: '这个系列的墨水是经济型的荧光墨水，可以满足日常的需求。染料型墨水提供不具荧光性的粉彩颜色，其中还包括已经成为流行的几种浅色粉彩色调。应用范围：专业办公及学校使用。',
+        surface: '在浅色系的纸张上做标记',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s ±1.0', '表面张力 mN/m ±5.0', '密度 g/cm³ ±0.01', '酸碱度 ±1.0'],
+          rows: [
+            ['【常规色】', '', '', '', '', ''],
+            ['30-28-A1',    'yellow',    '2.0', '40', '1.06', '7.0'],
+            ['30-28-C2',    'pink',      '2.0', '40', '1.05', '7.0'],
+            ['30-28-D',     'lime green','2.0', '40', '1.05', '7.5'],
+            ['30-28-E2',    'sky blue',  '2.3', '40', '1.06', '7.7'],
+            ['30-28-F3',    'violet',    '1.6', '43', '1.04', '7.0'],
+            ['30-28-G',     'orange',    '2.2', '40', '1.05', '7.2'],
+            ['30-28-H1',    'magenta',   '2.0', '40', '1.05', '7.0'],
+            ['30-28-I',     'blue grey', '2.0', '40', '1.05', '8.2'],
+            ['30-28-J',     'wine',      '2.0', '31', '1.05', '7.4'],
+            ['【浅色系】', '', '', '', '', ''],
+            ['30-28-A2',    'yellow',     '2.0', '31', '1.06', '7.3'],
+            ['30-28-C3',    'pink',       '2.0', '31', '1.05', '6.5'],
+            ['30-28-D2',    'lime green', '2.0', '31', '1.05', '7.0'],
+            ['30-28-E3',    'sky blue',   '2.0', '31', '1.05', '8.5'],
+            ['30-28-F14',   'blue violet','2.0', '61', '1.05', '6.0'],
+            ['30-28-G2',    'orange',     '2.0', '31', '1.05', '6.5'],
+            ['30-28-H2',    'magenta',    '2.0', '31', '1.05', '7.0'],
+            ['30-28-I4',    'gray',       '1.9', '45', '1.05', '6.7'],
+            ['30-28-J-TF',  'wine',       '1.9', '45', '1.05', '7.0'],
+          ],
+          colorMap: {
+            'yellow': '#fff9b0', 'pink': '#ffcce0', 'lime green': '#d4f5b0',
+            'sky blue': '#c0e8ff', 'violet': '#e0ccff', 'orange': '#ffe0b0',
+            'magenta': '#ffb0d0', 'blue grey': '#c0ccdd', 'wine': '#cc8899',
+            'blue violet': '#b0b0ff', 'gray': '#dddddd'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_30-28.jpg',
+        components: '塑料部分：适用于卷包芯系统\n内塞：聚丙烯\n笔头：聚酯纤维或者多孔塑料\n笔头连接件：塑料\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯\n注意：这款墨水不建议用于直液式系统或者透明笔杆。',
+        storage: '笔盖和尾塞必须拧紧。所有塑料部件都应该采用低透气性的材料制造，聚丙烯是最适合的。存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果存储气温超过30℃，会导致墨水质保期的缩短。所有与墨水接触的部件都必须彻底清洗，任何污染都可能影响其颜色。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // fluorescent__5 : 57-11 可擦荧光墨水
+      'fluorescent__5': {
+        overview: '纤维笔写出的明亮颜色可以用擦液LF4204或者LF4205.1从大多数的纸张上擦除。建议使用双头马克笔，因为这样墨水和擦液可以在一支笔上正确匹配。',
+        surface: '在浅色纸张上做标记',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['【配合LF 4204擦液使用】', '', '', '', '', ''],
+            ['29-73-B1',   'fl. yellow', '10.5–11.5', '45–55', '1.07–1.09', '1.5–2.5'],
+            ['46-07-F',    'fl. green',  '8.5–9.5',   '35–45', '1.04–1.06', '1.0–3.0'],
+            ['【配合LF 4205.1擦液使用】', '', '', '', '', ''],
+            ['57-11-A1',   'violet',     '5.0–6.0', '37–47', '1.04–1.06', '1.0–3.0'],
+            ['57-11-B3',   'fl. pink',   '2.5–3.5', '35–45', '1.04–1.06', '1.5–3.5'],
+            ['57-11-C3',   'sky blue',   '6.2–7.2', '34–44', '1.04–1.06', '1.0–3.0'],
+            ['57-11-E11',  'orange',     '2.0–4.0', '32–41', '1.04–1.06', '2.0–3.0'],
+            ['57-11-H3',   'fl. yellow', '2.3–3.3', '33–43', '1.04–1.06', '1.5–3.5'],
+            ['57-11-I1',   'fl. red',    '2.5–3.5', '35–45', '1.04–1.06', '1.5–3.5'],
+            ['57-11-J',    'cobalt blue','3.5–4.5', '37–47', '1.04–1.06', '1.5–3.5'],
+            ['57-11-K1',   'gray',       '2.8–3.8', '32–42', '1.04–1.06', '1.5–3.5'],
+            ['57-11-L1',   'coffee',     '2.8–3.8', '37–47', '1.04–1.06', '1.5–3.5'],
+          ],
+          colorMap: {
+            'fl. yellow': '#ffff00', 'fl. green': '#66ff66', 'violet': '#9966cc',
+            'fl. pink': '#ff80c0', 'sky blue': '#87ceeb', 'orange': '#ff9933',
+            'fl. red': '#ff4444', 'cobalt blue': '#0047ab', 'gray': '#aaaaaa', 'coffee': '#7b4a2d'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_57-11.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：聚酯纤维或多孔塑料\n笔头连接件：塑料\n卷包芯：聚酯纤维（针对LF4205.1使用聚丙烯）\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // fluorescent__6 : 57-12 可擦粉彩荧光墨水
+      'fluorescent__6': {
+        overview: '荧光笔写出的粉彩色可以用擦液LF4205.1从大多数的纸张上擦除。',
+        surface: '在浅色纸张上做标记',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['【配合LF 4205.1擦液使用】', '', '', '', '', ''],
+            ['57-12-A',    'lemon',      '3.8–4.8', '35–45', '1.04–1.06', '1.5–3.5'],
+            ['57-12-B',    'peach',      '3.4–4.4', '34–44', '1.04–1.06', '1.5–3.5'],
+            ['57-12-C3',   'rose',       '2.5–3.5', '35–45', '1.04–1.06', '1.5–3.5'],
+            ['57-12-D',    'lilac',      '3.0–4.0', '35–45', '1.04–1.06', '1.5–3.5'],
+            ['57-12-E',    'turquoise',  '2.5–3.5', '35–45', '1.04–1.06', '1.5–3.5'],
+            ['57-12-F4(TH)','mint',      '2.5–3.5', '35–45', '1.04–1.06', '1.5–3.5'],
+            ['57-12-G4',   'kiwi',       '3.0–4.0', '35–45', '1.04–1.06', '1.5–3.5'],
+            ['57-12-H',    'periwinkle', '3.0–4.0', '35–45', '1.04–1.06', '1.5–3.5'],
+          ],
+          colorMap: {
+            'lemon': '#fffacd', 'peach': '#ffdab9', 'rose': '#ffb6c1',
+            'lilac': '#e0b3ff', 'turquoise': '#afeeee', 'mint': '#b5ead7',
+            'kiwi': '#d4f5b0', 'periwinkle': '#ccccff'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_57-12.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：聚酯纤维笔头（多孔塑料笔头必须谨慎测试；用阴离子表面活性剂处理过的多孔塑料在完成组装后很快就会失色；这款墨水跟尼龙和丙烯酸笔头不适配）\n笔头连接件：塑料\n卷包芯：聚酯纤维（针对LF4205.1使用聚丙烯）\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // fluorescent__7 : PF61XX.1 颜料型荧光墨水
+      'fluorescent__7': {
+        overview: 'Dokumental® PF 61XX系列是一款功能持久的颜料型荧光墨水。这款墨水既有染料型墨水的亮度和荧光性，又有颜料型墨水的耐光性和耐水性。用调整过的笔头，这款墨水可以做到不弄脏喷墨打印机打印出来的纸张。',
+        surface: '所有类型的纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s（20℃）', '表面张力 mN/m', '酸碱度', '密度 g/cm³ ±0.02（20℃）'],
+          rows: [
+            ['Dokumental® PF 6100.1', 'yellow',      '5.0±1.0',  '30.0±2.0', '7.0±0.5',  '1.05'],
+            ['Dokumental® PF 6103.1', 'yellow',      '4.7±0.5',  '36.5±2.5', '10.5±1.0', '1.14'],
+            ['Dokumental® PF 6110.1', 'light green', '5.0±1.0',  '30.0±2.0', '7.0±0.5',  '1.05'],
+            ['Dokumental® PF 6111.1', 'green',       '5.0±1.0',  '30.0±2.0', '7.0±0.5',  '1.05'],
+            ['Dokumental® PF 6120.1', 'orange',      '5.0±1.0',  '35.0±2.0', '7.0±0.5',  '1.05'],
+            ['Dokumental® PF 6143.1', 'pink',        '5.0±1.0',  '35.0±2.0', '7.0±0.5',  '1.06'],
+            ['Dokumental® PF 6153.1', 'blue',        '3.0±1.0',  '35.0±2.0', '8.0±1.0',  '1.06'],
+            ['Dokumental® PF 6163.1', 'red',         '5.0±1.0',  '35.0±2.0', '7.0±0.5',  '1.06'],
+            ['Dokumental® PF 6173.1', 'violet',      '2.5±0.5',  '35.0±2.0', '7.0±0.5',  '1.05'],
+          ],
+          colorMap: {
+            'yellow': '#ffff00', 'light green': '#90ee90', 'green': '#66ff66',
+            'orange': '#ff9900', 'pink': '#ff80c0', 'blue': '#4488ff',
+            'red': '#ff4444', 'violet': '#9966cc'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_PF61XX.jpg',
+        components: '笔头：聚酯纤维笔头，精选的烧结聚乙烯笔头。喷墨打印安全尼龙头在长期存储测试后才能使用\n卷包芯：聚酯\n笔杆、笔帽、尾塞：聚丙烯，ABS，聚乙烯\n直液式：墨水用于直液式配件必须在事先经过测试\n\n墨水和配件的兼容性以及书写性能必须得到充分测试。笔帽和尾塞必须封紧。\n\n在使用我们的产品之前，灌装设备必须小心维护和清洁，因为墨水很容易被污染（如化学污染或者微生物污染）。墨水的交叉污染可能导致色差，甚至会造成不良笔芯或者缩短笔芯的质保期。\n\n墨水含有杀菌剂以预防微生物滋生，但我们依然强烈建议在生产过程以及所有配套零部件都保持最佳卫生状况。',
+        storage: '储存环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。如果墨水在室温超过30℃的环境内放置数日，可能会导致墨水质保期的缩短。在原装未开启状态下的质保期为2年。使用后，桶必须再次封紧。',
+        packaging: '标准包装：20公斤塑料桶 / 200公斤塑料桶 / 1000公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // fluorescent__8 : PF62XX 颜料型荧光浓缩液
+      'fluorescent__8': {
+        overview: 'Dokumental® PF 62XX 300%浓缩液用途广泛。这款产品具有高亮度，兼具耐光性和耐水性。搭配使用精选笔头（烧结PE聚乙烯）可用于喷墨打印纸张。全系列都适用于直液式系统。\n\n建议墨水的最大稀释度为1份墨水+2份去离子水（300%浓度）。墨水原液中防腐剂的剂量按此比例配置。如超过最大稀释度，强烈建议另外添加防腐剂。可以联系我们的技术服务部门取得相关指导。\n\n如果墨水是用去离子水稀释，在ISO554(23/50)条件下，脱帽时间最高可达1个小时。脱帽时间可以通过用1份墨水+1份甘油+1份水的稀释方法提高到几个小时。通过用乙二醇稀释可以达到最大1-2天的脱帽时间（1份墨水+1份乙二醇MEG+1份水）。\n\n稀释比例高于250%的墨水符合EN71-9规定（1份墨水+最少1.5份水）。如果墨水用其他物质稀释（比如防腐剂），EN71-9中的个别限值必须考虑到保持在范围内（比如，乙二醇的含量必须小于24%）。\n\n用途：专业办公；学生、儿童绘画。',
+        surface: '所有类型的纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s ±3.0（20℃）', '表面张力 mN/m', '酸碱度'],
+          rows: [
+            ['Dokumental® PF 6200 300%', '黄色', '27', '37.0±2.0', '6.5±0.5'],
+            ['Dokumental® PF 6210 300%', '绿色', '27', '37.0±2.0', '6.5±0.5'],
+            ['Dokumental® PF 6220 300%', '橙色', '32', '37.0±2.0', '6.5±0.5'],
+            ['Dokumental® PF 6240 300%', '粉色', '30', '37.0±2.0', '6.5±0.5'],
+            ['Dokumental® PF 6250 300%', '蓝色', '11', '37.0±2.0', '8.3±0.5'],
+            ['Dokumental® PF 6260 300%', '红色', '31', '37.0±2.0', '6.5±0.5'],
+          ],
+          colorMap: {
+            '黄色': '#ffff00', '绿色': '#66ff66', '橙色': '#ff9900',
+            '粉色': '#ff80c0', '蓝色': '#4488ff', '红色': '#ff4444'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_PF62XX.jpg',
+        components: '笔头：聚酯纤维笔头，精选的烧结聚乙烯笔头；喷墨打印安全尼龙头在长期存储测试后才能使用\n卷包芯：聚酯\n笔杆、笔帽、尾塞：聚丙烯、ABS、聚乙烯\n直液式：墨水用于直液式配件必须在事先经过测试',
+        storage: '笔帽和尾塞必须封紧。所有的塑料部件都应该用低透气性的材料制成，聚丙烯是最合适的。储存环境应该防冻。在原装未开启状态下的质保期为2年。所有接触墨水的配件都必须先彻底清洗，任何污染均可能影响墨水的颜色和亮度。',
+        packaging: '标准包装：20KG塑料桶',
+        manufacturer: ''
+      },
+
+      // fluorescent__9 : FH 18XX 速干荧光墨水
+      'fluorescent__9': {
+        overview: '这款经济的染料型荧光墨水符合一般荧光墨水的要求。在大多数的纸张上干燥时间快，所以墨迹不会被弄脏或擦模糊。有7种明亮的荧光色可供选择。',
+        surface: '在浅色纸张上做标记',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s ±0.3', '表面张力 mN/m ±3.0', '密度 g/cm³ ±0.01', '酸碱度 ±0.5'],
+          rows: [
+            ['FH1800', 'yellow', '1.7', '30', '1.070', '10.1'],
+            ['FH1810', 'green',  '1.8', '30', '1.075', '10.3'],
+            ['FH1820', 'orange', '1.8', '30', '1.052', '6.8'],
+            ['FH1821', 'orange', '2.3', '30', '1.050', '4.5'],
+            ['FH1842', 'pink',   '1.8', '30', '1.051', '6.2'],
+            ['FH1850', 'blue',   '1.7', '30', '1.041', '8.6'],
+            ['FH1870', 'violet', '1.8', '30', '1.039', '8.6'],
+          ],
+          colorMap: {
+            'yellow': '#ffff00', 'green': '#66ff66', 'orange': '#ff9900',
+            'pink': '#ff80c0', 'blue': '#4488ff', 'violet': '#9966cc'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_FH18XX.jpg',
+        components: '塑料部分：适用于卷包芯系统\n内塞：聚丙烯\n笔头：聚酯纤维或者多孔塑料\n笔头连接件：塑料\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '笔盖和尾塞必须拧紧。所有塑料部件都应该采用低透气性的材料制造，聚丙烯是最适合的。存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果气温超过30℃，会导致墨水质保期的缩短。所有与墨水接触的部件都必须彻底清洗，任何污染都可能影响其颜色和亮度。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // fluorescent__10 : PF63XX.8 荧光墨水
+      'fluorescent__10': {
+        overview: '这款颜料型荧光墨水具有持久荧光特点，它兼具了染料型墨水的亮度、荧光性以及颜料型墨水的耐光性。',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['PF6302.8(3)',    'yellow',    '9.0–11.0', '32–42', '1.12–1.14', '3.5–5.5'],
+            ['PF6310.8-DL',   'lt. green', '5.8–7.8',  '30–36', '1.06–1.08', '4.6–6.6'],
+            ['PF6320.8-DL',   'orange',    '5.8–7.8',  '30–40', '1.06–1.08', '4.0–6.0'],
+            ['PF6340.8-DL',   'pink',      '5.8–7.8',  '28–38', '1.06–1.08', '4.3–5.3'],
+            ['PF6352.8-DL(1)','blue',      '7.5–8.5',  '28–38', '1.05–1.07', '3.0–5.0'],
+            ['PF6372.8-DL',   'violet',    '6.0–8.0',  '30–40', '1.06–1.08', '3.5–5.5'],
+          ],
+          colorMap: {
+            'yellow': '#ffff00', 'lt. green': '#90ee90', 'orange': '#ff9900',
+            'pink': '#ff80c0', 'blue': '#4488ff', 'violet': '#9966cc'
+          }
+        },
+        colorCardImg: 'images/fluorescent/colorcard_PF63XX.jpg',
+        components: '塑料部分：聚酯纤维笔头，精选的烧结聚乙烯笔头；防喷墨尼龙笔头应在存储测试后才能使用\n卷包芯：聚酯纤维、聚丙烯\n笔杆、笔帽、尾塞：聚丙烯、聚乙烯\n直液式：墨水用于直液式配件必须在事先经过测试',
+        storage: '笔帽和尾塞必须封紧。所有的塑料部件都应该用低透气性的材料制成，聚丙烯是最合适的。储存环境应该防冻。在原装未开启状态下的质保期为2年。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+      // watercolor__0 : 3-14-X 水彩笔墨水
+      'watercolor__0': {
+        overview: '这个系列的墨水是专门为儿童水彩笔设计。它安全，无毒并能从大部分衣物上被清洗。',
+        surface: '所有类型的纸张。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['3-14-A5.1',    'black',        '6–8',  '28–38', '1.11–1.13', '2.5–4.5'],
+            ['3-14-B4.1',    'red',          '6–8',  '28–38', '1.06–1.08', '1.5–3.5'],
+            ['3-14-D1.1',    'purple',       '6–8',  '28–38', '1.02–1.04', '1.0–3.0'],
+            ['3-14-E7(2).1', 'Lt. Violet',   '6–8',  '60–70', '1.04–1.06', '1.5–3.5'],
+            ['3-14-F6.1',    'pink',         '6–8',  '28–38', '1.05–1.07', '1.0–3.0'],
+            ['3-14-G2(2).1', 'Skin pink',    '6–8',  '60–70', '1.04–1.06', '1.5–3.5'],
+            ['3-14-H7.1',    'marina blue',  '6–8',  '28–38', '1.03–1.05', '1.5–3.5'],
+            ['3-14-I1',      'blue',         '6–8',  '28–38', '1.03–1.05', '1.5–3.5'],
+            ['3-14-J',       'bubble blue',  '6–8',  '28–38', '1.02–1.04', '1.5–3.5'],
+            ['3-14-L.1',     'sky blue',     '5–7',  '28–38', '1.04–1.06', '1.5–3.5'],
+            ['3-14-M2.1',    'jade',         '6–8',  '28–38', '1.02–1.04', '1.0–3.0'],
+            ['3-14-N4.1',    'green',        '6–8',  '28–38', '1.04–1.06', '1.0–3.0'],
+            ['3-14-O2.1',    'apple green',  '6–8',  '28–38', '1.05–1.07', '1.0–3.0'],
+            ['3-14-Q.1',     'sunny yellow', '6–8',  '28–38', '1.06–1.08', '1.5–3.5'],
+            ['3-14-R4.1',    'fruity orange','7–9',  '28–38', '1.05–1.07', '1.5–3.5'],
+            ['3-14-S3.1',    'dune',         '6–8',  '28–38', '1.05–1.07', '1.5–3.5'],
+            ['3-14-T1',      'woody brown',  '6.5–8.5','28–38','1.05–1.07','2.0–4.0'],
+            ['3-14-U4.1',    'ultra violet', '6–8',  '28–38', '1.04–1.06', '1.0–3.0'],
+            ['3-14-V15(1).1','Violet',       '6–8',  '60–70', '1.03–1.05', '1.0–3.0'],
+            ['3-14-W25.1',   'grey',         '7–9',  '60–70', '1.04–1.06', '1.0–3.0'],
+            ['3-14-X',       'fluo yellow',  '10–12','28–38', '1.04–1.06', '1.0–3.0'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'purple': '#6c3f8e',
+            'Lt. Violet': '#c8a0e8', 'pink': '#ff80b0', 'Skin pink': '#ffb8a0',
+            'marina blue': '#2a6090', 'blue': '#1a4aae', 'bubble blue': '#88ccee',
+            'sky blue': '#87ceeb', 'jade': '#00a86b', 'green': '#2e8b57',
+            'apple green': '#8db600', 'sunny yellow': '#ffdd00', 'fruity orange': '#f47920',
+            'dune': '#c2a07a', 'woody brown': '#7b4a2d', 'ultra violet': '#5f00ba',
+            'Violet': '#8b00ff', 'grey': '#888888', 'fluo yellow': '#ffff00'
+          }
+        },
+        colorCardImg: 'images/watercolor/colorcard_3-14.jpg',
+        components: '笔头：聚酯纤维或者多孔塑料\n卷包芯：聚酯纤维\n笔杆、笔帽和尾塞：聚丙烯',
+        storage: '笔帽和尾塞必须闭合，形成气密性密封，来防止笔变干。\n储存环境应该防冻。\n墨水在原装未开启状态下的质保期为2年。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // watercolor__1 : 26-12 叠色墨水（覆盖型可擦）
+      'watercolor__1': {
+        overview: '纤维头马克笔写出的明亮荧光色被可擦墨水覆盖后，可以显现出另一种明亮的对比色。\n\n当使用3D眼镜观看时，用这些墨水制作的艺术品会从页面上"弹出"。',
+        surface: '在浅色纸张上做标记',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['26-12-C7',   'Sky blue',   '9.0–10.0', '55–65', '1.09–1.12', '2.0–4.0'],
+            ['26-12-C11',  'Lt. Blue',   '9.0–10.0', '28–38', '1.09–1.12', '6.5–8.5'],
+            ['26-12-D5',   'Fl. Green',  '9.0–10.0', '55–65', '1.09–1.12', '2.0–4.0'],
+            ['26-12-D7',   'Green',      '9.0–10.0', '55–65', '1.09–1.12', '2.0–4.0'],
+            ['26-12-D11',  'Fl. Green',  '9.0–10.0', '28–38', '1.09–1.12', '2.0–4.0'],
+            ['26-12-E3',   'Fl. Orange', '9.0–10.0', '55–65', '1.09–1.12', '2.0–4.0'],
+            ['26-12-E11',  'Fl. Orange', '9.0–10.0', '28–38', '1.09–1.12', '2.0–4.0'],
+            ['26-12-F2',   'Fl. Yellow', '9.0–10.0', '55–65', '1.09–1.12', '2.0–4.0'],
+            ['26-12-G3',   'Violet',     '9.0–10.0', '55–65', '1.09–1.12', '2.0–4.0'],
+            ['26-12-G11',  'Lt. Violet', '9.0–10.0', '28–38', '1.09–1.12', '2.0–4.0'],
+            ['26-12-H11',  'Lt. Pink',   '9.0–10.0', '28–38', '1.09–1.12', '2.0–4.0'],
+            ['LF4205.1',   'Clear（擦液）','9.0–10.5', '55–65', '1.09–1.13', '1.5–3.5'],
+          ],
+          colorMap: {
+            'Sky blue': '#87ceeb', 'Lt. Blue': '#add8e6', 'Fl. Green': '#39ff14',
+            'Green': '#2e8b57', 'Fl. Orange': '#ff9900', 'Fl. Yellow': '#ffff00',
+            'Violet': '#8b008b', 'Lt. Violet': '#c8a0e8', 'Lt. Pink': '#ffb6c1',
+            'Clear（擦液）': '#e0e0e0'
+          }
+        },
+        colorCardImg: 'images/watercolor/colorcard_26-12.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：聚酯纤维\n笔头连接件：塑料\n卷包芯：为达到最佳质保期，选用聚丙烯\n卷包芯外包薄膜：聚丙烯',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // watercolor__2 : 26-22 可擦水彩墨水
+      'watercolor__2': {
+        overview: '纤维头水性马克笔写出的字迹可以被擦液LF4205.1从绝大部分的纸张上擦去。\n\n不使用漂白剂或去污剂，织物上的痕迹不会被洗去。',
+        surface: '在浅色纸张上做标记',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['26-22-A13(1)', 'black',        '2–3',     '35–45', '1.02–1.04', '1.5–3.5'],
+            ['26-22-B1(1)',  'red',          '2.5–3.5', '35–45', '1.02–1.04', '1.5–3.5'],
+            ['26-22-C',      'blue',         '2.5–3.5', '35–45', '1.02–1.04', '1.5–3.5'],
+            ['26-22-D3',     'green',        '3.6–4.6', '48–58', '1.02–1.04', '1.5–3.5'],
+            ['26-22-E',      'yellow',       '4.5–5.5', '38–48', '1.02–1.04', '1.5–3.5'],
+            ['26-22-F1',     'orange',       '2.7–3.7', '30–40', '1.01–1.03', '1.5–3.5'],
+            ['26-22-G17',    'brown',        '2.5–3.5', '30–40', '1.01–1.03', '1.5–3.5'],
+            ['26-23-H2',     'purple',       '4–5',     '38–48', '1.02–1.04', '1.5–3.5'],
+            ['29-32-A1',     'aqua',         '2.5–3.5', '35–45', '1.01–1.03', '1.5–3.5'],
+            ['2-15-M',       'magenta',      '3–4',     '38–48', '1.01–1.03', '1.5–3.5'],
+            ['26-23-K1',     'pink',         '2.8–3.8', '35–45', '1.01–1.03', '1.5–3.5'],
+            ['26-22-P',      'Fl. Green',    '9.2–10.2','30–40', '1.02–1.04', '1.5–3.5'],
+            ['LF4205.1',     'eraser fluid', '9–10.5',  '55–65', '1.09–1.13', '1.6–3.6'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'yellow': '#c8b400', 'orange': '#f47920', 'brown': '#7b4a2d', 'purple': '#6c3f8e',
+            'aqua': '#00b5b0', 'magenta': '#d6006e', 'pink': '#ff80b0',
+            'Fl. Green': '#39ff14', 'eraser fluid': '#e0e0e0'
+          }
+        },
+        colorCardImg: 'images/watercolor/colorcard_26-22.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯\n卷包芯外包薄膜：聚丙烯',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // watercolor__3 : 34-74 超级可洗水彩笔墨水
+      'watercolor__3': {
+        overview: '这款墨水的设计特点就是轻易能用温水加洗衣粉或肥皂，把墨迹从衣服和皮肤上洗下来。无毒配方对所有年轻的艺术家来说，都是安全的。这个系列一共有8种漂亮的标准色。',
+        surface: '儿童艺术创作，在白色或者浅色的纸张和硬板纸上涂色。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度 ±1.0', '密度 g/cm³ ±0.01', '表面张力 mN/m ±5.0', '粘度 mPa·s ±1.0'],
+          rows: [
+            ['34-74-A', 'black',       '7.14', '1.082', '49.5', '5.5'],
+            ['34-74-B', 'red',         '6.76', '1.068', '50.0', '4.2'],
+            ['34-74-C', 'blue',        '5.3',  '1.061', '41.9', '3.4'],
+            ['34-74-D', 'green',       '4.73', '1.069', '49.8', '4.1'],
+            ['34-74-E', 'yellow',      '4.07', '1.060', '51.6', '3.2'],
+            ['34-74-F', 'orange',      '8.2',  '1.070', '45.2', '6.0'],
+            ['34-74-G', 'brown',       '6.34', '1.068', '48.6', '4.0'],
+            ['34-74-H', 'purple',      '8.8',  '1.067', '44.1', '5.8'],
+            ['34-74-I', 'pink',        '9.26', '1.071', '44.5', '7.5'],
+            ['34-74-J', 'sky blue',    '5.53', '1.063', '52.4', '3.2'],
+            ['34-74-K', 'light pink',  '8.32', '1.051', '48.0', '2.4'],
+            ['34-74-L', 'yellow green','3.8',  '1.059', '50.4', '3.2'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'yellow': '#c8b400', 'orange': '#f47920', 'brown': '#7b4a2d', 'purple': '#6c3f8e',
+            'pink': '#ff80b0', 'sky blue': '#87ceeb', 'light pink': '#ffb6c1', 'yellow green': '#9acd32'
+          }
+        },
+        colorCardImg: 'images/watercolor/colorcard_34-74.jpg',
+        components: '塑料部分：聚苯乙烯、聚丙烯\n内塞：聚丙烯\n笔头：多孔塑料/纤维/聚酯毡\n笔头连接件：塑料\n卷包芯：醋酸纤维素或者聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // watercolor__4 : 61-16 非永久纹身墨水
+      'watercolor__4': {
+        overview: '这款无毒配方的墨水是设计来给孩子使用的。如果使用多孔印章笔头，印记会尤其清晰。多彩的颜色是取自食物和化妆品等级的染料，可以用于制造皮肤上的非永久纹身。\n\n在美国，这款墨水使用的着色剂不允许使用于眼周，所以文都不推荐在脸部使用。大多数印记可以用肥皂和水洗去，少部分颜色可能留下淡淡的痕迹，需要额外的清洗。',
+        surface: '各种纸张和皮肤。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s', '表面张力 mN/m', '酸碱度', '密度 g/cm³'],
+          rows: [
+            ['61-16-A',  'Black',    '9–12',   '43–53', '5–7',     '1.05–1.07'],
+            ['61-16-B',  'Red',      '9–12',   '43–53', '7.2–8.2', '1.05–1.07'],
+            ['61-16-B3', 'Red',      '9–12',   '43–53', '6.5–7.5', '1.05–1.07'],
+            ['61-16-C',  'Blue',     '8–11',   '40–50', '7–8',     '1.04–1.06'],
+            ['61-16-D',  'Green',    '7.5–9.5','43–53', '7–8',     '1.04–1.06'],
+            ['61-16-E',  'Yellow',   '8.5–10.5','43–53','6.7–8.7', '1.04–1.06'],
+            ['61-16-F1', 'Orange',   '7–9',    '43–53', '6.8–8.8', '1.04–1.06'],
+            ['61-16-G',  'Brown',    '7–9',    '43–53', '7–9',     '1.04–1.06'],
+            ['61-16-G2', 'Henna',    '9–12',   '43–53', '7–9',     '1.06–1.08'],
+            ['61-16-H',  'Purple',   '9–12',   '43–53', '7–8',     '1.04–1.06'],
+            ['61-16-I',  'Cherry',   '7.5–9.5','43–53', '6.8–8.8', '1.04–1.06'],
+            ['61-16-J',  'Pink',     '6.5–8.5','40–50', '6.6–8.6', '1.03–1.05'],
+            ['61-16-K',  'Dark blue','6.5–8.5','43–53', '6.6–8.6', '1.04–1.06'],
+            ['61-16-M1', 'Violet',   '5.2–7.2','43–53', '6.2–8.2', '1.04–1.06'],
+          ],
+          colorMap: {
+            'Black': '#1a1a1a', 'Red': '#cc2200', 'Blue': '#1a4aae', 'Green': '#2e8b57',
+            'Yellow': '#c8b400', 'Orange': '#f47920', 'Brown': '#7b4a2d', 'Henna': '#c36a2d',
+            'Purple': '#6c3f8e', 'Cherry': '#990000', 'Pink': '#ff80b0',
+            'Dark blue': '#00008b', 'Violet': '#8b008b'
+          }
+        },
+        colorCardImg: 'images/watercolor/colorcard_61-16.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：印章笔头或者聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // watercolor__5 : 67-89 挂图墨水
+      'watercolor__5': {
+        overview: '这款水性墨水具有醒目的颜色和快速的出墨，这些都是要在挂图上进行展示的要素。墨水在挂图上干的很快，不会渗透到下一页。使用肥皂和水，能很容易把墨水从棉和涤纶织物上洗掉。',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s', '表面张力 mN/m', '酸碱度', '密度 g/cm³'],
+          rows: [
+            ['67-89-A3', 'Black',  '2.5–4.5', '25–35', '7.5–8.5', '1.06–1.08'],
+            ['67-89-B3', 'red',    '2.5–4.5', '25–35', '8–9',     '1.06–1.08'],
+            ['67-89-C1', 'blue',   '2.5–4.5', '25–35', '7.2–8.2', '1.04–1.06'],
+            ['67-89-D3', 'green',  '2.5–4.5', '25–35', '7.5–8.5', '1.04–1.06'],
+            ['67-89-E2', 'yellow', '2.5–4.5', '25–35', '7.5–8.5', '1.05–1.07'],
+            ['67-89-F1', 'orange', '2.5–4.5', '25–35', '8.3–9.3', '1.06–1.08'],
+            ['67-89-G1', 'brown',  '2.5–4.5', '25–35', '7–8',     '1.05–1.07'],
+            ['67-89-I1', 'pink',   '2.5–4.5', '25–35', '8.3–9.3', '1.03–1.05'],
+          ],
+          colorMap: {
+            'Black': '#1a1a1a', 'red': '#cc2200', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'yellow': '#c8b400', 'orange': '#f47920', 'brown': '#7b4a2d', 'pink': '#ff80b0'
+          }
+        },
+        colorCardImg: 'images/watercolor/colorcard_67-89.jpg',
+        components: '笔头：多孔塑料/聚酯纤维\n卷包芯：聚酯纤维或者某些直液式系统\n笔杆、笔盖、尾塞：聚丙烯',
+        storage: '笔帽和尾塞必须闭合，形成气密性密封，来防止笔变干。\n储存环境应该防冻。墨水在原装未开启状态下的质保期为2年。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // watercolor__6 : 变色墨水
+      'watercolor__6': {
+        overview: '纤维头马克笔写出的明亮色可以在擦拭26-11-G后改变成第二种颜色。\n\n不使用漂白剂或去污剂，织物上的痕迹不会被洗去。',
+        surface: '在浅色纸张上做标记',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色（变色前/后）', '粘度 mPa·s', '表面张力 mN/m', '酸碱度', '密度 g/cm³'],
+          rows: [
+            ['2-29-A2',   'black → red',         '1.5–3.5', '40–50', '4.5–5.5', '1.02–1.04'],
+            ['29-94-G',   'carmine → pink',       '1.5–3.5', '30–40', '2.7–3.7', '1.01–1.03'],
+            ['29-36-B1',  'red → yellow',         '1.5–3.5', '35–45', '2–3',     '1.00–1.03'],
+            ['29-36-C1',  'blue → aqua',          '1.2–3.2', '38–48', '2.5–4.5', '1.02–1.04'],
+            ['40-42-B1',  'blue → fl.yellow',     '1.5–3.5', '40–50', '2–3',     '1.03–1.05'],
+            ['40-42-G',   'blue → fl.yellow',     '1.5–3.5', '40–50', '2.7–3.7', '1.03–1.05'],
+            ['40-42-C1',  'blue → fl.pink',       '1.5–3.5', '35–45', '3–4',     '1.03–1.04'],
+            ['40-42-K',   'blue → fl.green',      '1.5–3.5', '35–45', '2–3',     '1.03–1.05'],
+            ['36-42-E1',  'green → red',          '1.5–3.5', '35–45', '3–4',     '1.02–1.04'],
+            ['29-36-A',   'green → purple',       '1.5–3.5', '33–43', '2.5–3.5', '1.01–1.03'],
+            ['40-42-D2',  'green → fl.yellow',    '1.5–3.5', '38–48', '2–3',     '1.04–1.06'],
+            ['36-42-F',   'lime → brown',         '1.5–3.5', '30–40', '3–4',     '1.01–1.03'],
+            ['36-42-B',   'yellow → red',         '1.5–3.5', '27–37', '3.5–4',   '1.03–1.05'],
+            ['28-86-D',   'yellow → magenta',     '2–4',     '35–45', '2.5–3.5', '1.02–1.04'],
+            ['29-95-E',   'orange → yellow',      '1.5–3.5', '36–46', '2.5–3.5', '1.01–1.03'],
+            ['34-87-E1',  'brown → green',        '1–3',     '36–46', '3–4',     '1.03–1.05'],
+            ['29-94-A',   'purple → pink',        '1.5–3.5', '33–43', '4.3–6.3', '1.01–1.03'],
+            ['40-42-E',   'purple → fl.green',    '1.5–3.5', '36–46', '3–4',     '1.03–1.05'],
+            ['2-43-C1',   'charcoal → green',     '1.5–3.5', '28–38', '3.5–5.5', '1.01–1.03'],
+            ['2-43-K3',   'violet → blue',        '1.5–3.5', '28–38', '3.5–5.5', '1.01–1.03'],
+            ['26-11-G',   'eraser fluid',         '1–3',     '42–52', '7.2–9.2', '1.07–1.09'],
+          ],
+          colorMap: {}
+        },
+        colorCardImg: 'images/watercolor/colorcard_ColorChange.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：聚酯纤维（有些颜色如使用尼龙笔头可能会导致颜色变化，必须进行谨慎测试）\n笔头连接件：塑料\n卷包芯：聚酯\n卷包芯外包薄膜：聚丙烯',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // watercolor__7 : NT5XX 安全系数高的水彩墨水
+      'watercolor__7': {
+        overview: 'Dokumental®的这款墨水是为儿童使用而设计，为了符合相关国内和国际法规，其原材料都经过特殊挑选。该款墨水具有以下特性：\n\n· 在ISO554(23/50)条件下，开帽不干的时间至少四周\n· 使用食品级染料\n· 在60度水温下启动正常洗涤程序，污渍可以从大多数织物上清除（棉、涤纶、丙烯酸纤维、尼龙纤维以及其混纺织物）\n· 沾染到皮肤可用肥皂和清水洗去',
+        surface: '所有纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '20℃时的粘度 mPa·s ±0.5', '表面张力 mN/m', '酸碱度', '20℃时的密度 g/cm³ ±0.02'],
+          rows: [
+            ['Dokumental® NT 500.2 A', 'Blue',         '2.5', '>40',        '7.5–9.0', '1.03'],
+            ['Dokumental® NT 501.2 A', 'Dark blue',    '2.5', '>40',        '7.5–9.0', '1.04'],
+            ['Dokumental® NT 510.2 A', 'Black',        '2.9', '>40',        '7.5–9.0', '1.08'],
+            ['Dokumental® NT 513.2 A', 'Black',        '3.1', '>40',        '7.5–9.0', '1.09'],
+            ['Dokumental® NT 520.2 A', 'Red',          '2.5', '>40',        '7.5–9.0', '1.06'],
+            ['Dokumental® NT 523.2 A', 'Burgundy',     '2.4', '>40',        '7.5–9.0', '1.05'],
+            ['Dokumental® NT 530.2 A', 'Green',        '2.5', '>40',        '7.5–9.0', '1.06'],
+            ['Dokumental® NT 534.2 A', 'Yellow green', '2.7', '>40',        '7.5–9.0', '1.03'],
+            ['Dokumental® NT 536.2 A', 'Bluish green', '2.4', '>40',        '7.5–9.0', '1.06'],
+            ['Dokumental® NT 540.2 A', 'Violet',       '2.5', '>40',        '7.5–9.0', '1.06'],
+            ['Dokumental® NT 551.2 A', 'Dark Brown',   '2.7', '>40',        '7.5–9.0', '1.07'],
+            ['Dokumental® NT 553.2',   'Brown',        '2.8', '30.0–34.0',  '7.5–9.0', '1.08'],
+            ['Dokumental® NT 554.2 A', 'Light brown',  '2.7', '30.0–34.0',  '7.5–9.0', '1.08'],
+            ['Dokumental® NT 564.2',   'Yellow',       '2.6', '30.0–34.0',  '7.5–9.0', '1.08'],
+            ['Dokumental® NT 565.2',   'Orange',       '2.6', '30.0–34.0',  '7.5–9.0', '1.08'],
+            ['Dokumental® NT 566.2',   'Yolk',         '3.5', '31.0–35.0',  '7.5–9.0', '1.10'],
+            ['Dokumental® NT 572.2 A', 'Pink',         '2.2', '>40',        '7.5–9.0', '1.05'],
+            ['Dokumental® NT 573.2 A', 'Lilac',        '2.2', '>40',        '7.5–9.0', '1.06'],
+            ['Dokumental® NT 580.2 A', 'Turquoise',    '2.3', '>40',        '7.5–9.0', '1.05'],
+            ['Dokumental® NT 585.2',   'Olive',        '3.2', '29.0–31.0',  '7.5–9.0', '1.10'],
+          ],
+          colorMap: {
+            'Blue': '#1a4aae', 'Dark blue': '#00008b', 'Black': '#1a1a1a',
+            'Red': '#cc2200', 'Burgundy': '#800020', 'Green': '#2e8b57',
+            'Yellow green': '#9acd32', 'Bluish green': '#2e8b6b', 'Violet': '#8b008b',
+            'Dark Brown': '#4a2a10', 'Brown': '#7b4a2d', 'Light brown': '#c4956a',
+            'Yellow': '#c8b400', 'Orange': '#f47920', 'Yolk': '#f5a623',
+            'Pink': '#ff80b0', 'Lilac': '#c8a2c8', 'Turquoise': '#00b5b0', 'Olive': '#808000'
+          }
+        },
+        colorCardImg: 'images/watercolor/colorcard_NT5XX.jpg',
+        components: '笔头：聚酯、丙烯酸、烧结聚乙烯（尼龙笔头由于可能会引起褪色，不推荐使用）\n卷包芯：聚酯（如果采用醋酸人造丝，则需要提前做充分的匹配测试）\n笔杆、笔帽、尾塞：聚丙烯、丁二烯苯乙烯、聚乙烯\n\n墨水和配件的兼容性以及书写性能必须得到充分测试。笔帽和尾塞必须封紧。\n\n在使用我们的产品之前，灌装设备必须小心维护和清洁，因为墨水很容易被污染（如化学污染或者微生物污染）。墨水的交叉污染可能导致色差，甚至会造成不良笔芯或者缩短笔芯的质保期。\n\n墨水含有杀菌剂以预防微生物滋生，但我们依然强烈建议在生产过程以及所有配套零部件都保持最佳卫生状况。',
+        storage: '储存环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。如果墨水在室温超过30℃的环境内放置数日，可能会导致墨水质保期的缩短。\n在原装未开启状态下的质保期为2年。使用后，桶必须再次封紧。',
+        packaging: '标准包装：20公斤塑料桶 / 200公斤塑料桶 / 1000公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // watercolor__8 : 二次变色墨水
+      'watercolor__8': {
+        overview: '这款墨水可以在使用擦液LF4205.1和31-06-A1后，从第一种起始色变成另外两种颜色。墨水呈现的颜色和变色效果的稳定性会受到纸张PH值的影响。',
+        surface: '在白色和浅色纸张',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', 'LF4205.1擦拭后', '31-06-A1擦拭后', '粘度 mPa·s', '表面张力 mN/m', '酸碱度', '密度 g/cm³'],
+          rows: [
+            ['31-55-G1', 'Black',  'Red',       'Green',  '1.5–3.5', '43–53', '6.0–7.0', '1.04–1.06'],
+            ['28-57-B1', 'Red',    'Magenta',   'Yellow', '1.5–3.5', '43–53', '6.8–7.8', '1.02–1.04'],
+            ['28-57-C4', 'Blue',   'Pink',      'Aqua',   '1.5–3.5', '43–53', '7.0–8.0', '1.02–1.04'],
+            ['31-55-D2', 'Green',  'Yellow',    'Black',  '1.5–3.5', '43–53', '6.0–7.0', '1.02–1.04'],
+            ['28-86-D',  'Yellow', 'Magenta',   'Peach',  '1.5–3.5', '38–48', '2.5–3.5', '1.02–1.04'],
+            ['28-57-F2', 'Orange', 'Red',       'Yellow', '1.5–3.5', '45–55', '5.3–6.3', '1.02–1.04'],
+            ['34-09-H',  'Brown',  'Red',       'Green',  '1.5–3.5', '40–50', '6.0–7.0', '1.03–1.05'],
+            ['31-03-G1', 'Purple', 'Pink',      'Blue',   '1.5–3.5', '35–45', '5.5–6.5', '1.02–1.04'],
+            ['34-08-C2', 'Grey',   'Turquoise', 'Pink',   '1.5–3.5', '35–45', '5.0–6.0', '1.01–1.03'],
+            ['31-13-A1', 'Orange', 'Red',       'Yellow', '1.5–3.5', '40–50', '6.5–7.5', '1.02–1.04'],
+            ['28-57-J2', 'Green',  'Lime green','Yellow', '1.5–3.5', '40–50', '6.0–7.0', '1.02–1.04'],
+            ['28-57-I',  'Mauve',  'Pink',      'Blue',   '1.5–3.5', '45–55', '5.5–6.5', '1.01–1.03'],
+            ['LF4205.1', 'Eraser I（擦液）', '—', '—', '1.5–3.5', '55–65', '9.0–10.5', '1.09–1.13'],
+            ['31-06-A1', 'Eraser II（擦液）','—', '—', '2.5–4.5', '40–50', '0–1.0',    '1.25–1.28'],
+          ],
+          colorMap: {
+            'Black': '#1a1a1a', 'Red': '#cc2200', 'Blue': '#1a4aae', 'Green': '#2e8b57',
+            'Yellow': '#c8b400', 'Orange': '#f47920', 'Brown': '#7b4a2d', 'Purple': '#6c3f8e',
+            'Grey': '#888888', 'Mauve': '#e0b0cc', 'Eraser I（擦液）': '#e0e0e0', 'Eraser II（擦液）': '#d0d0d0'
+          }
+        },
+        colorCardImg: 'images/watercolor/colorcard_TripleColor.jpg',
+        components: '塑料部分：聚苯乙烯、聚丙烯\n内塞：聚丙烯\n笔头：多孔塑料或者聚酯纤维\n笔头连接件：塑料\n卷包芯：变色墨水用塑料，擦液用聚丙烯\n卷包芯外包薄膜：聚丙烯',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+      // custom__0 : 3-37 非永久性幻灯片墨水
+      'custom__0': {
+        overview: '这个系列的墨水是为幻灯片应用而生，特点是性能均衡以及明亮的半透明色。水性的配方可以做到无异味以及用湿布就能清除痕迹。',
+        surface: '绝大多数的光滑表面，纸张和硬纸板。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['3-37-A3N.2(1)', 'black',   '6.0–8.0', '20–30', '1.06–1.08', '6.0–8.0'],
+            ['3-37-B1N.2(1)', 'blue',    '5.0–7.0', '20–30', '1.04–1.06', '5.0–8.0'],
+            ['3-37-C2N.1(1)', 'red',     '7.3–9.3', '20–30', '1.04–1.06', '3.0–6.0'],
+            ['3-37-D1N.1(1)', 'green',   '6.0–8.0', '20–30', '1.04–1.06', '2.5–4.5'],
+            ['3-37-E2N.1(1)', 'yellow',  '6.0–8.0', '20–30', '1.03–1.05', '2.5–4.5'],
+            ['3-37-F3N.1(2)', 'orange',  '6.5–8.5', '20–30', '1.05–1.07', '3.0–5.0'],
+            ['3-37-G2N.1(1)', 'brown',   '7.0–9.0', '20–30', '1.06–1.08', '3.0–5.0'],
+            ['3-37-H1N.1(1)', 'purple',  '5.5–7.5', '20–30', '1.04–1.06', '7.5–9.5'],
+            ['3-37-H5',       'magenta', '6.5–8.5', '20–30', '1.02–1.03', '2.0–4.0'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'blue': '#1a4aae', 'red': '#cc2200', 'green': '#2e8b57',
+            'yellow': '#c8b400', 'orange': '#f47920', 'brown': '#7b4a2d',
+            'purple': '#6c3f8e', 'magenta': '#d6006e'
+          }
+        },
+        colorCardImg: 'images/special/colorcard_3-37.jpg',
+        components: '塑料部分：聚苯乙烯、聚丙烯\n笔头：多孔塑料、聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯 / 醋酸纤维素\n卷包芯外包薄膜：聚丙烯',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // custom__1 : 5-41 / 3-34 外科手术用记号笔墨水
+      'custom__1': {
+        overview: '这个系列的墨水仅做医疗标记，用于在手术期间临时标记切口位置。5-41-A在过去的25年一直用于外科标记。这种标记不会造成永久性的污渍，可以用70%的异丙醇清洗掉，而异丙醇是一种常用的皮肤消毒液。',
+        surface: '在皮肤上做临时标记。',
+        solvent: '醇性',
+        extraAfterSurface: [
+          {
+            label: '应用范围',
+            text: '本品仅供医用，用于在已消毒的外科标记物上作临时的皮肤标记。这种墨水不符合化妆品的规定，不推荐作为化妆品使用。'
+          },
+          {
+            label: '证书/认证/法规',
+            text: '在加州65号提案中，着色剂龙胆紫被列为危险化学品，因此在加州销售的含有5-41-A的标记需要一个警告标签，而5-41-B不需要这个标签。为满足医疗器械的安全要求，我们建议成品笔在装箱后用伽玛射线灭菌。如使用环氧乙烷灭菌有时会导致墨水变色。'
+          }
+        ],
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['5-41-A',  'purple', '2–5', '25–35', '0.98–0.99', '4.5–6.5'],
+            ['5-41-B',  'purple', '2–5', '31–41', '1.00–1.02', '3.2–5.2'],
+            ['3-34-A2', 'Purple', '7–8', '41–51', '1.09–1.11', '3.2–5.2'],
+          ],
+          colorMap: {
+            'purple': '#6c3f8e', 'Purple': '#8b008b'
+          }
+        },
+        colorCardImg: 'images/special/colorcard_5-41.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。\n\n这个系列的墨水被归类为易燃性液体，闪点为109℉ / 43℃。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // custom__2 : 21-86 / 57-52 紫外线保安墨水
+      'custom__2': {
+        overview: '这类墨水目前在记号笔中有两种推荐用途。\n\n主要用途是在可能被偷的物品上做一个看不见的安全标记，以便在警察找到它们时帮助识别。57-52系列可以书写在所有表面，包括玻璃、塑料、金属、木材和其他。\n\n第二个用途是应用于儿童玩具记号笔，用来在纸上写上看不见的标记。机密信息可以在低功率紫外线光源下查看。21-86系列是水性墨水，可以书写在纸张或者多孔的材质上。',
+        surface: '21-86系列推荐书写在纸张或者多孔的表面。57-52系列可以书写在玻璃、塑料、金属、木材和其他无孔的表面。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s', '表面张力 mN/m', '酸碱度', '密度 g/cm³'],
+          rows: [
+            ['21-86-A3(N)', 'colorless（紫外可见）', '1.2–3.2', '37–47', '8–9',  '1.01–1.03'],
+            ['57-52-E1',    'colorless（紫外可见）', '2.5–4.5', '20–30', '—',   '0.91–0.93'],
+          ],
+          colorMap: {
+            'colorless（紫外可见）': '#e8e8e8'
+          }
+        },
+        components: '塑料部分：聚丙烯\n笔头：聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯\n卷包芯外包薄膜：聚丙烯',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '21-86系列标准包装：20公斤塑料桶；\n57-52系列标准包装：17公斤塑料桶。',
+        manufacturer: ''
+      },
+
+      // custom__3 : 49-99 验钞笔墨水
+      'custom__3': {
+        overview: '特制墨水，用于检验货币使用纸张的质量。高质量纸币上的墨水标记最初会呈现淡黄色，几小时后会褪色为无色。如果标记最初是深棕色或黑色，表示该纸张一般用于写作和书籍。这款墨水可以通过检验纸张质量来判断货币是否是伪钞。',
+        surfaceLabel: '应用范围',
+        surface: '在零售店、货币兑换商和银行出纳员处检测伪造纸币。请不要用于印刷在塑料胶片的货币，也不要用于日元的检测。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s', '表面张力 mN/m', '酸碱度', '密度 g/cm³'],
+          rows: [
+            ['49-99-I',      'amber', '1.5–3.5', '56–68', '4–8', '1.06–1.08'],
+            ['49-99-J1(BF)', 'amber', '1.5–3.5', '26–36', '2–6', '1.01–1.03'],
+            ['49-99-J11',    'amber', '1.5–3.5', '26–36', '4–8', '1.10–1.03'],
+          ],
+          colorMap: {
+            'amber': '#ffbf00'
+          }
+        },
+        components: '墨水并不适用于签字笔中使用的塑料笔头和金属笔头。如使用纤维笔头必须经过谨慎的测试。\n\n笔头：烧结笔头（如Porex）或者耐腐蚀的特殊聚酯笔头（如Aubex、Teibow）。有时笔头会显示出它跟墨水的相互作用，所以我们建议充分测试两者的匹配度。聚缩醛树脂制成的塑料笔头并不适合。\n\n笔管、笔帽和尾塞：墨水会导致白色聚丙烯和聚乙烯塑料件变黄，建议零配件使用深色塑料。\n\n卷包芯：聚酯纤维（如Filtrona XPE）',
+        storage: '存储环境应该注意避强光以及防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+      // marker__0 : 2-53 灯板笔墨水（干擦型水性阀门记号笔墨水）
+      'marker__0': {
+        overview: '这款水性墨水可以在各种光滑表面（玻璃、PP+PE箔、金属、黑板等）做记号，且可以轻易用干布擦去。但仅限于阀门笔配件使用。',
+        surface: '所有类型的白板，塑料层压板和窗玻璃',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s ±5.0', '表面张力 mN/m ±5.0', '酸碱度 ±1.0', '密度 g/cm³ ±0.10'],
+          rows: [
+            ['2-53-A9',  'Pink',   '30', '23', '7.5', '1.26'],
+            ['2-53-B10', 'Yellow', '30', '23', '7.5', '1.30'],
+            ['2-53-C9',  'red',    '30', '23', '7.2', '1.24'],
+            ['2-53-E8',  'green',  '30', '23', '7.5', '1.30'],
+            ['2-53-F7',  'violet', '30', '23', '7.5', '1.30'],
+            ['2-53-G19', 'white',  '30', '23', '8.1', '1.44'],
+            ['2-53-H6',  'orange', '30', '23', '7.8', '1.28'],
+            ['2-53-I10', 'blue',   '30', '23', '7.8', '1.27'],
+          ],
+          colorMap: {
+            'Pink': '#ff80b0', 'Yellow': '#ffdd00', 'red': '#cc2200',
+            'green': '#2e8b57', 'violet': '#6c3f8e', 'white': '#f0f0f0',
+            'orange': '#f47920', 'blue': '#1a4aae'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_2-53.jpg',
+        components: '笔帽：聚丙烯\n笔头：适用于颜料型墨水的聚酯纤维和丙烯酸纤维\n笔杆：带阀门的聚丙烯\n不推荐使用无涂层铝管\n摇珠：玻璃或不锈钢',
+        storage: '使用前产品必须充分搅匀。\n储存环境应该防冻。墨水在原装未开启状态下的质保期为2年。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__1 : 3-36 闪光水彩墨水
+      'marker__1': {
+        overview: '这个系列的墨水是专门为孩子设计的，主要是用来给纸张增添闪闪发光的标记。如墨水沾染在衣物上，可以使用肥皂和清水洗净。\n\n这款墨水针对不同的笔头提供2种粘度区间。',
+        surface: '所有淡色系彩色的纸张。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度 ±1.0', '表面张力 mN/m ±2.0', '密度 g/cm³ ±0.01', '粘度 mPa·s ±5.0'],
+          rows: [
+            ['3-36-A12', 'orange',    '8.5', '26', '1.06', '35'],
+            ['3-36-B9',  'red',       '8.5', '28', '1.07', '35'],
+            ['3-36-C17', 'blue',      '8.5', '28', '1.06', '36'],
+            ['3-36-C18', 'dark blue', '8.5', '27', '1.07', '33'],
+            ['3-36-D9',  'green',     '8.5', '26', '1.07', '37'],
+            ['3-36-E9',  'yellow',    '8.5', '28', '1.07', '37'],
+            ['3-36-F9',  'silver',    '8.5', '27', '1.08', '37'],
+            ['3-36-G6',  'magenta',   '8.5', '27', '1.07', '36'],
+            ['3-36-H6',  'violet',    '8.5', '27', '1.06', '36'],
+            ['3-36-I5',  'pink',      '8.5', '27', '1.06', '35'],
+            ['3-36-J5',  'gold',      '8.5', '27', '1.07', '37'],
+            ['3-36-K4',  'lime green','8.5', '27', '1.07', '37'],
+          ],
+          colorMap: {
+            'orange': '#f47920', 'red': '#cc2200', 'blue': '#1a4aae',
+            'dark blue': '#00008b', 'green': '#2e8b57', 'yellow': '#c8b400',
+            'silver': '#c0c0c0', 'magenta': '#d6006e', 'violet': '#6c3f8e',
+            'pink': '#ff80b0', 'gold': '#d4af37', 'lime green': '#6abf43'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_3-36.jpg',
+        components: '阀门笔\n塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：适用于闪光颗粒的高孔隙率聚酯纤维',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。\n\n为了达到最佳的效果，使用前墨水应充分混合，灌装过程中也需继续保持搅拌墨水。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__2 : 46-33 醇性永久记号墨水
+      'marker__2': {
+        overview: '这款醇性记号墨水的特点是持久，颜色明亮和对无孔表面良好附着力。',
+        surface: '大部分的光滑表面，纸张和硬板纸。',
+        solvent: '醇性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s', '表面张力 mN/m', '密度 g/cm³ ±0.01'],
+          rows: [
+            ['46-33-A1', 'Black', '3.5–5.5', '20.0–25.0', '0.85–0.87'],
+            ['46-33-A2', 'Black', '4.0–6.0', '20.0–26.0', '0.85–0.87'],
+            ['46-33-B1', 'Red',   '2.5–4.5', '21.0–25.0', '0.83–0.85'],
+            ['46-33-C1', 'Blue',  '3.0–5.0', '20.0–24.0', '0.84–0.86'],
+            ['46-33-D3', 'Green', '2.5–4.5', '20.0–24.0', '0.84–0.86'],
+          ],
+          colorMap: {
+            'Black': '#1a1a1a', 'Red': '#cc2200', 'Blue': '#1a4aae', 'Green': '#2e8b57'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_46-33.jpg',
+        components: '塑料部分：聚丙烯（墨水跟聚苯乙烯、ABS、聚酰胺不兼容）\n内塞：聚丙烯\n笔头：多孔塑料或聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。\n\n如长时间在5℃以下存储，墨水里会产生沉积。如室温恢复到25℃，并搅拌墨水，这些沉积将会再溶解。\n\n注意：这款墨水被划分为易燃液体。如需要详细的安全性资料，可参考每个型号的化学品安全技术说明书（MSDS）。',
+        packaging: '标准包装：17公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__3 : 48-83 水性油漆笔墨水
+      'marker__3': {
+        overview: '这款水性颜料型不透明墨水供兴趣创作和艺术应用，且只能用于阀门式笔。它对玻璃、塑料、皮革和金属表面有良好的附着力，但也可用于纸张。在深色的表面上，墨水会立即留下不透明的印记。这个系列的墨水，在刚应用于表面时可以被去除，但几分钟后，就会变成坚硬、持久的标记。\n\n48-83不符合化妆品标准，不建议在皮肤上书写。它们可以用肥皂和水从皮肤上被清洗下来。',
+        surface: '在大多数的表面留下不透明的持久标记。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s ±5.0', '表面张力 mN/m ±5.0', '酸碱度 ±1.0', '密度 g/cm³ ±0.01'],
+          rows: [
+            ['48-83-AN', 'Black',  '39.0', '33', '8.4', '1.11'],
+            ['48-83-BN', 'red',    '45.0', '33', '8.5', '1.21'],
+            ['48-83-CN', 'blue',   '34.0', '33', '8.5', '1.22'],
+            ['48-83-DN', 'green',  '32.0', '33', '8.5', '1.23'],
+            ['48-83-EN', 'yellow', '43.0', '33', '8.4', '1.21'],
+            ['48-83-FN', 'orange', '34.0', '33', '8.4', '1.21'],
+            ['48-83-GN', 'Brown',  '43.0', '33', '8.4', '1.21'],
+            ['48-83-HN', 'purple', '24.0', '33', '8.4', '1.21'],
+            ['48-83-IN', 'Pink',   '40.0', '33', '8.4', '1.21'],
+            ['48-83-JN', 'White',  '32.0', '33', '8.5', '1.21'],
+          ],
+          colorMap: {
+            'Black': '#1a1a1a', 'red': '#cc2200', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'yellow': '#c8b400', 'orange': '#f47920', 'Brown': '#7b4a2d',
+            'purple': '#6c3f8e', 'Pink': '#ff80b0', 'White': '#f0f0f0'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_48-83.jpg',
+        components: '主体部分：聚丙烯材质的阀门式笔\n笔帽：聚丙烯\n笔头：适用于颜料型墨水的高孔隙率聚酯纤维或亚克力笔头\n摇珠：玻璃或者不锈钢',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室温超过30℃，会导致墨水质保期的缩短。\n\n墨水在灌装前必须仔细混合。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__4 : 48-84 水性油漆笔墨水（亚克力）
+      'marker__4': {
+        overview: '这款水性颜料型不透明墨水供兴趣创作和艺术应用，且只能用于阀门式笔。它对玻璃、塑料、皮革和金属表面有良好的附着力，但也可用于纸张。在深色的表面上，墨水会立即留下不透明的印记。这个系列的墨水，在刚应用于表面时可以被去除，但几分钟后，就会变成坚硬、持久的标记。\n\n48-84不符合化妆品标准，不建议在皮肤上书写。它们可以用肥皂和水从皮肤上被清洗下来。',
+        surface: '在大多数的表面留下不透明的持久标记。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['48-84-A2',    'black',       '7.7–8.7', '24–34', '1.10–1.20', '30.0–36.0'],
+            ['48-84-B1',    'red',         '7.9–8.9', '25–31', '1.10–1.20', '32.0–37.0'],
+            ['48-84-C1',    'blue',        '7.7–8.7', '23–29', '1.10–1.20', '31.0–35.0'],
+            ['48-84-D2',    'green',       '7.8–8.8', '23–29', '1.10–1.20', '24.0–30.0'],
+            ['48-84-E1',    'yellow',      '7.9–8.9', '23–29', '1.10–1.20', '31.0–37.0'],
+            ['48-84-F1',    'orange',      '7.8–8.8', '23–29', '1.10–1.20', '32.0–38.0'],
+            ['48-84-G5',    'white',       '7.7–8.7', '25–31', '1.10–1.20', '30.0–36.0'],
+            ['48-84-H2',    'purple',      '7.8–8.8', '25–31', '1.10–1.20', '30.0–36.0'],
+            ['48-84-I1',    'magenta',     '7.8–8.8', '25–31', '1.10–1.20', '33.0–37.0'],
+            ['48-84-J6',    'lime green',  '7.7–8.7', '26–32', '1.10–1.20', '32.0–38.0'],
+            ['48-84-K1',    'sky blue',    '8.0–9.0', '25–31', '1.10–1.20', '30.0–36.0'],
+            ['48-84-L1',    'brown',       '8.0–9.0', '25–31', '1.10–1.20', '30.0–36.0'],
+            ['48-84-B3',    'wine',        '7.8–8.8', '21–27', '1.10–1.20', '29.5–35.5'],
+            ['48-84-H3',    'lt. purple',  '7.8–8.8', '23–29', '1.10–1.20', '30.0–36.0'],
+            ['48-84-Q',     'ivory',       '7.8–8.8', '22–28', '1.10–1.20', '28.0–34.0'],
+            ['48-84-P2',    'gray',        '7.8–8.8', '22–28', '1.10–1.20', '30.5–36.5'],
+            ['48-84-H4',    'pink',        '7.5–9.5', '25–31', '1.15–1.17', '25.0–35.0'],
+            ['48-84-J4',    'blue green',  '7.5–9.5', '25–31', '1.15–1.17', '25.0–35.0'],
+            ['48-84-J8',    'forest green','7.5–9.5', '25–31', '1.15–1.17', '25.0–35.0'],
+            ['48-84-L3',    'dark brown',  '7.5–9.5', '25–31', '1.15–1.17', '25.0–35.0'],
+            ['48-84-M2-NP', 'silver',      '7.8–8.5', '23–29', '1.05–1.10', '20.0–24.0'],
+            ['48-84-N1-NP', 'gold',        '7.8–8.5', '23–29', '1.05–1.10', '20.0–24.0'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'yellow': '#c8b400', 'orange': '#f47920', 'white': '#f0f0f0', 'purple': '#6c3f8e',
+            'magenta': '#d6006e', 'lime green': '#6abf43', 'sky blue': '#87ceeb',
+            'brown': '#7b4a2d', 'wine': '#800020', 'lt. purple': '#c8a0e8',
+            'ivory': '#fffff0', 'gray': '#888888', 'pink': '#ff80b0', 'blue green': '#008b8b',
+            'forest green': '#228b22', 'dark brown': '#4a2a10', 'silver': '#c0c0c0', 'gold': '#d4af37'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_48-84.jpg',
+        components: '主体部分：聚丙烯材质的阀门式笔，阀门结构采用耐腐蚀弹簧\n摇珠：不锈钢或者玻璃\n笔头：适用于颜料型墨水的高孔隙率亚克力或聚酯纤维笔头。笔头硬度要高，以免在粗糙表面书写时变形。',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。墨水在灌装前必须仔细混合。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__5 : 48-88 闪光水性油漆笔墨水
+      'marker__5': {
+        overview: '这款水性颜料型不透明墨水供兴趣创作和艺术应用，且只能用于阀门式笔。它对玻璃、塑料、皮革和金属表面有良好的附着力，但也可用于纸张。在深色的表面上，墨水会立即留下不透明的印记。这个系列的墨水，在刚应用于表面时可以被去除，但几分钟后，就会变成坚硬、持久的标记。\n\n48-88不符合化妆品标准，不建议在皮肤上书写。它们可以用肥皂和水从皮肤上被清洗下来。',
+        surface: '在大多数的表面留下不透明的持久标记。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s ±3.0', '表面张力 mN/m ±3.0', '密度 g/cm³ ±0.01', '酸碱度 ±0.5'],
+          rows: [
+            ['48-88-A', 'black',    '34.9', '26', '1.059', '8.2'],
+            ['48-88-B', 'red',      '35.8', '26', '1.065', '8.2'],
+            ['48-88-C', 'orange',   '35.4', '25', '1.062', '8.1'],
+            ['48-88-D', 'yellow',   '35.3', '25', '1.061', '8.1'],
+            ['48-88-E', 'green',    '33.4', '25', '1.061', '8.2'],
+            ['48-88-F', 'blue',     '33.4', '26', '1.056', '8.1'],
+            ['48-88-G', 'violet',   '34.4', '26', '1.054', '8.1'],
+            ['48-88-H', 'pink',     '37.2', '26', '1.056', '8.1'],
+            ['48-88-I', 'dark blue','35.8', '25', '1.056', '8.1'],
+            ['48-88-J', 'teal',     '33.9', '26', '1.059', '8.1'],
+            ['48-88-K', 'brown',    '35.4', '25', '1.065', '8.1'],
+            ['48-88-L', 'magenta',  '37.9', '25', '1.060', '8.2'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'orange': '#f47920', 'yellow': '#c8b400',
+            'green': '#2e8b57', 'blue': '#1a4aae', 'violet': '#6c3f8e', 'pink': '#ff80b0',
+            'dark blue': '#00008b', 'teal': '#008080', 'brown': '#7b4a2d', 'magenta': '#d6006e'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_48-88.jpg',
+        components: '主体部分：聚丙烯材质的阀门式笔，阀门结构采用耐腐蚀弹簧\n摇珠：不锈钢或者玻璃\n笔头：高孔隙率亚克力或聚酯纤维笔头，用于匹配闪光颜料25–50微米。笔头硬度要高，以免在粗糙表面书写时变形。',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。墨水在灌装前必须仔细混合。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__6 : 62-95 水粉永久记号笔墨水
+      'marker__6': {
+        overview: '这款水性颜料型不透明墨水适用于黑色、白色和其他色调的纸张，并且在玻璃、塑料、金属表面展现出很好很有趣的效果。\n\n墨水"鲜亮"的颜色在几秒内随着墨迹的干燥完全显现，并呈不透明性状。62-95不符合化妆品标准，不建议在皮肤上书写，但它们很容易用肥皂和水从皮肤上被清洗下来。类似于德国文都供应的CB 81XX系列。',
+        surface: '在大多数类型的表面留下不透明的持久标记',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度 ±1.0', '表面张力 mN/m ±5.0', '密度 g/cm³ ±0.01', '粘度 mPa·s ±2.0'],
+          rows: [
+            ['62-95-A',  'blue',    '8.8', '35', '1.04', '9.0'],
+            ['62-95-B',  'pink',    '8.7', '35', '1.04', '10.0'],
+            ['62-95-C',  'green',   '9.0', '35', '1.04', '9.0'],
+            ['62-95-D2', 'yellow',  '8.5', '35', '1.07', '8.0'],
+            ['62-95-E2', 'violet',  '8.5', '35', '1.07', '10.0'],
+            ['62-95-F',  'orange',  '8.7', '35', '1.05', '13.0'],
+            ['62-95-G1', 'red',     '8.9', '35', '1.04', '9.0'],
+            ['62-95-H',  'black',   '8.5', '35', '1.07', '5.0'],
+            ['62-95-I',  'white',   '8.9', '35', '1.04', '10.0'],
+            ['62-95-J',  'teal',    '8.7', '35', '1.04', '8.0'],
+            ['62-95-L',  'magenta', '8.6', '35', '1.05', '13.0'],
+          ],
+          colorMap: {
+            'blue': '#1a4aae', 'pink': '#ff80b0', 'green': '#2e8b57', 'yellow': '#c8b400',
+            'violet': '#6c3f8e', 'orange': '#f47920', 'red': '#cc2200', 'black': '#1a1a1a',
+            'white': '#f0f0f0', 'teal': '#008080', 'magenta': '#d6006e'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_62-95.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：颜料型高孔隙率的聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。\n\n墨水在灌装前必须仔细混合。\n\n最初引墨时，应该保持笔尖向下，以便笔尖充满颜料。为了达到最佳效果，成品笔需要在运输途中和销售点货架上水平放置。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__7 : 65-30/32/36 非永久阀门笔墨水
+      'marker__7': {
+        overview: '这款墨水的配方是为在玻璃上做临时标记而设计的。最流行的应用是在车窗上写广告。在室外条件下，标记不会因为雨水冲刷而被去除或者缺失。如果需要，可以用湿布擦去标记。\n\n不建议在车漆表面书写，因为笔尖摩擦会在抛光表面造成小的划痕。',
+        surface: '在玻璃、金属、塑料等无孔表面做标记。也可用于纸张，但标记不可去除。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度 ±0.5', '表面张力 mN/m ±3.0', '密度 g/cm³ ±0.05', '粘度 mPa·s ±5.0'],
+          rows: [
+            ['65-30-D',  'blue',   '8.5', '33', '1.34', '45'],
+            ['65-30-E1', 'red',    '8.5', '33', '1.37', '45'],
+            ['65-30-G1', 'yellow', '8.5', '33', '1.34', '50'],
+            ['65-32-C3', 'green',  '8.5', '33', '1.27', '45'],
+            ['65-36-A1', 'white',  '8.5', '33', '1.36', '35'],
+            ['65-36-D2', 'pink',   '8.2', '33', '1.20', '35'],
+          ],
+          colorMap: {
+            'blue': '#1a4aae', 'red': '#cc2200', 'yellow': '#c8b400',
+            'green': '#2e8b57', 'white': '#f0f0f0', 'pink': '#ff80b0'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_65-30.jpg',
+        components: '墨水需配聚丙烯管的阀门式笔或有内涂层的铝管阀门式笔，摇珠材质应使用不锈钢或者玻璃。\n笔头：聚酯纤维或者颜料型高孔隙率的丙烯酸纤维',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。\n\n为了达到最佳效果，墨水在灌装前必须混合，灌装过程中也需要搅拌。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__8 : 70-44/40-22 织物墨水
+      'marker__8': {
+        overview: '这款水性颜料型永久墨水用于在织布上书写，印记在熨烫后无法洗去，但很容易用肥皂和水从皮肤和无孔表面被洗去。',
+        surface: '最适合所有类型的浅色面料。不建议用于黑色或者其他深色面料。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度 ±1.0', '表面张力 mN/m ±5.0', '密度 g/cm³ ±0.01', '粘度 mPa·s ±1.0'],
+          rows: [
+            ['70-44-A4C', 'black',      '8.7', '33', '1.070', '6.0'],
+            ['70-44-B',   'red',        '8.9', '33', '1.060', '6.0'],
+            ['70-44-C',   'blue',       '8.6', '33', '1.070', '5.0'],
+            ['70-44-C3',  'dark blue',  '8.2', '35', '1.050', '3.8'],
+            ['70-44-D',   'green',      '8.7', '33', '1.080', '6.0'],
+            ['70-44-E',   'yellow',     '8.7', '33', '1.050', '4.0'],
+            ['70-44-F',   'orange',     '8.5', '33', '1.050', '6.0'],
+            ['70-44-G',   'brown',      '8.5', '33', '1.060', '7.0'],
+            ['70-44-H',   'purple',     '8.5', '33', '1.050', '5.0'],
+            ['70-44-I',   'sky blue',   '8.2', '33', '1.050', '6.5'],
+            ['70-44-J',   'magenta',    '8.5', '34', '1.040', '6.5'],
+            ['70-44-K4',  'lime green', '8.2', '43', '1.055', '4.0'],
+            ['70-44-L',   'gray',       '8.5', '34', '1.040', '6.5'],
+            ['70-44-M',   'teal',       '8.2', '35', '1.050', '4.2'],
+            ['70-44-O',   'pink',       '8.2', '35', '1.050', '4.6'],
+            ['70-44-P',   'dark violet','8.2', '33', '1.050', '3.8'],
+            ['40-22-A2',  'fl.yellow',  '7.0', '35', '1.050', '7.0'],
+            ['40-22-B8',  'fl.orange',  '8.0', '37', '1.060', '6.0'],
+            ['40-22-C8',  'fl.pink',    '8.0', '37', '1.060', '6.0'],
+            ['40-22-E8',  'fl.green',   '7.0', '35', '1.040', '5.0'],
+            ['40-22-E10', 'lt. green',  '7.5', '36', '1.060', '7.0'],
+            ['40-22-F11', 'blue',       '8.0', '35', '1.065', '5.5'],
+            ['40-22-G2',  'fl.purple',  '7.0', '35', '1.040', '6.7'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'blue': '#1a4aae', 'dark blue': '#00008b',
+            'green': '#2e8b57', 'yellow': '#c8b400', 'orange': '#f47920', 'brown': '#7b4a2d',
+            'purple': '#6c3f8e', 'sky blue': '#87ceeb', 'magenta': '#d6006e', 'lime green': '#6abf43',
+            'gray': '#888888', 'teal': '#008080', 'pink': '#ff80b0', 'dark violet': '#4b0082',
+            'fl.yellow': '#ffff00', 'fl.orange': '#ff9900', 'fl.pink': '#ff80c0',
+            'fl.green': '#39ff14', 'lt. green': '#90ee90', 'fl.purple': '#bf5fff'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_70-44.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：颜料型高孔隙率的聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '储存环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。\n\n墨水在灌装前必须仔细混合。最初引墨时，应该保持笔尖向下，以便笔尖充满颜料。为了达到最佳效果，成品笔需要在运输途中和销售点货架上水平放置。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__9 : 71-50 水性金属墨水
+      'marker__9': {
+        overview: '这款水性墨水在白色、黑色或深色的纸上形成明亮的金属标记。71-50用于卷包芯笔，但是要求采用特殊的灌装工艺和特殊的高孔隙率笔头，以获得令人满意的结果。\n\n完成注墨后，笔应该笔头朝下放置一个小时，使笔头浸润。一个小时后，成品笔应该水平储存，并在销售点水平展示。',
+        surface: '所有纸张。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '粘度 mPa·s ±1.0', '表面张力 mN/m ±5.0', '密度 g/cm³ ±0.01', '酸碱度 ±1.0'],
+          rows: [
+            ['71-50-A',  'silver',    '9.0',  '26.4', '1.07', '8.3'],
+            ['71-50-B',  'gold',      '8.2',  '33.0', '1.07', '8.2'],
+            ['71-50-C',  'blue',      '8.5',  '30.0', '1.10', '8.6'],
+            ['71-50-D',  'green',     '8.2',  '29.0', '1.07', '8.2'],
+            ['71-50-E2', 'purple',    '8.5',  '29.0', '1.07', '8.0'],
+            ['71-50-F',  'red',       '8.7',  '30.0', '1.09', '8.5'],
+            ['71-50-G',  'bronze',    '9.0',  '30.0', '1.07', '8.2'],
+            ['71-50-H',  'graphite',  '8.7',  '28.0', '1.10', '8.3'],
+            ['71-50-I',  'copper',    '13.0', '34.0', '1.09', '9.1'],
+            ['71-50-J',  'lime green','9.0',  '28.0', '1.07', '8.5'],
+            ['71-50-K1', 'pink',      '9.0',  '28.0', '1.05', '7.0'],
+          ],
+          colorMap: {
+            'silver': '#c0c0c0', 'gold': '#d4af37', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'purple': '#6c3f8e', 'red': '#cc2200', 'bronze': '#cd7f32', 'graphite': '#444444',
+            'copper': '#b87333', 'lime green': '#6abf43', 'pink': '#ff80b0'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_71-50.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：高孔隙率的聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯纤维，密度为0.12–0.16 gm/cc\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。\n\n注墨之前，墨水必须搅拌，而且墨水只能注射到卷包芯中。注墨完成后，笔应该笔头朝下放置一个小时。成品笔应该水平放置并包装。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__10 : 71-71 水性金属墨水
+      'marker__10': {
+        overview: '这款水性墨水在白色、黑色或深色的纸上形成明亮的金属标记。71-71用于卷包芯笔，但是要求采用特殊的灌装工艺和特殊的高孔隙率笔头，以获得令人满意的结果。\n\n完成注墨后，笔应该笔头朝下放置一个小时，使笔头浸润。一个小时后，成品笔应该水平储存，并在销售点水平展示。',
+        surface: '所有纸张。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度 ±1.0', '表面张力 mN/m ±3.0', '密度 g/cm³ ±0.01', '粘度 mPa·s ±1.0'],
+          rows: [
+            ['71-71-A',   'silver',    '8.3', '30.5', '1.09', '9.0'],
+            ['71-71-B',   'gold',      '8.0', '35.0', '1.10', '8.7'],
+            ['71-71-C',   'blue',      '7.8', '32.0', '1.10', '8.7'],
+            ['71-71-D',   'green',     '8.0', '32.0', '1.09', '9.2'],
+            ['71-71-E',   'purple',    '7.0', '28.0', '1.08', '9.0'],
+            ['71-71-F',   'red',       '8.5', '29.0', '1.08', '8.7'],
+            ['71-71-G',   'bronze',    '8.7', '35.0', '1.09', '12.4'],
+            ['71-71-H.1', 'black',     '8.5', '31.0', '1.08', '8.2'],
+            ['71-71-I',   'copper',    '8.7', '33.0', '1.10', '13.0'],
+            ['71-71-J',   'lime green','9.0', '33.8', '1.09', '14.4'],
+            ['71-71-K2',  'magenta',   '8.0', '33.0', '1.09', '13.5'],
+          ],
+          colorMap: {
+            'silver': '#c0c0c0', 'gold': '#d4af37', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'purple': '#6c3f8e', 'red': '#cc2200', 'bronze': '#cd7f32', 'black': '#1a1a1a',
+            'copper': '#b87333', 'lime green': '#6abf43', 'magenta': '#d6006e'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_71-71.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：高孔隙率的聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯纤维，密度为0.12–0.16 gm/cc\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。\n\n注墨之前，墨水必须搅拌，而且墨水只能注射到卷包芯中。注墨完成后，笔应该笔头朝下放置一个小时。成品笔应该水平放置并包装。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__11 : 78-55 经济型永久记号墨水
+      'marker__11': {
+        overview: '这款经济型墨水的优点是持久性强、颜色明亮、对无孔表面有很好的附着力，以及经济的价格。',
+        surface: '大多数光滑的表面、纸张和硬板纸。',
+        extraAfterSurface: [
+          {
+            label: '应用范围',
+            text: '工业和专用标记。兴趣爱好和教学用途。'
+          }
+        ],
+        solvent: '醇性',
+        physicalTable: {
+          headers: ['型号', '颜色', '表面张力 mN/m ±2.0', '密度 g/cm³ ±0.01', '粘度 mPa·s ±0.5', '固体含有量 ±1.0'],
+          rows: [
+            ['78-55-A1N',  'Black',       '24', '0.862', '6.1', '26.0'],
+            ['78-55-B7N',  'Crimson',     '24', '0.850', '4.7', '25.0'],
+            ['78-55-B8N',  'Brick red',   '24', '0.853', '4.6', '25.3'],
+            ['78-55-B11',  'Scarlet red', '24', '0.857', '5.7', '28.0'],
+            ['78-55-B12',  'Red',         '24', '0.854', '5.4', '25.6'],
+            ['78-55-C4N',  'Ultramarine', '24', '0.855', '5.2', '26.8'],
+            ['78-55-C5N',  'Bright blue', '24', '0.858', '5.1', '26.0'],
+            ['78-55-D3N',  'Green',       '24', '0.853', '4.6', '24.9'],
+            ['78-55-E4N',  'Yellow',      '24', '0.854', '4.9', '25.0'],
+            ['78-55-E5N',  'Saffron',     '24', '0.850', '4.3', '25.0'],
+            ['78-55-F6N',  'Orange',      '24', '0.858', '5.2', '26.3'],
+            ['78-55-G8N',  'Brown',       '24', '0.864', '5.6', '29.0'],
+            ['78-55-H9N',  'Violet',      '24', '0.850', '4.8', '24.9'],
+            ['78-55-I10N', 'Chartreuse',  '24', '0.850', '4.7', '23.7'],
+            ['78-55-J8N',  'Pink',        '24', '0.844', '4.0', '22.4'],
+            ['78-55-K2N',  'Teal',        '24', '0.850', '4.5', '24.0'],
+            ['78-55-M7N',  'Aqua',        '24', '0.850', '5.0', '24.6'],
+            ['78-55-O3N',  'Purple',      '24', '0.846', '4.6', '23.1'],
+            ['78-55-P2N',  'Berry',       '24', '0.846', '6.1', '23.0'],
+            ['78-55-Q1N',  'Blue green',  '24', '0.856', '5.3', '25.2'],
+            ['78-55-R3N',  'Peach',       '24', '0.845', '4.2', '22.3'],
+            ['78-55-SN',   'Cerulean',    '24', '0.844', '4.3', '22.5'],
+            ['78-55-T1N',  'Gray',        '24', '0.846', '4.3', '22.0'],
+            ['78-55-UN',   'Fuchsia',     '24', '0.846', '4.5', '22.3'],
+          ],
+          colorMap: {
+            'Black': '#1a1a1a', 'Crimson': '#dc143c', 'Brick red': '#9c3030',
+            'Scarlet red': '#ff2400', 'Red': '#cc2200', 'Ultramarine': '#3f00ff',
+            'Bright blue': '#0096ff', 'Green': '#2e8b57', 'Yellow': '#c8b400',
+            'Saffron': '#f4c430', 'Orange': '#f47920', 'Brown': '#7b4a2d',
+            'Violet': '#6c3f8e', 'Chartreuse': '#7fff00', 'Pink': '#ff80b0',
+            'Teal': '#008080', 'Aqua': '#00ffff', 'Purple': '#800080',
+            'Berry': '#990066', 'Blue green': '#0d98ba', 'Peach': '#ffcba4',
+            'Cerulean': '#007ba7', 'Gray': '#888888', 'Fuchsia': '#ff00ff'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_78-55.jpg',
+        components: '塑料部分：聚丙烯（墨水与聚苯乙烯、ABS和聚酰胺不兼容）\n内塞：聚丙烯\n笔头：多孔塑料、聚酯纤维或者丙烯酸纤维\n笔头连接件：塑料\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。\n\n注墨之前，墨水必须搅拌，而且墨水只能注射到卷包芯中。',
+        packaging: '标准包装：17公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__12 : 80-55 玻璃记号笔墨水
+      'marker__12': {
+        overview: '这款墨水是设计来在玻璃、塑料、金属和木头上作非永久性不透明的有色标记。这些标记耐光性好，在阳光直射的装饰玻璃上几周都不会褪色，但可以用肥皂和水从无孔表面上洗去。它们不会污染皮肤，但会污染一些织物。',
+        surface: '适用于纸张，以及在玻璃、金属、塑料和木制品上作非永久性标记。',
+        solvent: '水性',
+        physicalTable: {
+          headers: ['型号', '颜色', '酸碱度 ±1.0', '表面张力 mN/m ±5.0', '密度 g/cm³ ±0.01', '粘度 mPa·s ±1.0'],
+          rows: [
+            ['80-55-A1(LAC)', 'black',       '8.7', '18', '1.05', '5.4'],
+            ['80-55-B1',      'red',         '8.7', '30', '1.04', '4.0'],
+            ['80-55-C2',      'blue',        '8.5', '30', '1.03', '3.3'],
+            ['80-55-D3',      'green',       '8.5', '30', '1.04', '4.0'],
+            ['80-55-D6',      'bright green','8.3', '30', '1.04', '4.0'],
+            ['80-55-E',       'violet',      '8.5', '30', '1.04', '5.0'],
+            ['80-55-F9',      'orange',      '9.0', '29', '1.04', '5.5'],
+            ['80-55-G2',      'yellow',      '8.4', '30', '1.06', '6.3'],
+            ['80-55-I',       'white',       '8.6', '30', '1.04', '6.0'],
+            ['80-55-J',       'brown',       '8.5', '30', '1.06', '6.5'],
+            ['80-55-K1',      'pink',        '8.7', '26', '1.03', '4.0'],
+            ['80-55-L',       'lime green',  '8.4', '30', '1.04', '6.4'],
+          ],
+          colorMap: {
+            'black': '#1a1a1a', 'red': '#cc2200', 'blue': '#1a4aae', 'green': '#2e8b57',
+            'bright green': '#00cc00', 'violet': '#6c3f8e', 'orange': '#f47920',
+            'yellow': '#c8b400', 'white': '#f0f0f0', 'brown': '#7b4a2d',
+            'pink': '#ff80b0', 'lime green': '#6abf43'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_80-55.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：颜料型高孔隙率的聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。\n\n注墨之前，墨水必须搅拌，而且墨水只能注射到卷包芯中。注墨完成后，笔应该笔头朝下放置，这样能保证笔尖均匀地浸透了金属颜料。为了最佳效果，成品笔应该在运输中水平存放，并在销售点水平展示。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__13 : 83-11 荧光永久记号笔墨水
+      'marker__13': {
+        overview: '这款新型荧光永久记号墨水提供了永久记号墨水的终极性能：防水、防褪色、优异的耐磨性和对光滑表面的附着力。在可见光和紫外光下，颜色非常明亮，荧光效果明显。有些含有荧光剂的纸张会遮盖墨水的荧光效果。低气味醇性配方。',
+        surface: '适用于金属、玻璃、塑料、纸张和硬纸板。',
+        solvent: '醇性',
+        physicalTable: {
+          headers: ['型号', '颜色', '表面张力 mN/m', '密度 g/cm³', '粘度 mPa·s'],
+          rows: [
+            ['83-11-A5N',   'fl. yellow', '20–26', '0.78–0.80', '2.3–4.3'],
+            ['83-11-B3N',   'fl. green',  '20–26', '0.88–0.90', '5.5–6.5'],
+            ['83-11-C1N',   'fl. orange', '20–26', '0.85–0.87', '2.5–4.5'],
+            ['83-11-D1N',   'fl. pink',   '20–26', '0.85–0.87', '2.5–4.5'],
+            ['83-11-E2N(S)','fl. red',    '20–26', '0.84–0.86', '2.5–4.5'],
+            ['83-11-F2N',   'fl. blue',   '20–26', '0.89–0.91', '2.0–4.0'],
+            ['83-11-G2N(S)','fl. purple', '20–26', '0.84–0.86', '2.5–4.5'],
+          ],
+          colorMap: {
+            'fl. yellow': '#ffff00', 'fl. green': '#39ff14', 'fl. orange': '#ff9900',
+            'fl. pink': '#ff80c0', 'fl. red': '#ff4444', 'fl. blue': '#4488ff', 'fl. purple': '#bf5fff'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_83-11.jpg',
+        components: '塑料部分：聚丙烯\n内塞：聚丙烯\n笔头：多孔塑料/聚酯纤维\n笔头连接件：塑料\n卷包芯：聚酯纤维\n卷包芯外包薄膜：聚丙烯',
+        storage: '存储环境应该防冻。理想的仓储温度应该在5℃–30℃之间。如果室内气温超过30℃，会导致墨水质保期的缩短。',
+        packaging: '标准包装：17公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__14 : BOL 82XX 轮廓笔墨水
+      'marker__14': {
+        overview: 'OL82XX系列是一款新开发的神奇墨水。在吸收性强的纸上显示出来的是多彩的轮廓包裹着银色字迹。银色部分的覆盖性能和牢固度跟文都的另一款产品LM2382相似。',
+        surface: '吸水性强的纸张（轮廓效果跟使用纸张的吸收性息息相关）',
+        solvent: '醇性',
+        physicalTable: {
+          headers: ['型号', '颜色', '20℃时的粘度 mPa·s ±0.5'],
+          rows: [
+            ['BOL 8200', 'Silver-blue',    '3.3'],
+            ['BOL 8210', 'Silver-black',   '4.1'],
+            ['BOL 8220', 'Silver-red',     '3.5'],
+            ['BOL 8230', 'Silver-green',   '3.7'],
+            ['BOL 8240', 'Silver-violet',  '3.6'],
+            ['BOL 8270', 'Silver-magenta', '3.5'],
+          ],
+          colorMap: {
+            'Silver-blue': '#7ab4e8', 'Silver-black': '#888888', 'Silver-red': '#cc8080',
+            'Silver-green': '#80cc80', 'Silver-violet': '#c0a0e0', 'Silver-magenta': '#e080c0'
+          }
+        },
+        components: '应充分测试选中的配件。可咨询更多相关信息。\n卷包芯：密度0.09g/ccm，推荐DeMartini CPES 3671\n笔头：孔隙率70–71%，推荐Teibow GP447C-SY\n笔管、笔帽、尾塞：聚丙烯、纯铝\n使用出墨量大的笔头，可使轮廓效果更加明显。',
+        storage: '注墨之前墨水必须充分搅拌，并在注墨期间持续对墨水进行搅拌以避免颜料沉淀。\n\n在使用我们的产品之前，灌装设备必须小心维护和清洁，因为油墨很容易被污染。油墨的交叉污染可能导致色差，甚至会造成不良笔芯或者缩短笔芯的质保期。\n\n储存环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。如果油墨在室温超过30℃的环境内放置数日，可能会导致油墨质保期的缩短。墨水应密封保存。墨水在原装未开启状态下，保质期为1年。保质期内，墨水可能变色，但不会影响墨水的稳定性。笔芯保存时应该水平放置以获得最长的质保期限。\n\n注意：这款墨水被归类为易燃液体。有关详细的安全信息，请参阅相应的材料安全数据表。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__15 : OL 82XX 轮廓笔墨水
+      'marker__15': {
+        overview: 'OL82XX系列是一款新开发的神奇墨水。在吸收性强的纸上显示出来的是多彩的轮廓包裹着银色字迹。银色部分的覆盖性能和牢固度跟文都的另一款产品LM2382相似。',
+        surface: '吸水性强的纸张（轮廓效果跟使用纸张的吸收性息息相关）',
+        solvent: '醇性',
+        physicalTable: {
+          headers: ['型号', '颜色', '20℃时的粘度 mPa·s ±0.5', '20℃时的密度 g/cm³ ±0.01'],
+          rows: [
+            ['Dokumental® OL8200.1',  'Silver-blue',       '3.1', '0.92'],
+            ['Dokumental® OL8210',    'Silver-black',      '3.2', '0.92'],
+            ['Dokumental® OL 8220',   'Silver-red',        '3.4', '0.92'],
+            ['Dokumental® OL 8230.1', 'Silver-green',      '3.2', '0.92'],
+            ['Dokumental® OL 8240.1', 'Silver-violet',     '3.1', '0.92'],
+            ['Dokumental® OL 8241.1', 'Silver-turquoise',  '3.3', '0.92'],
+            ['Dokumental® OL 8260',   'Silver-yellow',     '3.3', '0.92'],
+            ['Dokumental® OL 8261',   'Silver-orange',     '3.2', '0.92'],
+            ['Dokumental® OL 8262',   'Silver-neon yellow','3.4', '0.92'],
+            ['Dokumental® OL 8263',   'Silver-neon orange','3.2', '0.92'],
+            ['Dokumental® OL 8270',   'Silver-magenta',    '3.3', '0.92'],
+          ],
+          colorMap: {
+            'Silver-blue': '#7ab4e8', 'Silver-black': '#888888', 'Silver-red': '#cc8080',
+            'Silver-green': '#80cc80', 'Silver-violet': '#c0a0e0', 'Silver-turquoise': '#80e0e0',
+            'Silver-yellow': '#e8e080', 'Silver-orange': '#e0b080', 'Silver-neon yellow': '#f0f040',
+            'Silver-neon orange': '#f0a040', 'Silver-magenta': '#e080c0'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_OL82XX.jpg',
+        components: '应充分测试选中的配件。可咨询更多相关信息。\n仅适用于阀门笔。笔管内装有耐腐蚀球珠（不锈钢或玻璃材质），使用前摇晃笔身，可使颜料分布均匀。\n笔头：高孔隙率聚酯和丙烯酸材质\n笔管、笔帽、尾塞：聚丙烯、纯铝\n使用出墨量大的笔头，可使轮廓效果更加明显。',
+        storage: '注墨之前墨水必须充分搅拌，并在注墨期间持续对墨水进行搅拌以避免颜料沉淀。墨水必须要采用注射填充。\n\n在使用我们的产品之前，灌装设备必须小心维护和清洁，因为油墨很容易被污染。油墨的交叉污染可能导致色差，甚至会造成不良笔芯或者缩短笔芯的质保期。\n\n储存环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。如果油墨在室温超过30℃的环境内放置数日，可能会导致油墨质保期的缩短。墨水应密封保存。墨水在原装未开启状态下，保质期为1年。保质期内，墨水可能变色，但不会影响墨水的稳定性。笔芯保存时应该水平放置以获得最长的质保期限。\n\n注意：这款墨水被归类为易燃液体。有关详细的安全信息，请参阅相应的材料安全数据表。',
+        packaging: '标准包装：25公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__16 : MA30XX 速干永久记号墨水
+      'marker__16': {
+        overview: 'Dokumental® MA 30XX系列既有MA 20XX系列浓度深、附着性好的优点，同时又延长了开帽时间（在ISO 554的理想环境下（温度23℃，湿度50%）最起码两周）。开帽时间的长度跟墨水颜色、笔头材质和周围环境密不可分。建议一定要测试笔头材质。\n\n这款墨水作为一个理想选择，可应用于各种需要永久标记的场合。',
+        surface: '适用于大部分的光滑表面，纸张和硬板纸。',
+        solvent: '醇性',
+        physicalTable: {
+          headers: ['型号', '颜色', '20℃时的粘度 mPa·s ±0.5', '密度 g/cm³ ±0.02'],
+          rows: [
+            ['Dokumental® MA 3000', '蓝色',   '4.5', '0.91'],
+            ['Dokumental® MA 3001', '深蓝色', '4.5', '0.91'],
+            ['Dokumental® MA 3010', '黑色',   '6.5', '0.94'],
+            ['Dokumental® MA 3011', '黑色',   '4.5', '0.93'],
+            ['Dokumental® MA 3012', '黑色',   '5.8', '0.92'],
+            ['Dokumental® MA 3020', '红色',   '5.5', '0.92'],
+            ['Dokumental® MA 3021', '红色',   '4.5', '0.92'],
+            ['Dokumental® MA 3030', '绿色',   '4.5', '0.93'],
+            ['Dokumental® MA 3031', '绿色',   '4.5', '0.92'],
+          ],
+          colorMap: {
+            '蓝色': '#1a4aae', '深蓝色': '#00008b', '黑色': '#1a1a1a', '红色': '#cc2200', '绿色': '#2e8b57'
+          }
+        },
+        components: '笔头：聚酯、丙烯酸\n卷包芯：聚酯\n笔杆：聚丙烯、铝（针对铝，建议进行腐蚀试验，以确认与市场上不同质量的铝的相容性）\n笔帽、尾塞：聚丙烯\n墨水和配件的兼容性以及书写性能必须得到充分测试。',
+        storage: '在使用我们的产品之前，灌装设备必须小心维护和清洁，因为墨水很容易被污染。墨水的交叉污染可能导致色差，甚至会造成不良笔芯或者缩短笔芯的质保期。\n\n储存环境应该防冻并避免阳光直射。建议的仓储温度应该在0℃–30℃之间。如果油墨在室温超过30℃的环境内放置数日，可能会导致油墨质保期的缩短。墨水在原装未开启状态下的质保期为2年。使用后，桶必须再次封紧。笔芯保存时应该水平放置以获得最长的质保期。\n\n注意：这个系列的墨水被归类为易燃液体。有关详细的安全信息，请参阅相应的材料安全数据表。',
+        packaging: '标准包装：20公斤塑料桶',
+        manufacturer: ''
+      },
+
+      // marker__17 : WB73XX 白板笔墨水
+      'marker__17': {
+        overview: 'Dokumental® WB 73XX是颜料型的白板墨水，它的开帽时间在ISO 554的理想环境下（23℃–50℃）可以长达72小时（开帽时间的长度跟墨水颜色、笔头材质和周围环境密不可分）。除了开帽时间延长，这个系列还有色彩明亮、速干、即时可擦性好等优点。',
+        surface: '大多数非吸收性的光滑表面，如：搪瓷表面、经涂层的金属表面、覆塑硬纸板、密胺涂层等。',
+        solvent: '醇性',
+        physicalTable: {
+          headers: ['型号', '颜色', '20℃时的粘度 mPa·s ±1.0', '20℃时的密度 g/cm³ ±0.02'],
+          rows: [
+            ['Dokumental® WB 7304.1', 'Light blue',   '10.5', '0.85'],
+            ['Dokumental® WB 7302.1', 'Dark blue',    '9.0',  '0.85'],
+            ['Dokumental® WB 7311.1', 'Black',        '10.0', '0.86'],
+            ['Dokumental® WB 7322.1', 'Red',          '9.5',  '0.85'],
+            ['Dokumental® WB 7323',   'Blazing red',  '11.5', '0.84'],
+            ['Dokumental® WB 7334.1', 'Dark green',   '9.0',  '0.86'],
+            ['Dokumental® WB 7336.1', 'Yellow green', '7.5',  '0.85'],
+            ['Dokumental® WB 7338.2', 'Forest green', '9.0',  '0.86'],
+            ['Dokumental® WB 7339.1', 'Green',        '10.5', '0.85'],
+            ['Dokumental® WB 7341.1', 'Violet',       '9.0',  '0.84'],
+            ['Dokumental® WB 7342.1', 'Magenta',      '8.5',  '0.84'],
+            ['Dokumental® WB 7352.1', 'Brown',        '11.0', '0.86'],
+            ['Dokumental® WB 7362.1', 'Orange',       '8.0',  '0.85'],
+            ['Dokumental® WB 7363.1', 'Yellow',       '9.5',  '0.83'],
+            ['Dokumental® WB 7381.1', 'Turquoise',    '11.0', '0.85'],
+          ],
+          colorMap: {
+            'Light blue': '#add8e6', 'Dark blue': '#00008b', 'Black': '#1a1a1a',
+            'Red': '#cc2200', 'Blazing red': '#ff1111', 'Dark green': '#006400',
+            'Yellow green': '#9acd32', 'Forest green': '#228b22', 'Green': '#2e8b57',
+            'Violet': '#6c3f8e', 'Magenta': '#d6006e', 'Brown': '#7b4a2d',
+            'Orange': '#f47920', 'Yellow': '#c8b400', 'Turquoise': '#00b5b0'
+          }
+        },
+        colorCardImg: 'images/marker/colorcard_WB73XX.jpg',
+        components: '白板笔配件需要彻底测试。如有需要，可提供更多详细资料。\n笔头：高孔隙率聚酯和丙烯酸\n笔杆：聚丙烯\n笔帽、尾塞：聚丙烯、聚乙烯\n卷包芯：聚酯\n墨水和配件的兼容性以及书写性能必须得到充分测试。',
+        storage: '在使用我们的产品之前，灌装设备必须小心维护和清洁，因为墨水很容易被污染。墨水的交叉污染可能导致色差，甚至会造成不良笔芯或者缩短笔芯的质保期。\n\n储存环境应该防冻并避免阳光直射。建议的仓储温度应该在10℃–30℃之间。如果油墨在室温超过30℃的环境内放置数日，可能会导致油墨质保期的缩短。原装未开启状态下的质保期为18个月。建议在使用前搅拌色浆，以保证墨水的均匀性。开桶使用完毕后，桶必须再关紧。白板笔保存时应该水平放置以获得最长的质保期。\n\n注意：这个系列的墨水被归类为易燃液体。有关详细的安全信息，请参阅相应的材料安全数据表。',
+        packaging: '标准包装：20公斤塑料桶 / 160公斤塑料桶',
+        manufacturer: ''
+      }
+
+    };
+
+    let currentCat = null;
+    let currentProduct = null;
+
+    function openModal(catKey) {
+      currentCat = catKey;
+      currentProduct = null;
+      const cat = categories[catKey];
+      document.getElementById('modalCatLabel').textContent = cat.label;
+      document.getElementById('modalTitle').textContent = cat.title;
+      renderProductList(catKey);
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function renderProductList(catKey) {
+      const cat = categories[catKey];
+      let productsHtml = cat.products.map((p, i) => {
+        const hasDetail = !!productDetailData[`${catKey}__${i}`];
+        return `<div class="product-item ${hasDetail ? 'has-detail' : ''}" onclick="openProductDetail(${i})">
+          <div class="pi-name">${p.name}</div>
+          <div class="pi-code">${p.code}</div>
+          ${hasDetail ? '<div class="pi-badge">详细规格</div>' : ''}
+        </div>`;
+      }).join('');
+
+      document.getElementById('modalBody').innerHTML = `
+        <div class="df-label" style="margin-bottom:0.8rem;">产品列表（点击查看详情）</div>
+        <div class="product-list">${productsHtml}</div>
+      `;
+    }
+
+    function buildPhysicalTable(tbl) {
+      const colorMap = tbl.colorMap || {};
+      const colStyles = tbl.colStyles || [];
+      // Build colgroup for per-column width control
+      const colgroup = tbl.headers.map((_, i) => {
+        const s = colStyles[i] || '';
+        return s ? `<col style="${s}">` : '<col>';
+      }).join('');
+      let headerCells = tbl.headers.map((h, i) => {
+        const s = colStyles[i] || '';
+        // Replace literal \n in header text with <br>
+        const html = h.replace(/\n/g, '<br>');
+        return `<th style="${s}">${html}</th>`;
+      }).join('');
+      let rows = tbl.rows.map(row => {
+        const colorVal = row[1];
+        // Section header rows (empty other cols)
+        if (row.slice(1).every(v => v === '')) {
+          return `<tr class="phys-section-row"><td colspan="${tbl.headers.length}" style="font-weight:600;color:var(--gold);font-size:0.78rem;padding:0.5rem 1rem;background:rgba(138,100,32,0.07);">${row[0]}</td></tr>`;
+        }
+        const dot = colorMap[colorVal]
+          ? `<span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${colorMap[colorVal]};border:1px solid rgba(0,0,0,0.15);margin-right:6px;vertical-align:middle;flex-shrink:0;"></span>`
+          : '';
+        return `<tr>
+          <td style="font-weight:500;color:#1e1a14;${colStyles[0]||''}">${row[0]}</td>
+          <td style="${colStyles[1]||''}"><span style="display:flex;align-items:center;">${dot}${colorVal}</span></td>
+          ${row.slice(2).map((v, i) => `<td style="${colStyles[i+2]||''}">${v}</td>`).join('')}
+        </tr>`;
+      }).join('');
+      return `
+        <div class="phys-table-wrap">
+          <table class="phys-table">
+            <colgroup>${colgroup}</colgroup>
+            <thead><tr>${headerCells}</tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>`;
+    }
+
+    function openProductDetail(idx) {
+      const cat = categories[currentCat];
+      const product = cat.products[idx];
+      const key = `${currentCat}__${idx}`;
+      const d = productDetailData[key] || defaultDetail;
+
+      // Physical parameters block
+      let physBlock = '';
+      if (d.physicalTable) {
+        physBlock = `
+          <div class="detail-field detail-full">
+            <div class="df-label">25℃时的物理参数</div>
+            ${buildPhysicalTable(d.physicalTable)}
+          </div>`;
+      }
+
+      // Color card block
+      let colorBlock = '';
+      if (d.colorCardImg) {
+        colorBlock = `
+          <div class="detail-field detail-full">
+            <div class="df-label">色卡</div>
+            <div style="margin-top:0.8rem;">
+              <img src="${d.colorCardImg}" alt="色卡" style="width:100%;max-width:600px;border:1px solid var(--border);border-radius:2px;display:block;" />
+            </div>
+          </div>`;
+      }
+
+      // Manufacturer formatting
+      const mfrHtml = (d.manufacturer || '').split('\n').map((line, i) => {
+        if (line.includes('Mail:') || line.includes('mail:')) {
+          const email = line.replace(/Mail:\s*/i, '').trim();
+          return `<div style="margin-top:${i===0?'0':'0.25rem'};">Mail: <a href="mailto:${email}" style="color:var(--gold);">${email}</a></div>`;
+        }
+        return `<div style="margin-top:${i===0?'0':'0.25rem'};">${line}</div>`;
+      }).join('');
+
+      // Components formatting
+      const compHtml = (d.components || '')
+        .split('\n\n')
+        .map(para => `<p style="margin-bottom:0.6rem;">${para.replace(/\n/g, '<br>')}</p>`)
+        .join('');
+
+      document.getElementById('modalBody').innerHTML = `
+        <button class="back-btn" onclick="renderProductList('${currentCat}')">← 返回产品列表</button>
+        <div class="detail-product-header">
+          <div class="detail-product-code">${product.code}</div>
+          <div class="detail-product-name">${product.name}</div>
+        </div>
+        <div class="detail-grid">
+          <div class="detail-field detail-full">
+            <div class="df-label">产品概况</div>
+            <div class="df-value">${d.overview.replace(/\\n\\n/g, '</p><p style="margin-top:0.8rem;">').replace(/\\n/g, '<br>')}</div>
+          </div>
+          <div class="detail-field">
+            <div class="df-label">${d.surfaceLabel || '适用书写表面'}</div>
+            <div class="df-value">${d.surface}</div>
+          </div>
+          <div class="detail-field">
+            <div class="df-label">溶剂体系</div>
+            <div class="df-value">${d.solvent}</div>
+          </div>
+          ${(d.extraAfterSurface||[]).map(e => `
+          <div class="detail-field detail-full">
+            <div class="df-label">${e.label}</div>
+            <div class="df-value">${e.text.replace(/\\n\\n/g, '</p><p style="margin-top:0.8rem;">').replace(/\\n/g, '<br>')}</div>
+          </div>`).join('')}
+
+          ${physBlock}
+          ${colorBlock}
+          <div class="detail-field detail-full">
+            <div class="df-label">合适的配件</div>
+            <div class="df-value">${compHtml}</div>
+          </div>
+          <div class="detail-field detail-full">
+            <div class="df-label">仓储、灌装和运输</div>
+            <div class="df-value">${d.storage.replace(/\\n\\n/g, '</p><p style="margin-top:0.8rem;">').replace(/\\n/g, '<br>')}</div>
+          </div>
+          ${(d.extra||[]).map(e => `
+          <div class="detail-field detail-full">
+            <div class="df-label">${e.label}</div>
+            <div class="df-value">${e.text.replace(/\\n\\n/g, '</p><p style="margin-top:0.8rem;">').replace(/\\n/g, '<br>')}</div>
+          </div>`).join('')}
+          <div class="detail-field detail-full">
+            <div class="df-label">包装</div>
+            <div class="df-value">${d.packaging}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnBg(e) {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
